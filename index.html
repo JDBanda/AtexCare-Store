@@ -14,19 +14,19 @@
 <body>
     <!--Header-->
     <header class="nav__header">
-        <nav class="nav__data">
-            <div class="nav__gd">
-                <img class="nav__img" src="view/img/nav-img.jpg" alt="logo">
-                <a href="#" class="nav__slogan">Protección en cualquier lugar y en todo momento</a>
-            </div>
-            <div class="" id="nav-men">
-                <ul class="nav__list">
-                    <li class="nav__link"><a href="#">¿Quienes somos?</a></li>
-                    <li class="nav__link"><a href="#">Productos</a></li>
-                    <li class="nav__link"><a href="#">Ingresar</a></li>
-                </ul>
-            </div>
-        </nav>
+        <div class="nav__banner">
+            <span>Protección en cualquier lugar y en todo momento</span>
+            <img src="view/img/nav-img.png" alt="nav__logo">
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="#index.html">Atex Care</a>
+            <a href="#home">¿Quienes somos?</a>
+            <a href="#news">Productos</a>
+            <a href="#contact">Ingresar</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <box-icon name='menu' animation='spin' color='#ffffff'></box-icon>
+            </a>
+        </div>
     </header>
     <!--Body-->
     <section>
@@ -41,5 +41,6 @@
         <!--Botones flotantes-->
     </footer>
 </body>
+<script src="view/js/menu.js"></script>
 
 </html>
