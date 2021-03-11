@@ -1,0 +1,127 @@
+/* ========== ROOT VARIABLES ========== */
+
+/*---------GOOGLE FONTS---------*/
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
+/*---------FONTS---------*/
+:root{
+    --font-atex: 'Permanent Marker', cursive;
+    --font-care: 'Squada One', cursive;
+    --big-font-size: 3rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .75rem;
+}
+
+/*---------COLORS---------*/
+:root{
+    --first-color: #1471b7;
+    --first-color-alt: #1b495f;
+    --white-color: #ffffff;
+    --dark-color: #584644;
+    --dark-color-light: #738ac0;
+    --gray-color: #b9b8b6;
+}
+
+@media screen and (min-width: 768px){
+    :root{
+        --big-font-size: 4rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .813rem;
+    }
+}
+
+/* --------- MARGINS ---------*/
+:root{
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+}
+
+/* --------- z-index --------- */
+:root{
+    --z-tooltip: 10;
+    --z-fixed: 10;
+}
+
+/* ===== BASE ====== */
+*, ::before, ::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, p{
+    margin:0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+a{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: var(--mb-2);
+}
+
+/*==========CSS CLASSES==========*/
+
+/*---------NAV-MENU---------*/
+.nav__header{
+    background-color: var(--first-color);
+}
+.nav__gd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.nav__img{
+    width: 30%;
+}
+
+.nav__slogan{
+    text-align: center;
+    padding: 5%;
+}
+
+.nav__list{
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 900px;
+    font-size: var(--big-font-size);
+    font-weight: 800;
+}
+
+.nav__link{
+    border-bottom-style: groove;
+    border-bottom-color: var(--gray-color);
+}
+
+.nav__link:hover{
+    color: var(--gray-color);
+    background-color: var(--dark-color-light);
+}
+
