@@ -32,16 +32,24 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 + Se estudia alguna tecnología, concepto o detalle de los problemas encontrados (hasta las 4:00 PM)
 + Se intentan implementar las soluciones (5:00 P.M.)
 
-#Avance
+# Avance 16/03/2021
 + Se realizó una mejora en las interfaces, especialmente en la de productos y se mejoró la selección de colores.
 + Se ha seguido la pauta de un diseño first mobile
 
 ![WhatsApp Image 2021-03-16 at 1 05 34 PM](https://user-images.githubusercontent.com/60485485/111372132-dcd69e80-865f-11eb-8c5f-16cb43caf3f1.jpeg)
 
-# Pendientes del día 16/03/2021
+# Avance 17/03/2021
++ Se han maquetado las principales vistas exceptuando el menú de ususario y la landing page (index)
++ Se ha colocado la navegación del sitio
+
+![WhatsApp Image 2021-03-17 at 12 56 06 PM](https://user-images.githubusercontent.com/60485485/111522782-3900f780-8720-11eb-90c0-0756d2df7779.jpeg)
+![WhatsApp Image 2021-03-17 at 12 56 06 PM (1)](https://user-images.githubusercontent.com/60485485/111522786-3a322480-8720-11eb-987c-d936645e9bc6.jpeg)
+
+
+# Pendientes del día 17/03/2021
 Es necesario contar con estos requisitos
-1. Descripción, misión y visión
-2. Categorías - Nombres de las categorias
-3. Imagenes de los productos en tamaño cuadrado 1024x1024
-4. Logos de atex en png sin fondo
-5. Datos de para registrar
+1. Categorías - Nombres de las categorias
+2. Imagenes de los productos en tamaño cuadrado 1024x1024
+3. Logos de atex en png sin fondo
+4. Landing page/Sweeper
+5. Maquetación del usuario
