@@ -25,6 +25,10 @@ html, body {
     background-color: var(--color-primary);
 }
 
+.container__login{
+    padding-right: 10px !important;
+}
+
 .icons__login div{
     display: grid;
     padding-top: 5%;
@@ -76,6 +80,10 @@ html, body {
     font-size: 1.5rem;
 }
 
+.price-p{
+    font-size: 2.5rem;
+}
+
 .discount{
     color: var(--color-secondary-max);
     font-size: 1.2rem;
@@ -89,6 +97,34 @@ button{
         font: inherit;
         cursor: pointer;
         outline: inherit;
+}
+
+.content{
+    padding: 10px;
+}
+
+.compra{
+    margin: 0 !important;
+    align-items: center;
+}
+
+.table__main, .table__detail{
+    margin: 0;
+    align-items: center;
+}
+
+.table__main div{
+    border-color: var(--color-primary-text);
+    border-top: groove;
+    border-bottom: groove;
+    padding: 5px;
+}
+
+.login__section{
+    margin-top: 35px;
+    padding-top: 35px;
+    border-top:2px solid;
+    border-color: var(--color-primary-reduced);
 }
 
 /*Footer*/
