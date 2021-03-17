@@ -24,10 +24,24 @@ El equipo que desarrolla el sitio esta compuesto por Javier David (yo) como desa
 *Frontend* | HTML, CSS, JS | Es posible que se utilicen componentes de bootstrap y algún framework de js**
 *Backend* | Django, MySQL | Aún se esta analizando que beneficios o desventajas trae desarrollar con python
 
-# Estado del desarrollo
+# Rutina
 Cada día se llevan a cabo una seria de tareas para la realización del software.
 + Se revisan las tareas pendientes del día anterior (hasta las 10:00 A.M.)
 + Se realiza la maquetación del sitio hasta la 1:00 P.M.
 + Se documentan los problemas encontrados en ese transcurso de tiempo (hasta las 2:00 P.M.)
 + Se estudia alguna tecnología, concepto o detalle de los problemas encontrados (hasta las 4:00 PM)
 + Se intentan implementar las soluciones (5:00 P.M.)
+
+#Avance
++ Se realizó una mejora en las interfaces, especialmente en la de productos y se mejoró la selección de colores.
++ Se ha seguido la pauta de un diseño first mobile
+
+![WhatsApp Image 2021-03-16 at 1 05 34 PM](https://user-images.githubusercontent.com/60485485/111372132-dcd69e80-865f-11eb-8c5f-16cb43caf3f1.jpeg)
+
+# Pendientes del día 16/03/2021
+Es necesario contar con estos requisitos
+1. Descripción, misión y visión
+2. Categorías - Nombres de las categorias
+3. Imagenes de los productos en tamaño cuadrado 1024x1024
+4. Logos de atex en png sin fondo
+5. Datos de para registrar
