@@ -72,20 +72,33 @@
         <!--Cuerpo-->
         <div class="content">
             <h2>Iniciar sesión</h2>
-            <form action="products.html">
+            <form action="user.html">
                 <div class="field">
-                    <label class="label">Correo electrónico o número de teléfono</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="example@example.com">
-                    </div>
+                    <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="Correo electrónico">
+                        <span class="icon is-small is-left">
+                            <i class='bx bx-envelope'></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class='bx bx-check'></i>
+                        </span>
+                    </p>
                 </div>
                 <div class="field">
-                    <label class="label">Contraseña</label>
-                    <div class="control">
-                        <input class="input" type="password">
-                    </div>
+                    <p class="control has-icons-left">
+                        <input class="input" type="password" placeholder="Contraseña">
+                        <span class="icon is-small is-left">
+                            <i class='bx bxs-lock-alt'></i>
+                        </span>
+                    </p>
                 </div>
-                <button class="button is-info is-medium is-fullwidth" type="submit">Ingresar</button>
+                <div class="field">
+                    <p class="control">
+                        <button class="button is-info is-medium is-fullwidth">
+                            Iniciar sesión
+                        </button>
+                    </p>
+                </div>
             </form>
             <div class="content has-text-centered login__section">
                 <a href="">¿Olvido su contraseña?</a><br>
