@@ -11,6 +11,9 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!--Bulma CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!--Estilos propios-->
     <link rel="stylesheet" href="view/css/styles.css">
     <title>Document</title>
@@ -71,11 +74,11 @@
     <!--Body-->
     <section>
         <!--Carrusel-->
-        <div class="column-is-mobile">
+        <div class="column-is-mobile container__img" id="slide">
             <div class="column">
-                <figure class="image ">
-                    <img src="view/img/atex_01.jpg" alt="01">
-                </figure>
+                <strong>Insumos médicos de calidad</strong>
+                <br>
+                <a href="view/html/products.html" class="button is-info is-medium is-fullwidth">Ver productos</a>
             </div>
         </div>
     </section>
@@ -112,7 +115,7 @@
     </footer>
     <!--Menú movil-->
     <script src="view/js/menu.js"></script>
-
+    <script src="view/js/background.js"></script>
 </body>
 
 </html>
