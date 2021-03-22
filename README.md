@@ -62,10 +62,17 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![image](https://user-images.githubusercontent.com/60485485/112013053-5b638e00-8aef-11eb-8aa9-4251f3fbb98b.png)
 ![image](https://user-images.githubusercontent.com/60485485/112012532-e5f7bd80-8aee-11eb-8183-732413b5b02d.png)
 
+# 22/03/2021
++ Se han implementado media querys
++ Hay detalles con la página de inicio en cuanto a diseño y que imagenes colocar
 
-# Pendientes del día 19/03/2021
+![image](https://user-images.githubusercontent.com/60485485/112039141-51e71f80-8b09-11eb-8c97-0de1c60eb292.png)
+![image](https://user-images.githubusercontent.com/60485485/112039196-69260d00-8b09-11eb-971e-88dfffd8c8d4.png)
+
+# Recursos pendientes del día 22/03/2021
 Es necesario contar con estos requisitos
 1. Categorías - Nombres de las categorias
-2. Imagenes de los productos en tamaño cuadrado 1024x1024
+2. Imagenes de los productos en tamaño cuadrado 1024x1024 (sugerencias)
 3. Logos de atex en png sin fondo
+4. Información para el aviso de privacidad
 5. Planeación del menú de usuario
