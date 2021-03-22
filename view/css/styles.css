@@ -14,6 +14,57 @@ html, body {
     --color-secondary-text: #FFFFFF;
 }
 
+/*Media Query*/
+
+@media screen and (min-width: 600px) {
+
+    .container__slogan .image, .container__login img{
+        width: 50%;
+        height: 10%;
+    }
+
+    .container__slogan .subtitle{
+        font-size: 1.3rem;
+    }
+
+    .is-primary, .is-light{
+        font-size: 1.3rem;
+    }
+
+    .container__img{
+        padding-top: 15% !important;
+        height: 85vh !important;
+        background-size: 100% 100% !important;
+    }
+
+    .container__img strong{
+        font-size: 2rem !important;
+    }
+
+    .container__img a{
+        font-size: 1.5rem !important;
+    }
+
+    .footer .has-text-centered{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container__img{
+        padding-top: 10% !important;
+        height: 100vh !important;
+    }
+
+    .container__img strong{
+        font-size: 3.5rem !important;
+    }
+
+    .container__img a{
+        font-size: 2.5rem !important;
+    } 
+}
+
 /*Banner superior logo-frase*/
 .is-primary{
     background-color: var(--color-primary) !important;
@@ -23,7 +74,7 @@ html, body {
     height: 80vh;
     padding-top: 25%;
     background-image: url('../img/atex_01.jpg');
-    background-size: cover;
+    background-size: 100% 100% !important;
     background-repeat: no-repeat;
 }
 
@@ -49,7 +100,7 @@ html, body {
 
 .icons__login div{
     display: grid;
-    padding-top: 5%;
+    padding-top: 15px;
     text-align: right;
 }
 
@@ -161,3 +212,4 @@ a{
     border-right-style: groove;
     border-right-color: var(--color-primary);
 }
+
