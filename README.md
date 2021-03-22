@@ -46,10 +46,26 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![WhatsApp Image 2021-03-17 at 12 56 06 PM (1)](https://user-images.githubusercontent.com/60485485/111522786-3a322480-8720-11eb-987c-d936645e9bc6.jpeg)
 
 
-# Pendientes del día 17/03/2021
+# Avance 18/03/2021
++ Se han maquetado el menú de usuario y la landing page (index)
++ Se han corregido detalles en la navegación
+
+![WhatsApp Image 2021-03-22 at 9 10 46 AM](https://user-images.githubusercontent.com/60485485/112012173-974a2380-8aee-11eb-8798-b49fedf3103c.jpeg)
+![WhatsApp Image 2021-03-22 at 9 10 08 AM](https://user-images.githubusercontent.com/60485485/112012188-99ac7d80-8aee-11eb-9333-be46240a5e47.jpeg)
+
+# 19/03/2021
++ Se han realizado pequeños ejercicios para integrar la maquetación en django
++ Se realizó un pequeño ejercicio para conocer el funcionamiento de AJAX
++ Se ha definido una arquitectura más solida para el flujo de los datos
+
+![image](https://user-images.githubusercontent.com/60485485/112012855-26573b80-8aef-11eb-8921-ac93fe59d66b.png)
+![image](https://user-images.githubusercontent.com/60485485/112013053-5b638e00-8aef-11eb-8aa9-4251f3fbb98b.png)
+![image](https://user-images.githubusercontent.com/60485485/112012532-e5f7bd80-8aee-11eb-8183-732413b5b02d.png)
+
+
+# Pendientes del día 19/03/2021
 Es necesario contar con estos requisitos
 1. Categorías - Nombres de las categorias
 2. Imagenes de los productos en tamaño cuadrado 1024x1024
 3. Logos de atex en png sin fondo
-4. Landing page/Sweeper
-5. Maquetación del usuario
+5. Planeación del menú de usuario
