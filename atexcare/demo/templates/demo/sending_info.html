@@ -1,0 +1,59 @@
+{% extends 'demo/menu_login.html' %}
+{% block title %}Detalle del carrito{% endblock title %}
+{% block body %}
+<section>
+    <!--Cuerpo-->
+    <div class="content">
+        <h2>Información de envío</h2>
+        <form action="" method="post">
+            <div class="field">
+                <label class="label">Persona que recibe</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Nombre(s)">
+                </div>
+                <br>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Apellidos">
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <label class="label">Dirección</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Calle">
+                </div>
+                <br>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Colonia">
+                </div>
+                <br>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Ciudad">
+                </div>
+                <br>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Estado">
+                </div>
+            </div>
+            <br>
+            <div class="field">
+                <div class="control">
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        Al realizar el pedido estoy de acuerdo con los <a href="{% url 'legal' %}">terminos y
+                            condiciones</a> del
+                        servicio
+                    </label>
+                </div>
+            </div>
+            <button class="button is-info is-fullwidth is-medium">Confirmar datos de envío</button>
+            <br>
+            <button class="button is-info is-light is-fullwidth is-medium">Cancelar</button>
+        </form>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

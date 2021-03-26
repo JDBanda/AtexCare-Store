@@ -1,0 +1,66 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Iniciar sesión{% endblock title %}
+{% block body %}
+<section>
+    <!--Cuerpo-->
+
+    <!--
+            Verificar si una Tab (bulma) y JS
+            puede ayudar a organizar la info del usuario
+        -->
+
+    <div class="content">
+        <h2 class="title">¡Bienvenido usuario!</h2>
+        <form action="">
+            <fieldset disabled id="field">
+                <!--Se cargan los valores GET-->
+                <div class="field">
+                    <label class="label">Nombre</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="Persona">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Primer apellido</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="Persona">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Segundo apellido</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="Persona">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Correo</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="Persona">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Teléfono</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="Persona">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-info is-medium is-fullwidth">
+                            Confirmar edición
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <br>
+        <button class="button is-danger is-medium is-fullwidth" id="edit-btn">Editar datos</button>
+    </div>
+    <!--Lista de compras o algo así-->
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/edit-btn.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

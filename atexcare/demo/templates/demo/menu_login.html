@@ -1,0 +1,45 @@
+{% extends 'demo/base.html' %}
+{% block nav %}
+<header>
+    <div class="columns is-mobile container__login">
+        <div class="column">
+            <figure class="image">
+                <a href="{% url 'index' %}">
+                    {% load static %}
+                    <img src="{% static 'demo/img/nav-img.png' %}" alt="logo_atex">
+                </a>
+            </figure>
+        </div>
+        <div class="column is-four-fifths">
+            <div class="columns is-mobile icons__login">
+                <div class="column is-four-fifths">
+                    <a href="{% url 'login' %}">
+                        <i class='bx bx-user-circle bx-md' style='color:#ffffff'></i>
+                    </a>
+                </div>
+                <div class="column icons__end">
+                    <a href="{% url 'detalle_carrito' %}">
+                        <i class='bx bxs-cart bx-tada bx-md' style='color:#ffffff'></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container__fields">
+        <div class="field">
+            <div class="control">
+                <input class="input" type="text" placeholder="Ingresa tu búsqueda">
+            </div>
+            <div class="select">
+                <select>
+                    <option>Ninguna categoria seleccionada</option>
+                    <option>Cubrebocas</option>
+                    <option>Batas</option>
+                    <option>Botas</option>
+                    <option>Gorros</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock nav %}

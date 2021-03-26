@@ -1,0 +1,26 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Aviso legal{% endblock title %}
+{% block body %}
+<section>
+    <div class="content">
+        <h2 class="title">
+            Aviso legal
+        </h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel odit saepe rem inventore libero explicabo,
+            perspiciatis culpa sint laudantium nobis. Accusantium excepturi earum reiciendis dolorum amet voluptas
+            fugit, sequi distinctio.</p>
+        <br>
+        <h2 class="title">
+            Terminos y condiciones
+        </h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel odit saepe rem inventore libero explicabo,
+            perspiciatis culpa sint laudantium nobis. Accusantium excepturi earum reiciendis dolorum amet voluptas
+            fugit, sequi distinctio.</p>
+        <br>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

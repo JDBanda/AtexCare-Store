@@ -1,0 +1,77 @@
+{% extends 'demo/menu_login.html' %}
+{% block title %}Productos{% endblock title %}
+{% block body %}
+    <!--Body-->
+    <section>
+        <!--Cuerpo-->
+        <div class="content">
+            <h3>Cubrebocas</h3>
+            <div class="columns is-mobile has-text-centered container__products">
+                <!--Producto N, se repite varias veces-->
+                <div class="column square__img">
+                    <a href="{% url 'producto' %}">
+                    {% load static %}
+                        <img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubrebocas">
+                    </a>
+                    <div class="products__desc">
+                        <span>
+                            <i class='bx bxs-heart bx-tada bx-sm' style='color:#1870b2'></i>
+                        </span>
+                        <span class="price"><strong>$10<sup>00</sup></strong></span>
+                        <span class="discount"> -30%</span>
+                        <p class="description">Cubrebocas KN95</p>
+                    </div>
+                </div>
+                <div class="column square__img">
+                    <a href="{% url 'producto' %}">
+                        {% load static %}
+                        <img src="{% static 'demo/img/kn95.jpg' %}" alt="cubrebocas">
+                    </a>
+                    <div class="products__desc">
+                        <span>
+                            <i class='bx bxs-heart bx-tada bx-sm' style='color:#1870b2'></i>
+                        </span>
+                        <span class="price"><strong>$10<sup>00</sup></strong></span>
+                        <span class="discount"> -30%</span>
+                        <p class="description">Cubrebocas KN95</p>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-mobile has-text-centered container__products">
+                <!--Producto N, se repite varias veces-->
+                <div class="column square__img">
+                    <a href="{% url 'producto' %}">
+                        {% load static %}
+                        <img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubrebocas">
+                    </a>
+                    <div class="products__desc">
+                        <span>
+                            <i class='bx bxs-heart bx-tada bx-sm' style='color:#1870b2'></i>
+                        </span>
+                        <span class="price"><strong>$10<sup>00</sup></strong></span>
+                        <span class="discount"> -30%</span>
+                        <p class="description">Cubrebocas KN95</p>
+                    </div>
+                </div>
+                <div class="column square__img">
+                    <a href="{% url 'producto' %}">
+                        {% load static %}
+                        <img src="{% static 'demo/img/kn95.jpg' %}" alt="cubrebocas">
+                    </a>
+                    <div class="products__desc">
+                        <span>
+                            <i class='bx bxs-heart bx-tada bx-sm' style='color:#1870b2'></i>
+                        </span>
+                        <span class="price"><strong>$10<sup>00</sup></strong></span>
+                        <span class="discount"> -30%</span>
+                        <p class="description">Cubrebocas KN95</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

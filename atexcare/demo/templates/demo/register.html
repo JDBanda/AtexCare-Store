@@ -1,0 +1,60 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Iniciar sesión{% endblock title %}
+{% block body %}
+<section>
+    <!--Cuerpo-->
+    <div class="content">
+        <h2>Registro</h2>
+        <form action="{% url 'user'%}">
+            <h3 class="title">Información personal</h3>
+            <div class="field">
+                <label class="label">Nombre completo</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Nombre(s)">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Primer apellido">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Segundo apellido">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Correo electrónico</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="example@example.com">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Correo electrónico</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="example@example.com">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Teléfono</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="5255555555">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Contraseña</label>
+                <div class="control">
+                    <input class="input" type="password">
+                </div>
+            </div>
+            <h3 class="title">Información de envío</h3>
+            <h3 class="title">Información de facturación</h3>
+            <button class="button is-info is-medium is-fullwidth" type="submit">Registrar</button>
+        </form>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

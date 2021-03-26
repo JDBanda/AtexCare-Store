@@ -1,0 +1,86 @@
+{% extends 'demo/menu_login.html' %}
+{% block title %}Producto N{% endblock title %}
+{% block body %}
+<!--Body-->
+<section>
+    <!--Cuerpo-->
+    <div class="content">
+        <a class="subtitle" href="{% url 'productos' %}">
+            <i class='bx bx-left-arrow-circle bx-xs'> Volver</i>
+        </a>
+        <br><br>
+        <div class="columns is-mobile">
+            <div class="column is-four-fifths">
+                <h2 class="title">Cubrebocas plisado</h2>
+                <h5 class="subtitle">De tres capas</h5>
+            </div>
+            <div class="column has-text-centered">
+                <a>
+                    <i class='bx bx-heart bx-md ' style='color:#1870b2' id="heart-fav"></i>
+                </a>
+            </div>
+        </div>
+        <!--Producto mini galeria-->
+        <div class="content">
+            <figure>
+                {% load static %}
+                <img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubre">
+            </figure>
+            <!--Producto compras-->
+            <div class="columns compra has-text-centered">
+                <div class="column">
+                    <span>
+                        <span><i class='bx bx-dollar-circle bx-sm'></i></span>
+                    </span>
+                    <span class="price-p">10<sup>00</sup></span>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input price" type="number" placeholder="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <p class="price">Total: $1000.00</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column">
+                    <a class="button is-info is-medium is-fullwidth" href="{% url 'detalle_carrito' %}">Comprar</a>
+                </div>
+                <div class="column">
+                    {% load static %}
+                    <a class="button is-info is-outlined is-medium is-fullwidth" onclick="add()">Añadir al
+                        carrito</a>
+                </div>
+            </div>
+        </div>
+        <!--Características-->
+        <h3 class="subtitle">Características</h3>
+        <div class="columns">
+            <div class="column price">Capas </div>
+            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
+                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
+                necessitatibus accusantium facilis totam! Iure, odit?</div>
+        </div>
+        <div class="columns">
+            <div class="column price">Duración</div>
+            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
+                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
+                necessitatibus accusantium facilis totam! Iure, odit?</div>
+        </div>
+        <div class="columns">
+            <div class="column price">Recomendaciones</div>
+            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
+                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
+                necessitatibus accusantium facilis totam! Iure, odit?</div>
+        </div>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/add.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

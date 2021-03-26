@@ -1,0 +1,67 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Quiénes somos{% endblock title %}
+{% block body %}
+<!--Body-->
+<section>
+    <!--Cuerpo-->
+    <div class="content">
+        <h1>Descripción</h1>
+        <div class="columns">
+            <div class="column">
+                <p class="parrafo">Una empresa 100% mexicana, orientada primariamente a atender el mandato del
+                    sector salud,
+                    basándonos en
+                    la fabricación y
+                    comercialización de insumos médicos de la más alta calidad, cumpliendo con la normatividad
+                    existentes
+                    dentro del sector,
+                    garantizando la seguridad en todo momento durante el uso de nuestros productos, estos son
+                    elaborados con
+                    telas 100%
+                    polipropilenas.</p>
+            </div>
+            <div class="column">
+            {% load static %}
+                <img class="desc__img" src="{% static 'demo/img/1.jpeg' %}" alt="quienes_somos">
+            </div>
+        </div>
+        <br>
+        <h2>Misión</h2>
+        <div class="columns">
+            <div class="column desc__img">
+                {% load static %}
+                <img class="desc__img" src="{% static 'demo/img/2.jpg' %}" alt="quienes_somos">
+            </div>
+            <div class="column">
+                <p class="parrafo">Somos una empresa de fabricación y comercialización de productos médicos,
+                    comprometida a las
+                    necesidades
+                    de nuestros
+                    socios comerciales como clientes, con el fin del ofrecer protección en cualquier lugar y en todo
+                    momento.</p>
+            </div>
+        </div>
+        <br>
+        <h2>Visión</h2>
+        <div class="columns">
+            <div class="column">
+                <p class="parrafo">Ser la empresa líder del sector, innovando y creando nuevas gamas de productos
+                    con estándares de
+                    alta
+                    calidad para
+                    proteger el cuidado y bienestar del usuario final, de la misma forma poder incrementar nuestro
+                    capital
+                    humano.</p>
+            </div>
+            <div class="column desc__img">
+                {% load static %}
+                <img class="desc__img" src="{% static 'demo/img/3.jpg' %}" alt="quienes_somos">
+            </div>
+        </div>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

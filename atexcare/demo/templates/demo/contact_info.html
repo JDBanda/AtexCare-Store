@@ -1,0 +1,68 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Contacto{% endblock title %}
+{% block body %}
+<section>
+    <!--Cuerpo-->
+    <div class="content">
+        <h2 class="subtitle">Contacto</h2>
+        <form action="contact_info.html">
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Nombre completo o razón social">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Motivo del mensaje">
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" placeholder="correo@electronico.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Ciudad">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" placeholder="codigo postal">
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="select">
+                        <select>
+                            <option>Seleccionar estado</option>
+                            <option>Hidalgo</option>
+                            <option>Hidalgo</option>
+                            <option>Hidalgo</option>
+                            <option>Hidalgo</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" placeholder="Ingrese su mensaje"></textarea>
+                </div>
+            </div>
+            <button class="button is-info is-medium is-fullwidth" type="submit">Enviar</button>
+        </form>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+{% endblock scripts %}
+{% endblock body %}

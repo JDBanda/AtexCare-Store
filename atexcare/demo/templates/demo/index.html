@@ -1,0 +1,22 @@
+{% extends 'demo/menu_quienes.html' %}
+{% block title %}Atex care{% endblock title %}
+{% block body %}
+<section>
+    <!--Carrusel-->
+    {% load static %}
+    <div class="column container__img" id="slide">
+        <div class="column">
+            <strong>Insumos médicos de calidad</strong>
+            <br>
+            <a href="{% url 'productos' %}" class="button is-info is-medium is-fullwidth">Ver productos</a>
+        </div>
+    </div>
+</section>
+{% block scripts %}
+{% load static %}
+<script src="{% static 'demo/js/menu.js' %}"></script>
+<!-- Parece mejor opcion usar JS Sweeper-->
+<script src="{% static 'demo/js/background.js' %}"></script>
+
+{% endblock scripts %}
+{% endblock body %}
