@@ -69,6 +69,11 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![image](https://user-images.githubusercontent.com/60485485/112039141-51e71f80-8b09-11eb-8c97-0de1c60eb292.png)
 ![image](https://user-images.githubusercontent.com/60485485/112039196-69260d00-8b09-11eb-971e-88dfffd8c8d4.png)
 
+# 26/03/2021
++ Se configuraron las vistas para que usen Django templates
++ Se han establecido rutas más amigables
++ Se han incluido archivos estáicos (existen detalles con JavaScript)
+
 # Recursos pendientes del día 22/03/2021
 Es necesario contar con estos requisitos
 1. Categorías - Nombres de las categorias
@@ -76,3 +81,4 @@ Es necesario contar con estos requisitos
 3. Logos de atex en png sin fondo
 4. Información para el aviso de privacidad
 5. Planeación del menú de usuario
+6. Crear tablero KANBAN con trello
