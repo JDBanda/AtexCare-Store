@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Product
 
 # Create your views here.
 
@@ -9,7 +10,11 @@ def index(request):
 
 
 def products(request):
-    context = {}
+    lista = Product.objects.all()
+    context = {
+        "productos": lista,
+        "l": len(lista),
+    }
     return render(request, 'demo/products.html', context)
 
 
