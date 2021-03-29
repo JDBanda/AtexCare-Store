@@ -74,7 +74,11 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 + Se han establecido rutas más amigables
 + Se han incluido archivos estáicos (existen detalles con JavaScript)
 
-# Recursos pendientes del día 22/03/2021
+# 29/03/2021
++ Se han realizado ejercicios para manipular el DOM con jQuery
++ Se pueden realizar operaciones CRUD en el ejercicio a nivel de front
+
+# Recursos pendientes del día 30/03/2021
 Es necesario contar con estos requisitos
 1. Categorías - Nombres de las categorias
 2. Imagenes de los productos en tamaño cuadrado 1024x1024 (sugerencias)
