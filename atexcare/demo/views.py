@@ -13,13 +13,13 @@ def products(request):
     lista = Product.objects.all()
     context = {
         "productos": lista,
-        "l": len(lista),
     }
     return render(request, 'demo/products.html', context)
 
 
-def product(request):
-    context = {}
+def product(request, pk):
+    instance = Product.objects.get(id=pk)
+    context = {'producto': instance}
     return render(request, 'demo/product.html', context)
 
 

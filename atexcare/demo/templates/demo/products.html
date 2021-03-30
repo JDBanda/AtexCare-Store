@@ -6,13 +6,11 @@
         <!--Cuerpo-->
         <div class="content">
             <h3>Cubrebocas</h3>
-            <div class="columns has-text-centered container__products">
-                <!--Producto N, se repite varias veces CHECAR AQUI {% if l != 0  %}{% endif %}-->
+            <div class="has-text-centered container__products">
                 {% for p in productos %}
                 <div class="column square__img">
-                    <a href="{% url 'producto' %}">
-                    {% load static %}
-                        <img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubrebocas">
+                    <a href="{% url 'producto' p.id %}">
+                        <img src="{{p.image.url}}" alt="cubrebocas">
                     </a>
                     <div class="products__desc">
                         <span>

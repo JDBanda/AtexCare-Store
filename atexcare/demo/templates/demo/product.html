@@ -11,8 +11,8 @@
         <br><br>
         <div class="columns is-mobile">
             <div class="column is-four-fifths">
-                <h2 class="title">Cubrebocas plisado</h2>
-                <h5 class="subtitle">De tres capas</h5>
+                <h2 class="title">{{producto.name}}</h2>
+                <h5 class="subtitle">{{producto.short_description}}</h5>
             </div>
             <div class="column has-text-centered">
                 <a>
@@ -23,8 +23,7 @@
         <!--Producto mini galeria-->
         <div class="content">
             <figure>
-                {% load static %}
-                <img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubre">
+                <img src="{{producto.image.url}}" alt="cubre">
             </figure>
             <!--Producto compras-->
             <div class="columns compra has-text-centered">
@@ -32,7 +31,7 @@
                     <span>
                         <span><i class='bx bx-dollar-circle bx-sm'></i></span>
                     </span>
-                    <span class="price-p">10<sup>00</sup></span>
+                    <span class="price-p">{{producto.price}}</span>
                 </div>
                 <div class="column">
                     <div class="field">
@@ -57,6 +56,8 @@
             </div>
         </div>
         <!--Características-->
+        <h3>Descripción general</h3>
+        <p>{{producto.long_description}}</p>
         <h3 class="subtitle">Características</h3>
         <div class="columns">
             <div class="column price">Capas </div>
