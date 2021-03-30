@@ -13,6 +13,7 @@
             <div class="column is-four-fifths">
                 <h2 class="title">{{producto.name}}</h2>
                 <h5 class="subtitle">{{producto.short_description}}</h5>
+                <p class="subtitle" id="stock"><span>{{producto.stock}}</span> en existencia</p>
             </div>
             <div class="column has-text-centered">
                 <a>
@@ -31,17 +32,27 @@
                     <span>
                         <span><i class='bx bx-dollar-circle bx-sm'></i></span>
                     </span>
-                    <span class="price-p">{{producto.price}}</span>
+                    <span class="price-p" id="precio">{{producto.price}}</span>
                 </div>
                 <div class="column">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input price" type="number" placeholder="1">
+                    <div class="field columns is-mobile">
+                        <div class="control column">
+                            <button id="menos" class="button is-primary price">
+                                -
+                            </button>
+                        </div>
+                        <div class="column price" id="cantidad">
+                            0
+                        </div>
+                        <div class="control column">
+                            <button id="mas" class="button is-primary price">
+                                +
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="column">
-                    <p class="price">Total: $1000.00</p>
+                    <p class="price" id="total"></p>
                 </div>
             </div>
             <div class="columns">
@@ -81,7 +92,7 @@
 </section>
 {% block scripts %}
 {% load static %}
-<script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/product-price.js' %}"></script>
 <script src="{% static 'demo/js/add.js' %}"></script>
 {% endblock scripts %}
 {% endblock body %}

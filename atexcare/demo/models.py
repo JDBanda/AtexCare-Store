@@ -18,6 +18,7 @@ class Product (models.Model):
     discount = models.FloatField("descuento")
     category = models.IntegerField(choices=Category.choices)
     image = models.ImageField(upload_to='principal_img', null=True)
+    stock = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
