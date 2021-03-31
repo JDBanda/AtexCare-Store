@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Product
+from .models import *
 
 # Create your views here.
 
@@ -19,7 +19,10 @@ def products(request):
 
 def product(request, pk):
     instance = Product.objects.get(id=pk)
-    context = {'producto': instance}
+    # Obtener de many to many
+    a = Feature.objects.filter(product=pk)
+    context = {'producto': instance,
+    'caracteristicas': a}
     return render(request, 'demo/product.html', context)
 
 

@@ -68,26 +68,17 @@
         </div>
         <!--Características-->
         <h3>Descripción general</h3>
-        <p>{{producto.long_description}}</p>
+        <h5>{{producto.long_description}}</h5>
+        {% if caracteristicas.lenght > 0 %}
         <h3 class="subtitle">Características</h3>
+        {% endif %}
+        {% for c in caracteristicas %}
         <div class="columns">
-            <div class="column price">Capas </div>
-            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
-                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
-                necessitatibus accusantium facilis totam! Iure, odit?</div>
+            <div class="column price">{{c.name}}</div>
+            <div class="column">{{c.feature}}</div>
         </div>
-        <div class="columns">
-            <div class="column price">Duración</div>
-            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
-                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
-                necessitatibus accusantium facilis totam! Iure, odit?</div>
-        </div>
-        <div class="columns">
-            <div class="column price">Recomendaciones</div>
-            <div class="column">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque ad dolor ab odit
-                repudiandae repellat natus laboriosam vero, sapiente, distinctio animi, numquam dolores delectus
-                necessitatibus accusantium facilis totam! Iure, odit?</div>
-        </div>
+        {% endfor %}
+       
     </div>
 </section>
 {% block scripts %}
