@@ -78,11 +78,19 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 + Se han realizado ejercicios para manipular el DOM con jQuery
 + Se pueden realizar operaciones CRUD en el ejercicio a nivel de front
 
-# Recursos pendientes del día 30/03/2021
+# 30/03/2021 y 01/04/2021
++ Es posible guardar datos via AJAX en el ejercicio
++ Se han realizado validaciones en contacto y se ha establecido conexión con un JSON de estados (repositorio propio)
+
+![image](https://user-images.githubusercontent.com/60485485/113345079-2fb28600-92ef-11eb-87f9-96867715c366.png)
+![image](https://user-images.githubusercontent.com/60485485/113345123-3e00a200-92ef-11eb-9e30-465c9456ad21.png)
+
+
+# Recursos pendientes del día 02/03/2021
 Es necesario contar con estos requisitos
 1. Categorías - Nombres de las categorias
 2. Imagenes de los productos en tamaño cuadrado 1024x1024 (sugerencias)
 3. Logos de atex en png sin fondo
 4. Información para el aviso de privacidad
 5. Planeación del menú de usuario
-6. Crear tablero KANBAN con trello
+6. Datos puntuales para inicio de sesión
