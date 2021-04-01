@@ -34,7 +34,7 @@
         </div>
         <div class="columns is-mobile table__detail">
             <div class="column">
-            {% load static %}
+                {% load static %}
                 <span><img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubre"></span>
                 <span>plisado</span>
             </div>
@@ -53,8 +53,6 @@
         <a class="button is-info is-medium is-fullwidth" href="{% url 'envio' %}">Pagar</a>
     </div>
 </section>
-{% block scripts %}
 {% load static %}
 <script src="{% static 'demo/js/menu.js' %}"></script>
-{% endblock scripts %}
 {% endblock body %}

@@ -23,6 +23,10 @@ html, body {
         height: 10%;
     }
 
+    .form-contact{
+        padding: 0% 10% 0% 10%;
+    }
+
     .container__slogan .subtitle{
         font-size: 1.3rem;
     }
@@ -77,6 +81,10 @@ html, body {
         display: grid;
         align-items: center;
         align-self: center;
+    }
+
+    .form-contact{
+        padding: 0% 15% 0% 15%;
     }
 }
 

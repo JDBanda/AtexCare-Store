@@ -5,7 +5,7 @@
     <!--Cuerpo-->
     <div class="content">
         <h2 class="subtitle">Contacto</h2>
-        <form action="contact_info.html">
+        <form action="" class="form-contact">
             <div class="field">
                 <div class="control">
                     <input class="input" type="text" placeholder="Nombre completo o razón social">
@@ -24,13 +24,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Ciudad">
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="columns is-mobile">
                 <div class="column">
@@ -40,14 +33,20 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="columns">
+                <!--Estado-->
                 <div class="column">
                     <div class="select">
-                        <select>
-                            <option>Seleccionar estado</option>
-                            <option>Hidalgo</option>
-                            <option>Hidalgo</option>
-                            <option>Hidalgo</option>
-                            <option>Hidalgo</option>
+                        <select id="estado">
+                        </select>
+                    </div>
+                </div>
+                <!--Municipio-->
+                <div class="column">
+                    <div class="select">
+                        <select id="municipio">
+                            <option>Selecciona un estado</option>
                         </select>
                     </div>
                 </div>
@@ -61,8 +60,7 @@
         </form>
     </div>
 </section>
-{% block scripts %}
 {% load static %}
 <script src="{% static 'demo/js/menu.js' %}"></script>
-{% endblock scripts %}
+<script src="{% static 'demo/js/pais.js' %}"></script>
 {% endblock body %}
