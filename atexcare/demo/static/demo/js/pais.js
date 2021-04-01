@@ -16,7 +16,7 @@ $(function () {
                 const estados = JSON.parse(response)
                 var i = 0;
                 //crear las opciones para los estados
-                var option = '<option>Selecciona un estado</option>';
+                var option = '<option value="">Selecciona un estado</option>';
                 estados.forEach(element => {
                     option += '<option value="' + i +
                         '" state="' + element.state +
@@ -37,7 +37,7 @@ $(function () {
                 //eliminar datos dentro del municipio
                 $('#municipio').empty();
                 //crear las opciones para los municipios
-                var option = '<option>Selecciona un municipio</option>';
+                var option = '<option value="">Selecciona un municipio</option>';
                 //veo cual agarra el select
                 estados[i].township.forEach(element => {
                     option += '<option value="' + element + '">' +
