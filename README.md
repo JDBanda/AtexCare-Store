@@ -72,7 +72,7 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 # 26/03/2021
 + Se configuraron las vistas para que usen Django templates
 + Se han establecido rutas más amigables
-+ Se han incluido archivos estáicos (existen detalles con JavaScript)
++ Se han incluido archivos estáticos (existen detalles con JavaScript)
 
 # 29/03/2021
 + Se han realizado ejercicios para manipular el DOM con jQuery
@@ -85,12 +85,19 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![image](https://user-images.githubusercontent.com/60485485/113345079-2fb28600-92ef-11eb-87f9-96867715c366.png)
 ![image](https://user-images.githubusercontent.com/60485485/113345123-3e00a200-92ef-11eb-9e30-465c9456ad21.png)
 
+# 02/03/2021 y 05/03/2021
++ Cambios en el diseño
++ Incorporar datos estáticos faltantes
++ Se ha acordado como subsanar las deficiencias en archivos y datos
++ Planeación de la semana del back
 
-# Recursos pendientes del día 02/03/2021
+![image](https://user-images.githubusercontent.com/60485485/113687143-a522ab80-968d-11eb-9c24-192ed7d49dac.png)
+![image](https://user-images.githubusercontent.com/60485485/113687214-b5d32180-968d-11eb-8524-f15b8b4f7fa8.png)
+![image](https://user-images.githubusercontent.com/60485485/113687307-d0a59600-968d-11eb-9c53-13f34e5390ff.png)
+
+
+# Recursos pendientes del día 07/03/2021
 Es necesario contar con estos requisitos
-1. Categorías - Nombres de las categorias
-2. Imagenes de los productos en tamaño cuadrado 1024x1024 (sugerencias)
-3. Logos de atex en png sin fondo
-4. Información para el aviso de privacidad
-5. Planeación del menú de usuario
-6. Datos puntuales para inicio de sesión
+1. Esperar imagenes de diseño
+2. Planeación del menú de usuario
+3. Datos puntuales para inicio de sesión (a partir de la página de smarttek)
