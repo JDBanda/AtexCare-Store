@@ -6,21 +6,19 @@ html, body {
 
 /*Colores*/
 :root{
-    --color-primary: #1870b2;
-    --color-primary-reduced: rgb(24, 112, 178,0.1);
+    --color-primary: #12ad9f;
+    --color-primary-reduced: rgb(18, 173, 159,0.5);
     --color-secondary: rgba(0, 0, 0, 0.1);
-    --color-secondary-max: rgba(0, 0, 0, 0.3);
-    --color-primary-text: #000000;
-    --color-secondary-text: #FFFFFF;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
 }
 
 /*Media Query*/
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 440px) {
 
-    .container__slogan .image, .container__login img{
-        width: 50%;
-        height: 10%;
+    .columns.is-mobile.container__slogan {
+        grid-template-columns: 1fr 10fr !important;
     }
 
     .form-contact{
@@ -28,7 +26,7 @@ html, body {
     }
 
     .container__slogan .subtitle{
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 
     .is-primary, .is-light{
@@ -52,10 +50,15 @@ html, body {
     .footer .has-text-centered{
         font-size: 1rem;
     }
+}
+
+@media screen and (min-width: 600px) {
+
+
 
     .container__products{
     grid-template-columns: auto auto !important;
-    }
+    } 
 }
 
 @media only screen and (min-width: 1024px) {
@@ -64,16 +67,16 @@ html, body {
     grid-template-columns: auto auto auto !important;
     }
 
+    .container__slogan .subtitle{
+        font-size: 1.3rem;
+    }
+
     .container__img{
         padding-top: 10% !important;
         height: 100vh !important;
     }
 
     .container__img strong{
-        font-size: 3.5rem !important;
-    }
-
-    .container__img a{
         font-size: 2.5rem !important;
     }
 
@@ -81,12 +84,35 @@ html, body {
         display: grid;
         align-items: center;
         align-self: center;
+        font-size: 1.3rem;
     }
 
     .form-contact{
         padding: 0% 15% 0% 15%;
     }
 }
+
+/*Colores*/
+/*---MENU QUIENES---*/
+.navbar-item{
+    color: var(--color-primary);
+}
+
+.navbar-item:hover{
+    color: var(--color-primary-reduced);
+}
+
+.button.is-light{
+    color: var(--color-primary);
+}
+
+.button.is-light:hover{
+    color: var(--color-white);
+    background-color: var(--color-primary);
+}
+
+/*¿INPUTS?*/
+
 
 /*Banner superior logo-frase*/
 .is-primary{
@@ -103,18 +129,35 @@ html, body {
 
 .container__img strong{
     font-size: 2.7rem;
-    color: var(--color-secondary-text);
-    text-shadow: 5px 5px 5px var(--color-primary-text);
+    color: var(--color-white);
+    text-shadow: 5px 5px 5px var(--color-black);
 }
 
 .container__img a{
-    box-shadow: 5px 5px 5px var(--color-primary-text);
+    box-shadow: 5px 5px 5px var(--color-secondary);
 }
 
 .container__slogan, .container__slogan div, .container__login, .container__login div{
     margin: 0 !important;
     padding: 0;
     background-color: var(--color-primary);
+}
+
+.container__slogan .image, .container__login img{
+    width: 65px;
+    height: auto;
+}
+
+.columns.is-mobile.container__slogan {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    text-align: center;
+    align-items: center;
+}
+
+.container__slogan .subtitle{
+    font-weight: bold;
+    font-style: oblique;
 }
 
 .container__login{
@@ -145,7 +188,8 @@ html, body {
 }
 
 .text__slogan p{
-    color: var(--color-secondary-text);
+    color: var(--color-white);
+
 }
 
 .container__products{
@@ -167,7 +211,9 @@ html, body {
 .description{
     padding: 2px;
     background-color: var(--color-primary);
-    color: var(--color-secondary-text);
+    color: var(--color-white);
+    font-weight: bold;
+    font-style: oblique;
 }
 
 .price{
@@ -179,7 +225,9 @@ html, body {
 }
 
 .discount{
-    color: var(--color-secondary-max);
+    color: var(--color-primary-reduced);
+    font-style: oblique;
+    font-weight: 500;
     font-size: 1.2rem;
 }
 
@@ -208,7 +256,7 @@ button{
 }
 
 .table__main div{
-    border-color: var(--color-primary-text);
+    border-color: var(--color-secondary);
     border-top: groove;
     border-bottom: groove;
     padding: 5px;
@@ -221,10 +269,33 @@ button{
     border-color: var(--color-primary-reduced);
 }
 
+.button.is-info{
+    background-color: var(--color-primary);
+}
+
+.button.is-info:hover{
+    background-color: var(--color-primary);
+}
+
+.button.is-info.is-outlined{
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.button.is-info.is-outlined:hover{
+    background-color: var(--color-primary);
+}
+
+.parrafo{
+    text-align: justify;
+}
+
 /*Footer*/
 .footer{
     font-size: 0.8rem;
-    color: var(--color-primary-text);
+    font-weight: bold;
+    color: var(--color-footer-text);
     background-color: var(--color-secondary);
     padding: 28px;
 }

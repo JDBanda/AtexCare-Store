@@ -17,7 +17,7 @@
             </div>
             <div class="column has-text-centered">
                 <a>
-                    <i class='bx bx-heart bx-md ' style='color:#1870b2' id="heart-fav"></i>
+                    <i class='bx bx-heart bx-md ' style='color:#12ad9f' id="heart-fav"></i>
                 </a>
             </div>
         </div>
@@ -27,6 +27,16 @@
                 <img src="{{producto.image.url}}" alt="cubre">
             </figure>
             <!--Producto compras-->
+
+            <div class="columns is-mobile">
+                <div class="column">
+                    <img src="{{producto.image.url}}" width="100" alt="cubre">
+                </div>
+                <div class="column">
+                    <img src="{{producto.image.url}}" width="100" alt="cubre">
+                </div>
+            </div>
+
             <div class="columns compra has-text-centered">
                 <div class="column">
                     <span>
@@ -73,8 +83,8 @@
         <h3 class="subtitle">Características</h3>
         {% endif %}
         {% for c in caracteristicas %}
-        <div class="columns">
-            <div class="column price">{{c.name}}</div>
+        <div class="columns is-mobile">
+            <div class="column"><strong>{{c.name}}</strong></div>
             <div class="column">{{c.feature}}</div>
         </div>
         {% endfor %}

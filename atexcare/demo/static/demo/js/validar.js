@@ -33,4 +33,30 @@ $(document).ready(function () {
             }
         }
     });
+
+    $('#login-form').validate({
+        errorPlacement: function (label, element) {
+            label.addClass('help is-danger');
+            label.insertAfter(element);
+        },
+        messages: {
+            email: {
+                required: "Ingresa tu correo para registrarte",
+                email: "Ingresa un formato válido de email"
+            },
+            password: {
+                required: "Ingresa tu contraseña"
+            },
+        }
+    });
+
+    $('#form-registro').validate({
+        errorPlacement: function (label, element) {
+            label.addClass('help is-danger');
+            label.insertAfter(element);
+        },
+        messages: {
+            //Pendiente hasta conocer que campos vamos a registrar
+        }
+    });
 })
