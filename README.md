@@ -95,6 +95,12 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![image](https://user-images.githubusercontent.com/60485485/113687214-b5d32180-968d-11eb-8524-f15b8b4f7fa8.png)
 ![image](https://user-images.githubusercontent.com/60485485/113687307-d0a59600-968d-11eb-9c53-13f34e5390ff.png)
 
+# 06/04/2021
++ Se añadío la búsqueda por nombre
+
+![image](https://user-images.githubusercontent.com/60485485/113799155-27f14800-971a-11eb-9b35-9193638748f6.png)
+![WhatsApp Image 2021-04-06 at 8 55 22 PM](https://user-images.githubusercontent.com/60485485/113799323-7c94c300-971a-11eb-926c-6c9587600c58.jpeg)
+
 
 # Recursos pendientes del día 07/03/2021
 Es necesario contar con estos requisitos
