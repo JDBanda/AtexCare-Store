@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from .filters import *
 
 # Create your views here.
 
@@ -10,7 +11,8 @@ def index(request):
 
 
 def products(request):
-    lista = Product.objects.all()
+    # Filtrar los productos
+    lista = ProductFilter(request.GET, queryset=Product.objects.all())
     context = {
         "productos": lista,
     }
@@ -22,7 +24,7 @@ def product(request, pk):
     # Obtener de many to many
     a = Feature.objects.filter(product=pk)
     context = {'producto': instance,
-    'caracteristicas': a}
+               'caracteristicas': a}
     return render(request, 'demo/product.html', context)
 
 

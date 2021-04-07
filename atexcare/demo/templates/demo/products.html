@@ -2,12 +2,23 @@
 {% block title %}Productos{% endblock title %}
 {% block body %}
 <!--Body-->
+{% for field in productos.form %}
+<form action="{% url 'productos' %}" method="GET">
+    {% csrf_token %}
+    <div class="container__fields">
+        <div class="field">
+            <div class="control">
+                {{field}}
+            </div>
+        </div>
+    </div>
+</form>
+{% endfor %}
 <section>
     <!--Cuerpo-->
     <div class="content">
-        <h3>Cubrebocas</h3>
         <div class="has-text-centered container__products">
-            {% for p in productos %}
+            {% for p in productos.qs %}
             <div class="column square__img">
                 <a href="{% url 'producto' p.id %}">
                     <img src="{{p.image.url}}" alt="cubrebocas">
@@ -29,4 +40,5 @@
 </section>
 {% load static %}
 <script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/products.js' %}"></script>
 {% endblock body %}

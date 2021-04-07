@@ -144,7 +144,7 @@ html, body {
 }
 
 .container__slogan .image, .container__login img{
-    width: 65px;
+    width: 70px;
     height: auto;
 }
 
@@ -172,15 +172,9 @@ html, body {
 
 .container__fields{
     background-color: var(--color-primary);
-    padding: 2px 5px 15px 5px;
+    padding: 15px 15px 15px 15px;
 }
 
-.container__fields div{
-    display: grid;
-    align-self: center;
-    text-align: center;
-    padding: 5px;
-}
 .text__slogan, .container__login{
     display: grid;
     align-self: center;
