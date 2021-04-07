@@ -1,28 +1,26 @@
 from django.db import models
-# Create your models here.
-# Modelo de prueba
+# User de Django
+from django.contrib.auth.models import User
+# Signals
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+# Producto base
 
 
 class Product (models.Model):
-
-    class Category(models.IntegerChoices):
-        CUBREBOCAS = 1
-        BATAS = 2
-        BOTAS = 3
-        GORROS = 4
-        INSUMOS = 5
-
     name = models.CharField("nombre del producto", max_length=50)
     short_description = models.CharField("pequeña descripción", max_length=150)
     long_description = models.CharField("descripción larga", max_length=500)
     price = models.FloatField("precio normal")
     discount = models.FloatField("descuento")
-    category = models.IntegerField(choices=Category.choices)
     image = models.ImageField(upload_to='principal_img', null=True)
     stock = models.IntegerField(null=True)
 
     def __str__(self):
         return self.name
+
+# Características, una característicica puede estar en varios productos
 
 
 class Feature (models.Model):
@@ -33,3 +31,54 @@ class Feature (models.Model):
 
     def __str__(self):
         return self.name
+
+# Extiende de users, pero son datos adicionales que sirven para el perfil
+
+
+class Profile (models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    tel_1 = models.CharField(
+        "Teléfono o número de celular", null=True, max_length=10)
+    # Datos de facturación
+    razon_social = models.CharField(
+        "Razón social", null=True, blank=True, max_length=150)
+    rfc = models.CharField("RFC", null=True, blank=True, max_length=50)
+    direccion_fiscal = models.CharField(
+        "Dirección fiscal", null=True, blank=True, max_length=250)
+    ciudad = models.CharField("Ciudad", null=True, blank=True, max_length=50)
+    estado_fact = models.CharField("Estado", null=True, blank=True, max_length=50)
+    tel_2 = models.CharField("Teléfono de facturación",
+                             null=True, blank=True, max_length=50)
+    correo_fact = models.EmailField(
+        "Correo de facturación", null=True, blank=True, max_length=254)
+    cfdi = models.CharField("CFDI", null=True, blank=True, max_length=50)
+    # Datos de envío
+    direccion = models.CharField(
+        "Dirección", null=True, blank=True, max_length=50)
+    municipio = models.CharField(
+        "Municipio", null=True, blank=True, max_length=50)
+    estado = models.CharField("Estado", null=True, blank=True, max_length=50)
+    cp = models.CharField("Código Postal", null=True, blank=True, max_length=6)
+    numero_ext = models.IntegerField("Número exterior", null=True, blank=True)
+    numero_int = models.IntegerField("Número interior", null=True, blank=True)
+    entre_calle = models.CharField(
+        "Entre calle", null=True, blank=True, max_length=50)
+    entre_calle_2 = models.CharField(
+        "Y calle", null=True, blank=True, max_length=50)
+
+
+'''
+Signals para actualizar/guardar el perfil despues de que se hace eso con el User de django.
+Para implementar esto es necesario utilizar Signals
+'''
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

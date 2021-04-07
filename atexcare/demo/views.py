@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from .filters import *
+from .forms import *
+# Rollback si algo sale mal
+from django.db import transaction
 
 # Create your views here.
 
@@ -58,8 +61,28 @@ def login(request):
     return render(request, 'demo/login.html', context)
 
 
+@transaction.atomic
 def register(request):
-    context = {}
+    user = UserForm()
+    profile = ProfileForm()
+    mensaje = ""
+    if request.method == 'POST':
+        user = UserForm(request.POST)
+        profile = ProfileForm(request.POST)
+        if user.is_valid() and profile.is_valid():
+            user = user.save()
+            for field in profile.changed_data:
+                setattr(user.profile, field, profile.cleaned_data.get(field))
+            user.profile.save()
+            print("Registrado con exito")
+            return redirect('/inicio_sesion')
+        else:
+            print("Verifique los datos")
+    context = {
+        'user': user,
+        'profile': profile,
+        'mensaje': mensaje
+    }
     return render(request, 'demo/register.html', context)
 
 

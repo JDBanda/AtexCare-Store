@@ -34,15 +34,15 @@ $(document).ready(function () {
         }
     });
 
+    /*Formulario de Inicio de sesión*/
     $('#login-form').validate({
         errorPlacement: function (label, element) {
             label.addClass('help is-danger');
             label.insertAfter(element);
         },
         messages: {
-            email: {
-                required: "Ingresa tu correo para registrarte",
-                email: "Ingresa un formato válido de email"
+            username: {
+                required: "Ingresa tu nombre de usuario",
             },
             password: {
                 required: "Ingresa tu contraseña"
@@ -50,13 +50,45 @@ $(document).ready(function () {
         }
     });
 
+
+
+
     $('#form-registro').validate({
         errorPlacement: function (label, element) {
             label.addClass('help is-danger');
             label.insertAfter(element);
         },
+        rules: {
+            email: {
+                required: true,
+            },
+            first_name: {
+                required: true,
+            },
+            last_name: {
+                required: true,
+            },
+        },
         messages: {
-            //Pendiente hasta conocer que campos vamos a registrar
+            username: {
+                required: "Ingresa algún nombre de usuario",
+            },
+            password: {
+                required: "Ingresa una contraseña",
+            },
+            email: {
+                required: "Ingresa tu correo para registrarte",
+                email: "Ingresa un formato válido de email"
+            },
+            first_name: {
+                required: "Ingresa al menos un nombre",
+            },
+            last_name: {
+                required: "Ingresa al menos un apellido",
+            },
+            tel_1: {
+                required: "Ingresa un número de teléfono"
+            },
         }
     });
 })

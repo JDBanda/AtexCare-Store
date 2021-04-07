@@ -5,54 +5,113 @@
     <!--Cuerpo-->
     <div class="content">
         <h2>Registro</h2>
-        <form action="{% url 'user'%}" id="form-registro">
+        <form id="form-registro" method="POST">
+            {% csrf_token %}
             <h3 class="title">Información personal</h3>
-            <div class="field">
-                <label class="label">Nombre completo</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Nombre(s)">
-                </div>
-            </div>
+            <!-- #Campos OBLIGATORIOS -->
+            <!-- #Datos de user -->
+            {% for field in user %}
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" placeholder="Primer apellido">
+                    {{field}}
                 </div>
             </div>
+            {% endfor %}
+            <!-- Numero de celular -->
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" placeholder="Segundo apellido">
+                    {{profile.tel_1}}
                 </div>
             </div>
-            <div class="field">
-                <label class="label">Correo electrónico</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="example@example.com">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Correo electrónico</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="example@example.com">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Teléfono</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="5255555555">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Contraseña</label>
-                <div class="control">
-                    <input class="input" type="password">
-                </div>
-            </div>
+            <!-- #Campos no obligatorios -->
             <h3 class="title">Información de envío</h3>
+            <div class="field">
+                <div class="control">
+                    {{profile.direccion}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.municipio}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.estado}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.cp}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.numero_ext}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.numero_int}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.entre_calle}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.entre_calle_2}}
+                </div>
+            </div>
+            <!-- #facturación -->
             <h3 class="title">Información de facturación</h3>
+            <div class="field">
+                <div class="control">
+                    {{profile.razon_social}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.rfc}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.direccion_fiscal}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.ciudad}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.estado_fact}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.tel_2}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.correo_fact}}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{profile.cfdi}}
+                </div>
+            </div>
             <button class="button is-info is-medium is-fullwidth" type="submit">Registrar</button>
         </form>
     </div>
 </section>
 {% load static %}
 <script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/validar.js' %}"></script>
 {% endblock body %}
