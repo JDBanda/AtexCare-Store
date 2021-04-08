@@ -101,9 +101,50 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 ![image](https://user-images.githubusercontent.com/60485485/113799155-27f14800-971a-11eb-9b35-9193638748f6.png)
 ![WhatsApp Image 2021-04-06 at 8 55 22 PM](https://user-images.githubusercontent.com/60485485/113799323-7c94c300-971a-11eb-926c-6c9587600c58.jpeg)
 
+# 07/04/2021 y 08/04/2021
++ Login/logout (sin sesiones, debido al diseño de la página en el inicio al reiniciar sesion puede haber un problema)
++ Registro de usuarios
++ Registro de perfil de usuario
++ Planeación del menú de usuario
 
-# Recursos pendientes del día 07/03/2021
+![WhatsApp Image 2021-04-08 at 11 19 23 AM (1)](https://user-images.githubusercontent.com/60485485/114061825-76a6fb00-985c-11eb-919d-f95019613b42.jpeg)
+![WhatsApp Image 2021-04-08 at 11 19 23 AM](https://user-images.githubusercontent.com/60485485/114061829-773f9180-985c-11eb-8958-93a2f186608d.jpeg)
+![image](https://user-images.githubusercontent.com/60485485/114061514-229c1680-985c-11eb-9358-60c4b8e83572.png)
+![image](https://user-images.githubusercontent.com/60485485/114061934-90484280-985c-11eb-9c62-bd7a87ac1bff.png)
+
++ Datos para login y perfil
+
+### Datos de Django
++ username
++ password
++ email
++ first_name
++ last_name
+
+### Datos del usuario
++ user (instancia al User de Django)
++ tel_1
+
+## Datos de facturación
++ razon_social
++ rfc
++ direccion_fiscal
++ ciudad
++ estado_fact
++ tel_2
++ correo_fact
++ cfdi
+
+### Datos de envío
++ direccion
++ municipio
++ estado
++ cp
++ numero_ext
++ numero_int
++ entre_calle
++ entre_calle_2
+
+# Recursos pendientes del día 09/03/2021
 Es necesario contar con estos requisitos
 1. Esperar imagenes de diseño
-2. Planeación del menú de usuario
-3. Datos puntuales para inicio de sesión (a partir de la página de smarttek)
