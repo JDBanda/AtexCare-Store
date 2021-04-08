@@ -5,11 +5,17 @@
     <!--Cuerpo-->
     <div class="content">
         <h2>Iniciar sesión</h2>
-        <form action="{% url 'user' %}" id="login-form">
+        {% for message in messages %}
+        <blockquote>
+            {{message}}
+        </blockquote>
+        {% endfor %}
+        <form method="POST" id="login-form" action="{% url 'login' %}">
+            {% csrf_token %}
             <div class="columns">
                 <div class="field column">
                     <p class="control has-icons-left has-icons-right">
-                        <input class="input" name="email" type="text" placeholder="Nombre de usuario" required>
+                        <input class="input" name="username" type="text" placeholder="Nombre de usuario" required>
                         <span class="icon is-small is-left">
                             <i class='bx bxs-user'></i>
                         </span>
@@ -26,7 +32,7 @@
             </div>
             <div class="field">
                 <p class="control">
-                    <button class="button is-info is-medium is-fullwidth">
+                    <button type="submit" class="button is-info is-medium is-fullwidth">
                         Iniciar sesión
                     </button>
                 </p>

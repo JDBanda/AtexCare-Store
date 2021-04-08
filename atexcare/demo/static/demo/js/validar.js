@@ -30,6 +30,9 @@ $(document).ready(function () {
             },
             textarea: {
                 required: "Queremos conocer más detalles acerca de tu mensaje"
+            },
+            correo_fact: {
+                email: "Ingresa un formato válido de email"
             }
         }
     });

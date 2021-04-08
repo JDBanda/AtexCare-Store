@@ -92,7 +92,7 @@ class ProfileForm(forms.ModelForm):
             'correo_fact': forms.TextInput(attrs={
                 'class': 'input',
                 'placeholder': 'Ingresa el correo electrónico de tu razón social',
-                'type': 'text'
+                'type': 'email'
             }),
             'cfdi': forms.TextInput(attrs={
                 'class': 'input',

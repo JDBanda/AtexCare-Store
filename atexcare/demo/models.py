@@ -46,7 +46,8 @@ class Profile (models.Model):
     direccion_fiscal = models.CharField(
         "Dirección fiscal", null=True, blank=True, max_length=250)
     ciudad = models.CharField("Ciudad", null=True, blank=True, max_length=50)
-    estado_fact = models.CharField("Estado", null=True, blank=True, max_length=50)
+    estado_fact = models.CharField(
+        "Estado", null=True, blank=True, max_length=50)
     tel_2 = models.CharField("Teléfono de facturación",
                              null=True, blank=True, max_length=50)
     correo_fact = models.EmailField(
@@ -65,20 +66,3 @@ class Profile (models.Model):
         "Entre calle", null=True, blank=True, max_length=50)
     entre_calle_2 = models.CharField(
         "Y calle", null=True, blank=True, max_length=50)
-
-
-'''
-Signals para actualizar/guardar el perfil despues de que se hace eso con el User de django.
-Para implementar esto es necesario utilizar Signals
-'''
-
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()

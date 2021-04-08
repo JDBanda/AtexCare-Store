@@ -1,47 +1,57 @@
 {% extends 'demo/menu_quienes.html' %}
-{% block title %}Iniciar sesión{% endblock title %}
+{% block title %}Perfil de {{request.user}}{% endblock title %}
 {% block body %}
 <section>
     <!--Cuerpo-->
 
-    <!--
-            Verificar si una Tab (bulma) y JS
-            puede ayudar a organizar la info del usuario
-        -->
+    <div class="tabs is-centered">
+        <ul>
+            <li class="is-active">
+                <a>
+                    <span class="icon is-small">
+                        <i class='bx bxs-user-detail'></i>
+                    </span>
+                    <span>Editar Perfil</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon is-small">
+                        <i class='bx bxs-shopping-bag'></i>
+                        </i></span>
+                    <span>Compras</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
     <div class="content">
-        <h2 class="title">¡Bienvenido usuario!</h2>
+        <h2 class="title">¡Bienvenido {{request.user.first_name}}!</h2>
         <form action="">
             <fieldset disabled id="field">
                 <!--Se cargan los valores GET-->
                 <div class="field">
-                    <label class="label">Nombre</label>
+                    <label class="label">Nombre(s)</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="" value="Persona">
+                        <input class="input" type="text" placeholder="" value="{{request.user.first_name}}">
                     </div>
                 </div>
                 <div class="field">
-                    <label class="label">Primer apellido</label>
+                    <label class="label">Apellido(s)</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="" value="Persona">
-                    </div>
-                </div>
-                <div class="field">
-                    <label class="label">Segundo apellido</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="" value="Persona">
+                        <input class="input" type="text" placeholder="" value="{{request.user.last_name}}">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Correo</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="" value="Persona">
+                        <input class="input" type="text" placeholder="" value="{{request.user.email}}">
                     </div>
                 </div>
                 <div class="field">
                     <label class="label">Teléfono</label>
                     <div class="control">
-                        <input class="input" type="text" placeholder="" value="Persona">
+                        <input class="input" type="text" placeholder="" value="{{profile.tel_1}}">
                     </div>
                 </div>
                 <div class="field">
@@ -60,5 +70,5 @@
 </section>
 {% load static %}
 <script src="{% static 'demo/js/menu.js' %}"></script>
-<script src="{% static 'demo/js/edit-btn.js' %}"></script>
+<script src="{% static 'demo/js/user.js' %}"></script>
 {% endblock body %}
