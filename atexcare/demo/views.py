@@ -80,13 +80,13 @@ def contact_info(request):
     context = {}
     return render(request, 'demo/contact_info.html', context)
 
-# @login_required(login_url='login')
 
-
+@login_required(login_url='login')
 def detail_car(request):
     objCar = Carrito.objects.filter(usuario=request.user)
-    print(objCar)
-    context = {'objetos': objCar}
+    # total de articulos
+    tObjetos = len(objCar)
+    context = {'objetos': objCar, 'totalArticulos': tObjetos}
     return render(request, 'demo/detail_car.html', context)
 
 

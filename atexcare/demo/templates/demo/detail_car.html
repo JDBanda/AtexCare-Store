@@ -8,7 +8,9 @@
                 <i class='bx bx-left-arrow-circle bx-xs'> Volver a productos</i>
             </a>
         </div>
+        {% if totalArticulos > 0 %}
         <h2 class="title">Tu carrito de compras</h2>
+        <h3 class="subtitle">({{totalArticulos}} artículos)</h3>
         {% for o in objetos %}
         <div class="body-carrito">
             <div class="columns is-mobile is-vcentered head-carrito">
@@ -50,6 +52,10 @@
         <!--Redefinir interfaz de cada elemento del carrito-->
         <!--Boton pagar-->
         <a class="button is-info is-medium is-fullwidth" href="{% url 'envio' %}">Pagar</a>
+        {% else %}
+        <h2 class="title">Sin artículos</h2>
+        <h5>Parece que aún no has añadido artículos, puedes agregar artículos en cualquier momento 😷</h5>
+        {% endif %}
     </div>
 </section>
 {% load static %}

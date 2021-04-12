@@ -7,9 +7,3 @@ edit.addEventListener('click', () => {
         field.removeAttribute("disabled");
     }
 });
-
-$(function () {
-    $('#registro').hide();
-    $('#sesion strong').text("Cerrar sesión");
-    $('#sesion').attr("href", "/cerrar_sesion");
-})

@@ -37,6 +37,11 @@
 
             <div class="navbar-end">
                 <div class="navbar-item">
+                    {% if user.is_authenticated %}
+                    <a id="sesion" class="button is-primary" href="{% url 'logout' %}">
+                        <strong>Cerrar sesión</strong>
+                    </a>
+                    {% else %}
                     <div class="buttons">
                         <a id="sesion" class="button is-primary" href="{% url 'login' %}">
                             <strong>Iniciar sesión</strong>
@@ -45,6 +50,7 @@
                             Registrate
                         </a>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

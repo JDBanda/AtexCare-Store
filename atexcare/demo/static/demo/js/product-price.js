@@ -16,8 +16,8 @@ $(function () {
 
     $('#menos').click(function () {
         cantidad -= 1;
-        if (cantidad < 0) {
-            cantidad = 0;
+        if (cantidad < 1) {
+            cantidad = 1;
         }
         $('#cantidad').text(cantidad);
         total();
