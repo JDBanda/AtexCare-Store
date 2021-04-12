@@ -71,7 +71,11 @@
                 </div>
                 <div class="column">
                     {% load static %}
-                    <a class="button is-info is-outlined is-medium is-fullwidth" onclick="add()">Añadir al
+                    <a class="button is-info is-outlined is-medium is-fullwidth snipcart-add-item" type="button"
+                        data-item-id="{{producto.id}}" data-item-price="{{producto.price}}"
+                        data-item-url="/productos/{{producto.id}}" data-item-max-quantity="{{producto.stock}}"
+                        data-item-description="{{producto.short_description}}" data-item-image="{{producto.image.url}}"
+                        data-item-name="{{producto.name}}">Añadir al
                         carrito</a>
                 </div>
             </div>

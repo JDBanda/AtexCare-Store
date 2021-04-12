@@ -18,12 +18,18 @@
                     </a>
                 </div>
                 <div class="column icons__end">
-                    <a href="{% url 'detalle_carrito' %}">
+                    <a id="open-cart">
                         <i class='bx bxs-cart bx-tada bx-md' style='color:#ffffff'></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+    <script async src="https://cdn.snipcart.com/themes/v3.1.0/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-config-modal-style="side"
+        data-api-key="ZjQzODE5ZTYtYWQxMy00Njc3LWE4OGUtMjFlMjVhY2UyODlkNjM3NTM1ODA3Mjg2Njk1NDk3">
+    </div>
 </header>
+{% load static %}
+<script src="{% static 'demo/js/cart.js' %}"></script>
 {% endblock nav %}
