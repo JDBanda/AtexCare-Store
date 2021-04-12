@@ -8,51 +8,50 @@
                 <i class='bx bx-left-arrow-circle bx-xs'> Volver a productos</i>
             </a>
         </div>
-        <h2 class="title">Detalle del carrito</h2>
-        <!--Tabla con columnas porque es responsiva-->
-        <div class="columns is-mobile table__main">
-            <div class="column">Producto</div>
-            <div class="column">Cantidad</div>
-            <div class="column">Unitario</div>
-            <div class="column">Monto</div>
-        </div>
-        <div class="columns is-mobile table__detail">
-            <div class="column">
-                {% load static %}
-                <span><img src="{% static 'demo/img/kn95.jpg' %}" alt="kn95"></span>
-                <span>kn95</span>
+        <h2 class="title">Tu carrito de compras</h2>
+        {% for o in objetos %}
+        <div class="body-carrito">
+            <div class="columns is-mobile is-vcentered head-carrito">
+                <div class="column is-two-thirds">
+                    <h4>{{o.producto.name}}</h4>
+                </div>
+                <div class="xbtn column">
+                    <button class="button is-outlined is-small"><i class='bx bx-x'></i></button>
+                </div>
             </div>
-            <div class="column">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" placeholder="1">
+            <div class="columns is-mobile carrito">
+                <div class="column">
+                    <img src="{{o.producto.image.url}}" alt="{{o.producto.name}}">
+                </div>
+                <div class="column is-two-thirds">
+                    <p>{{o.producto.short_description}}</p>
+                    <p class="stock">Límite en stock: {{o.producto.stock}}</p>
+                    <div class="columns">
+                        <div class="xbtn column price">
+                            <button class="button is-outlined">
+                                <i class='bx bx-minus'></i>
+                            </button>
+                            <span> {{o.cantidad}} </span>
+                            <button class="button is-outlined">
+                                <i class='bx bx-plus'></i>
+                            </button>
+                        </div>
+                        <div class="xbtn column">
+                            <h4>$
+                                <span class="price">{{o.monto}}</span>
+                            </h4>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="column">10</div>
-            <div class="column">20</div>
         </div>
-        <div class="columns is-mobile table__detail">
-            <div class="column">
-                {% load static %}
-                <span><img src="{% static 'demo/img/cubrebocas.jpg' %}" alt="cubre"></span>
-                <span>plisado</span>
-            </div>
-            <div class="column">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" placeholder="1">
-                    </div>
-                </div>
-            </div>
-            <div class="column">5</div>
-            <div class="column">15</div>
-        </div>
-
+        <br>
+        {% endfor %}
+        <!--Redefinir interfaz de cada elemento del carrito-->
         <!--Boton pagar-->
         <a class="button is-info is-medium is-fullwidth" href="{% url 'envio' %}">Pagar</a>
     </div>
 </section>
 {% load static %}
-<script src="{% static 'demo/js/menu.js' %}"></script>
+<script src="{% static 'demo/js/crud-car.js' %}"></script>
 {% endblock body %}

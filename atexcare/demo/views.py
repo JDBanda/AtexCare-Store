@@ -10,6 +10,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import transaction
 # Solicitar inicio de sesion
 from django.contrib.auth.decorators import login_required
+# Importar json response
+from django.http import JsonResponse
 
 
 def index(request):
@@ -32,6 +34,35 @@ def product(request, pk):
     a = Feature.objects.filter(product=pk)
     context = {'producto': instance,
                'caracteristicas': a}
+    if request.method == 'POST':
+        # Recibimos los datos
+        producto = Product.objects.get(id=request.POST.get('producto'))
+        cantidad = request.POST.get('cantidad')
+        monto = request.POST.get('monto')
+        usuario = request.POST.get('usuario')
+        # Al hacer post verificar que el ususario este dado de alta
+        if usuario == 'AnonymousUser':
+            return JsonResponse({
+                'content': {
+                    'mensaje': 'Debe ingresar o darse de alta para guardar elementos en el carrito'
+                }
+            })
+        # Intenta insertar los datos
+        try:
+            usuario = User.objects.get(username=usuario)
+            # Aqui faltaría agregar un status para decir que el carrito esta activo y aun no se ha pagado
+            objCarrito = Carrito(
+                producto=producto, cantidad=cantidad, monto=monto, usuario=usuario)
+            objCarrito.save()
+            return JsonResponse({
+                'content': {
+                    'mensaje': '¡Añadido al carrito!',
+                }
+            })
+        except:
+            context = {
+                'mensaje': 'Ocurrio un error',
+            }
     return render(request, 'demo/product.html', context)
 
 
@@ -49,9 +80,13 @@ def contact_info(request):
     context = {}
     return render(request, 'demo/contact_info.html', context)
 
+# @login_required(login_url='login')
+
 
 def detail_car(request):
-    context = {}
+    objCar = Carrito.objects.filter(usuario=request.user)
+    print(objCar)
+    context = {'objetos': objCar}
     return render(request, 'demo/detail_car.html', context)
 
 

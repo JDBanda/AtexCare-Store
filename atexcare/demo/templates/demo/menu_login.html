@@ -26,4 +26,9 @@
         </div>
     </div>
 </header>
+{% if user.is_authenticated %}
+<div>
+    <p class="usuario">Has ingresado como: <strong>{{request.user}}</strong></p>
+</div>
+{% endif %}
 {% endblock nav %}

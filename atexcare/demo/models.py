@@ -66,3 +66,29 @@ class Profile (models.Model):
         "Entre calle", null=True, blank=True, max_length=50)
     entre_calle_2 = models.CharField(
         "Y calle", null=True, blank=True, max_length=50)
+
+
+class Carrito(models.Model):
+    PAGADO = 0
+    ACTIVO = 1
+    ELIMINADO = 2
+
+    STATUS_CHOICES = (
+        ("PAGADO", PAGADO),
+        ("ACTIVO", ACTIVO),
+        ("ELIMINADO", ELIMINADO),
+    )
+
+    producto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    cantidad = models.IntegerField("Cantidad")
+    monto = models.FloatField("Monto")
+    usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=ACTIVO)
+
+    def __str__(self):
+        return self.producto.name
+
+
+class Compra(models.Model):
+    renglonCarrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)

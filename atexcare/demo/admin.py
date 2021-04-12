@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Product)
 admin.site.register(Feature)
 admin.site.register(Profile)
+admin.site.register(Carrito)

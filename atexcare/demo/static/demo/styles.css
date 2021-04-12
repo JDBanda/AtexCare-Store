@@ -53,9 +53,6 @@ html, body {
 }
 
 @media screen and (min-width: 600px) {
-
-
-
     .container__products{
     grid-template-columns: auto auto !important;
     } 
@@ -244,16 +241,26 @@ button{
     align-items: center;
 }
 
-.table__main, .table__detail{
-    margin: 0;
-    align-items: center;
+.body-carrito{
+    margin: 10px;
+    text-align: justify;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-.table__main div{
-    border-color: var(--color-secondary);
-    border-top: groove;
-    border-bottom: groove;
-    padding: 5px;
+.columns.is-mobile.head-carrito{
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.xbtn{
+    text-align: end;
+}
+
+.columns.is-mobile.carrito{
+    margin: 0;
+    padding: 20px;
+    padding-top: 0;
 }
 
 .login__section{
@@ -281,15 +288,33 @@ button{
     background-color: var(--color-primary);
 }
 
+.stock{
+
+}
+
 .parrafo{
     text-align: justify;
 }
 
+.usuario{
+    text-align: center;
+    color: var(--color-primary); 
+    font-size: 1.15rem;
+    padding-bottom: 5px;
+}
+
+.usuario strong{
+    color: var(--color-primary); 
+}
+
 /*Footer*/
-.footer{
+.footer, .stock{
     font-size: 0.8rem;
     font-weight: bold;
     color: var(--color-footer-text);
+}
+
+.footer{
     background-color: var(--color-secondary);
     padding: 28px;
 }

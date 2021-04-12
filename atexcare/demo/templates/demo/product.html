@@ -42,7 +42,8 @@
                     <span>
                         <span><i class='bx bx-dollar-circle bx-sm'></i></span>
                     </span>
-                    <span class="price-p" id="precio">{{producto.price}}</span>
+                    <span class="price-p" usuario="{{request.user}}" producto="{{producto.id}}"
+                        id="precio">{{producto.price}}</span>
                 </div>
                 <div class="column">
                     <div class="field columns is-mobile">
@@ -70,9 +71,11 @@
                     <a class="button is-info is-medium is-fullwidth" href="{% url 'detalle_carrito' %}">Comprar</a>
                 </div>
                 <div class="column">
-                    {% load static %}
-                    <a class="button is-info is-outlined is-medium is-fullwidth" onclick="add()">Añadir al
-                        carrito</a>
+                    <form id="carrito">
+                        {% csrf_token %}
+                        <button class="button is-info is-outlined is-medium is-fullwidth" type="submit">Añadir al
+                            carrito</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -93,5 +96,4 @@
 </section>
 {% load static %}
 <script src="{% static 'demo/js/product-price.js' %}"></script>
-<script src="{% static 'demo/js/add.js' %}"></script>
 {% endblock body %}
