@@ -145,6 +145,20 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 + entre_calle
 + entre_calle_2
 
-# Recursos pendientes del día 09/03/2021
+# Avances del día 09/04/2021 y 12/04/2021
++ Se realizaron dos integraciónes de carrito:
+ + Una con Snipcart
+ + Otra a código (aún trabajndo en ella)
++ Se han limitado las vistas y mensajes del carrito además de mostrar el total de elementos
++ Se ha investigado sobre posibles mejoras con Wagtail y SweetAlert2 para la interfaz de usuario
+
+# Avances del día 13/04/2021
++ Carrito de compras CRUD
++ Se guarda la información por usuario
+
+![image](https://user-images.githubusercontent.com/60485485/114596000-aab35f00-9c54-11eb-8ee5-402c453a2f7f.png)
+
+
+# Recursos pendientes
 Es necesario contar con estos requisitos
-1. Esperar imagenes de diseño
+1. Esperar imagenes de diseño, ya se esta resolviendo
