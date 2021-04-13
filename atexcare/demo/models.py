@@ -71,12 +71,10 @@ class Profile (models.Model):
 class Carrito(models.Model):
     PAGADO = 0
     ACTIVO = 1
-    ELIMINADO = 2
 
     STATUS_CHOICES = (
         ("PAGADO", PAGADO),
         ("ACTIVO", ACTIVO),
-        ("ELIMINADO", ELIMINADO),
     )
 
     producto = models.ForeignKey(Product, on_delete=models.CASCADE)

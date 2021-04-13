@@ -9,7 +9,11 @@ urlpatterns = [
     path('quienes_somos', views.who, name='quienes'),
     path('legal', views.legal, name='legal'),
     path('contacto', views.contact_info, name='contacto'),
+
     path('detalle_carrito', views.detail_car, name='detalle_carrito'),
+    path('detalle_carrito/eliminar', views.delete_car_item, name='eliminarItem'),
+
+
     path('envio', views.sending_info, name='envio'),
     path('registro', views.register, name='registro'),
     path('inicio_sesion', views.loginInto, name='login'),

@@ -80,14 +80,63 @@ def contact_info(request):
     context = {}
     return render(request, 'demo/contact_info.html', context)
 
+# Operaciones en el carrito de compras
+
 
 @login_required(login_url='login')
 def detail_car(request):
+    if request.method == 'POST':
+        idItem = request.POST['id']
+        cantidadItem = request.POST['cantidad']
+        montoItem = request.POST['monto']
+        objCar = Carrito.objects.get(id=idItem)
+        objCar.cantidad = cantidadItem
+        objCar.monto = montoItem
+        try:
+            objCar.save()
+            return JsonResponse({
+                'content': {
+                    'mensaje': 'Actualizado'
+                }
+            })
+        except:
+            return JsonResponse({
+                'content': {
+                    'mensaje': 'Error, vuelve a intentar'
+                }
+            })
     objCar = Carrito.objects.filter(usuario=request.user)
     # total de articulos
     tObjetos = len(objCar)
     context = {'objetos': objCar, 'totalArticulos': tObjetos}
     return render(request, 'demo/detail_car.html', context)
+
+
+@login_required(login_url='login')
+def delete_car_item(request):
+    # Comprobar si es POST
+    if request.method == 'POST':
+        # Obtener el ID de POST
+        idItem = request.POST['id']
+        # Obtener el elemento con ese ID
+        item = Carrito.objects.get(id=idItem)
+        nombre = item.producto.name
+        try:
+            # Eliminar
+            item.delete()
+            # Mandar un mensaje
+            return JsonResponse({
+                'content': {
+                    'mensaje': 'Elemento ' + nombre + ' eliminado'
+                }
+            })
+        except:
+            # Mandar mensaje
+            return JsonResponse({
+                'content': {
+                    'mensaje': 'Ocurrió un problema al eliminar, vuelva a intentar'
+                }
+            })
 
 
 def sending_info(request):

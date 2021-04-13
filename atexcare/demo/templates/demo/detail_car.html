@@ -12,13 +12,14 @@
         <h2 class="title">Tu carrito de compras</h2>
         <h3 class="subtitle">({{totalArticulos}} artículos)</h3>
         {% for o in objetos %}
-        <div class="body-carrito">
+        {% csrf_token %}
+        <div class="body-carrito" id="{{o.id}}">
             <div class="columns is-mobile is-vcentered head-carrito">
                 <div class="column is-two-thirds">
                     <h4>{{o.producto.name}}</h4>
                 </div>
                 <div class="xbtn column">
-                    <button class="button is-outlined is-small"><i class='bx bx-x'></i></button>
+                    <button class="button is-outlined is-small deleteItem"><i class='bx bx-x'></i></button>
                 </div>
             </div>
             <div class="columns is-mobile carrito">
@@ -27,20 +28,20 @@
                 </div>
                 <div class="column is-two-thirds">
                     <p>{{o.producto.short_description}}</p>
-                    <p class="stock">Límite en stock: {{o.producto.stock}}</p>
+                    <p class="stock">Límite en stock: <span>{{o.producto.stock}}</span></p>
                     <div class="columns">
                         <div class="xbtn column price">
-                            <button class="button is-outlined">
+                            <button class="button is-outlined cantidadItem">
                                 <i class='bx bx-minus'></i>
                             </button>
-                            <span> {{o.cantidad}} </span>
-                            <button class="button is-outlined">
+                            <span class="cant"> {{o.cantidad}} </span>
+                            <button class="button is-outlined cantidadItem">
                                 <i class='bx bx-plus'></i>
                             </button>
                         </div>
                         <div class="xbtn column">
                             <h4>$
-                                <span class="price">{{o.monto}}</span>
+                                <span class="price mont" precio="{{o.producto.price}}">{{o.monto}}</span>
                             </h4>
                         </div>
                     </div>
