@@ -195,22 +195,34 @@ def register(request):
             newProfile = Profile(
                 user=lastUser,
                 tel_1=profileForm.tel_1,
-                razon_social=profileForm.razon_social,
-                rfc=profileForm.rfc,
-                direccion_fiscal=profileForm.direccion_fiscal,
-                ciudad=profileForm.ciudad,
-                estado_fact=profileForm.estado_fact,
-                tel_2=profileForm.tel_2,
-                correo_fact=profileForm.correo_fact,
-                cfdi=profileForm.cfdi,
-                direccion=profileForm.direccion,
-                municipio=profileForm.municipio,
-                estado=profileForm.estado,
-                cp=profileForm.cp,
-                numero_ext=profileForm.numero_ext,
-                numero_int=profileForm.numero_int,
-                entre_calle=profileForm.entre_calle,
-                entre_calle_2=profileForm.entre_calle_2,)
+                razon_social=profileForm.razon_social if hasattr(
+                    profileForm, "razon_social") else None,
+                rfc=profileForm.rfc if hasattr(profileForm, "rfc") else None,
+                direccion_fiscal=profileForm.direccion_fiscal if hasattr(
+                    profileForm, "direccion_fiscal") else None,
+                ciudad=profileForm.ciudad if hasattr(
+                    profileForm, "ciudad") else None,
+                estado_fact=profileForm.estado_fact if hasattr(
+                    profileForm, "estado_fact") else None,
+                tel_2=profileForm.tel_2 if hasattr(
+                    profileForm, "tel_2") else None,
+                correo_fact=profileForm.correo_fact if hasattr(
+                    profileForm, "correo_fact") else None,
+                cfdi=profileForm.cfdi if hasattr(profileForm, "cfdi") else None,
+                direccion=profileForm.direccion if hasattr(
+                    profileForm, "direccion") else None,
+                municipio=profileForm.municipio if hasattr(
+                    profileForm, "municipio") else None,
+                estado=profileForm.estado if hasattr(
+                    profileForm, "estado") else None,
+                cp=profileForm.cp if hasattr(profileForm, "cp") else None,
+                numero_ext=profileForm.numero_ext if hasattr(
+                    profileForm, "numero_ext") else None,
+                numero_int=profileForm.numero_int if hasattr(
+                    profileForm, "numero_int") else None,
+                entre_calle=profileForm.entre_calle if hasattr(
+                    profileForm, "entre_calle") else None,
+                entre_calle_2=profileForm.entre_calle_2 if hasattr(profileForm, "entre_calle_2") else None,)
             newProfile.save()
             messages.success(request, 'La cuenta de ' +
                              newProfile.user.username + ' ha sido creada. Ya puede iniciar sesión')
