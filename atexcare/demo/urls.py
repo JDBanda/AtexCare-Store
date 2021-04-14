@@ -19,4 +19,6 @@ urlpatterns = [
     path('inicio_sesion', views.loginInto, name='login'),
     path('cerrar_sesion', views.logoutInto, name='logout'),
     path('usuario', views.user_profile, name='user'),
+    path('usuario_history', views.user_history, name='user_history'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

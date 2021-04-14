@@ -1,9 +1,14 @@
-var edit = document.getElementById('edit-btn');
-var field = document.getElementById('field');
-
-edit.addEventListener('click', () => {
-    var r = confirm("¿Estas seguro de que deseas editar tu información personal?");
-    if (r) {
-        field.removeAttribute("disabled");
+$(function () {
+    switch (window.location.pathname) {
+        case '/usuario':
+            $('#1').attr("class", "is-active");
+            $('#2').attr("class", "");
+            break;
+        case '/usuario_history':
+            $('#1').attr("class", "");
+            $('#2').attr("class", "is-active");
+            break;
+        default:
+            break;
     }
-});
+})

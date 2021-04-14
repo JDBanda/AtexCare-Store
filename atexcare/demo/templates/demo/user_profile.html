@@ -1,0 +1,44 @@
+{% extends 'demo/user.html' %}
+{% block content %}
+<div class="content">
+        <h2 class="title">¡Bienvenido {{request.user.first_name}}!</h2>
+        <form action="">
+            <fieldset disabled id="field">
+                <!--Se cargan los valores GET-->
+                <div class="field">
+                    <label class="label">Nombre(s)</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="{{request.user.first_name}}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Apellido(s)</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="{{request.user.last_name}}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Correo</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="{{request.user.email}}">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Teléfono</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="" value="{{profile.tel_1}}">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-info is-medium is-fullwidth">
+                            Confirmar edición
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <br>
+        <button class="button is-danger is-medium is-fullwidth" id="edit-btn">Editar datos</button>
+    </div>
+{% endblock content %}

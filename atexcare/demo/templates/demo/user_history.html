@@ -1,0 +1,15 @@
+{% extends 'demo/user.html' %}
+{% block content %}
+<div class="content">
+    <div class="columns">
+        <div class="column">
+            <h1>Sitio en construcción</h1>
+            <p>Aquí se registra el historial de compras de cada usuario</p>
+        </div>
+        <div class="column">
+            {% load static %}
+            <img src="{% static 'demo/img/construccion.jpg' %}" alt="const">
+        </div>
+    </div>
+</div>
+{% endblock content %}

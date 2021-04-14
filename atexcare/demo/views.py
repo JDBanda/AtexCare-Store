@@ -208,7 +208,8 @@ def register(request):
                     profileForm, "tel_2") else None,
                 correo_fact=profileForm.correo_fact if hasattr(
                     profileForm, "correo_fact") else None,
-                cfdi=profileForm.cfdi if hasattr(profileForm, "cfdi") else None,
+                cfdi=profileForm.cfdi if hasattr(
+                    profileForm, "cfdi") else None,
                 direccion=profileForm.direccion if hasattr(
                     profileForm, "direccion") else None,
                 municipio=profileForm.municipio if hasattr(
@@ -238,8 +239,13 @@ def register(request):
 
 @login_required(login_url='login')
 def user_profile(request):
-    #profile = Profile.objects.get(user=user)
-    #context = {'profile': profile}
-    #user_profile(request, context)
+    profile = Profile.objects.get(user=request.user)
+    context = {'profile': profile}
+    return render(request, 'demo/user_profile.html', context)
+
+
+@login_required(login_url='login')
+def user_history(request):
+    #profile = Profile.objects.get(user=request.user)
     context = {}
-    return render(request, 'demo/user.html', context)
+    return render(request, 'demo/user_history.html', context)
