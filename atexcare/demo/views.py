@@ -12,6 +12,7 @@ from django.db import transaction
 from django.contrib.auth.decorators import login_required
 # Importar json response
 from django.http import JsonResponse
+import sys
 
 
 def index(request):
@@ -47,10 +48,16 @@ def product(request, pk):
                     'mensaje': 'Debe ingresar o darse de alta para guardar elementos en el carrito'
                 }
             })
-        # Intenta insertar los datos
         try:
+            # Validar si hay un carrito
             usuario = User.objects.get(username=usuario)
-            # Aqui faltaría agregar un status para decir que el carrito esta activo y aun no se ha pagado
+            exist = Carrito.objects.get(
+                producto=producto, usuario=usuario, status=Carrito.ACTIVO)
+            exist.delete()
+        except:
+            usuario = User.objects.get(username=usuario)
+        else:
+            # Intentar guardar, pues no hay un carrito
             objCarrito = Carrito(
                 producto=producto, cantidad=cantidad, monto=monto, usuario=usuario)
             objCarrito.save()
@@ -59,10 +66,6 @@ def product(request, pk):
                     'mensaje': '¡Añadido al carrito!',
                 }
             })
-        except:
-            context = {
-                'mensaje': 'Ocurrio un error',
-            }
     return render(request, 'demo/product.html', context)
 
 
@@ -196,34 +199,34 @@ def register(request):
                 user=lastUser,
                 tel_1=profileForm.tel_1,
                 razon_social=profileForm.razon_social if hasattr(
-                    profileForm, "razon_social") else None,
-                rfc=profileForm.rfc if hasattr(profileForm, "rfc") else None,
+                    profileForm, "razon_social") else "",
+                rfc=profileForm.rfc if hasattr(profileForm, "rfc") else "",
                 direccion_fiscal=profileForm.direccion_fiscal if hasattr(
-                    profileForm, "direccion_fiscal") else None,
+                    profileForm, "direccion_fiscal") else "",
                 ciudad=profileForm.ciudad if hasattr(
-                    profileForm, "ciudad") else None,
+                    profileForm, "ciudad") else "",
                 estado_fact=profileForm.estado_fact if hasattr(
-                    profileForm, "estado_fact") else None,
+                    profileForm, "estado_fact") else "",
                 tel_2=profileForm.tel_2 if hasattr(
-                    profileForm, "tel_2") else None,
+                    profileForm, "tel_2") else "",
                 correo_fact=profileForm.correo_fact if hasattr(
-                    profileForm, "correo_fact") else None,
+                    profileForm, "correo_fact") else "",
                 cfdi=profileForm.cfdi if hasattr(
-                    profileForm, "cfdi") else None,
+                    profileForm, "cfdi") else "",
                 direccion=profileForm.direccion if hasattr(
-                    profileForm, "direccion") else None,
+                    profileForm, "direccion") else "",
                 municipio=profileForm.municipio if hasattr(
-                    profileForm, "municipio") else None,
+                    profileForm, "municipio") else "",
                 estado=profileForm.estado if hasattr(
-                    profileForm, "estado") else None,
-                cp=profileForm.cp if hasattr(profileForm, "cp") else None,
+                    profileForm, "estado") else "",
+                cp=profileForm.cp if hasattr(profileForm, "cp") else "",
                 numero_ext=profileForm.numero_ext if hasattr(
                     profileForm, "numero_ext") else None,
                 numero_int=profileForm.numero_int if hasattr(
                     profileForm, "numero_int") else None,
                 entre_calle=profileForm.entre_calle if hasattr(
-                    profileForm, "entre_calle") else None,
-                entre_calle_2=profileForm.entre_calle_2 if hasattr(profileForm, "entre_calle_2") else None,)
+                    profileForm, "entre_calle") else "",
+                entre_calle_2=profileForm.entre_calle_2 if hasattr(profileForm, "entre_calle_2") else "",)
             newProfile.save()
             messages.success(request, 'La cuenta de ' +
                              newProfile.user.username + ' ha sido creada. Ya puede iniciar sesión')
@@ -239,6 +242,64 @@ def register(request):
 
 @login_required(login_url='login')
 def user_profile(request):
+    if request.method == 'POST':
+        # Recuperar los datos
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        tel_1 = request.POST['tel_1']
+        direccion = request.POST['direccion']
+        estado = request.POST['estado']
+        municipio = request.POST['municipio']
+        cp = request.POST['cp']
+        numero_ext = request.POST['numero_ext']
+        numero_int = request.POST['numero_int']
+        entre_calle = request.POST['entre_calle']
+        entre_calle_2 = request.POST['entre_calle_2']
+        razon_social = request.POST['razon_social']
+        rfc = request.POST['rfc']
+        direccion_fiscal = request.POST['direccion_fiscal']
+        ciudad = request.POST['ciudad']
+        estado_fact = request.POST['estado_fact']
+        tel_2 = request.POST['tel_2']
+        correo_fact = request.POST['correo_fact']
+        cfdi = request.POST['cfdi']
+        # Comprobar que los números, sean números
+        try:
+            numero_int = int(numero_int)
+        except:
+            numero_int = None
+        try:
+            numero_ext = int(numero_ext)
+        except:
+            numero_ext = None
+        # Actualizarlos de acuerdo al usuario
+        user = request.user
+        # Model User
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        # Profile
+        profile = Profile.objects.get(user=request.user)
+        profile.tel_1 = tel_1
+        profile.direccion = direccion
+        profile.estado = estado
+        profile.municipio = municipio
+        profile.cp = cp
+        profile.numero_ext = numero_ext
+        profile.numero_int = numero_int
+        profile.entre_calle = entre_calle
+        profile.entre_calle_2 = entre_calle_2
+        profile.razon_social = razon_social
+        profile.rfc = rfc
+        profile.direccion_fiscal = direccion_fiscal
+        profile.ciudad = ciudad
+        profile.estado_fact = estado_fact
+        profile.tel_2 = tel_2
+        profile.correo_fact = correo_fact
+        profile.cfdi = cfdi
+        user.save()
+        profile.save()
     profile = Profile.objects.get(user=request.user)
     context = {'profile': profile}
     return render(request, 'demo/user_profile.html', context)

@@ -257,6 +257,11 @@ button{
     text-align: end;
 }
 
+.title.xbtn{
+    padding-right: 35px;
+    color: var(--color-primary);
+}
+
 .columns.is-mobile.carrito{
     margin: 0;
     padding: 20px;
@@ -288,8 +293,8 @@ button{
     background-color: var(--color-primary);
 }
 
-.stock{
-
+.help.is-danger{
+    color: var(--color-primary);
 }
 
 .parrafo{

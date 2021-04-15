@@ -1,4 +1,5 @@
 $(function () {
+    a_pagar();
     //Evento del botón X
     $('.deleteItem').each(function () {
         $(this).on("click", function () {
@@ -66,6 +67,16 @@ $(function () {
                 console.log(response.content.mensaje);
             });
             //FIN DEL POST
+            a_pagar();
         });
+
     });
+
+    function a_pagar() {
+        var m = 0;
+        $('.mont').each(function () {
+            m += Number.parseFloat($(this).text());
+        });
+        $('#a_pagar').text(m);
+    }
 })

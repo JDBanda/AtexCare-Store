@@ -9,16 +9,11 @@
             <i class='bx bx-left-arrow-circle bx-xs'> Volver</i>
         </a>
         <br><br>
-        <div class="columns is-mobile">
-            <div class="column is-four-fifths">
+        <div class="columns">
+            <div class="column">
                 <h2 class="title">{{producto.name}}</h2>
                 <h5 class="subtitle">{{producto.short_description}}</h5>
                 <p class="subtitle" id="stock"><span>{{producto.stock}}</span> en existencia</p>
-            </div>
-            <div class="column has-text-centered">
-                <a>
-                    <i class='bx bx-heart bx-md ' style='color:#12ad9f' id="heart-fav"></i>
-                </a>
             </div>
         </div>
         <!--Producto mini galeria-->
@@ -67,9 +62,6 @@
                 </div>
             </div>
             <div class="columns">
-                <div class="column">
-                    <a class="button is-info is-medium is-fullwidth" href="{% url 'detalle_carrito' %}">Comprar</a>
-                </div>
                 <div class="column">
                     <form id="carrito">
                         {% csrf_token %}

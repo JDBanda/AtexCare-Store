@@ -1,7 +1,12 @@
-// mobile menu
-const burgerIcon = document.querySelector('#burger');
-const navbarMenu = document.querySelector('#nav-links');
+$(function () {
+    $('#burger').click(function () {
+        if ($('#nav-links').attr('class') == 'navbar-menu is-active') {
+            $('#nav-links').attr('class', 'navbar-menu');
+            $(this).attr('class', 'navbar-burger')
+        } else {
+            $('#nav-links').attr('class', 'navbar-menu is-active');
+            $(this).attr('class', 'navbar-burger is-active')
+        }
 
-burgerIcon.addEventListener('click', () => {
-    navbarMenu.classList.toggle('is-active');
-});
+    });
+})

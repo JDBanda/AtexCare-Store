@@ -48,10 +48,10 @@
                 </div>
             </div>
         </div>
-        <br>
         {% endfor %}
         <!--Redefinir interfaz de cada elemento del carrito-->
         <!--Boton pagar-->
+        <h3 class="title xbtn">Total: $<span id="a_pagar"></span></h3>
         <a class="button is-info is-medium is-fullwidth" href="{% url 'envio' %}">Pagar</a>
         {% else %}
         <h2 class="title">Sin artículos</h2>

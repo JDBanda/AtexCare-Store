@@ -67,6 +67,9 @@ class Profile (models.Model):
     entre_calle_2 = models.CharField(
         "Y calle", null=True, blank=True, max_length=50)
 
+    def __str__(self):
+        return "perfil de: " + self.user.username
+
 
 class Carrito(models.Model):
     PAGADO = 0
@@ -84,7 +87,7 @@ class Carrito(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=ACTIVO)
 
     def __str__(self):
-        return self.producto.name
+        return self.usuario.username + ", " + self.producto.name + ", " + str(self.status)
 
 
 class Compra(models.Model):

@@ -1,13 +1,7 @@
 {% extends 'demo/base.html' %}
 {% block nav %}
 <!--Header-->
-<div class="columns is-mobile container__slogan">
-    <div class="column">
-        <figure class="image">
-            {% load static %}
-            <a href="{% url 'index' %}"><img src="{% static 'demo/img/nav-img.png' %}" alt="logo_atex"></a>
-        </figure>
-    </div>
+<div class="container__slogan">
     <div class="column text__slogan">
         <p class="subtitle is-6 is-primary">Protección en cualquier lugar y en todo momento</p>
     </div>
@@ -16,6 +10,11 @@
     <nav class="navbar is-primary">
         <!--Menu modo mobile-->
         <div class="navbar-brand">
+            <a class="navbar-item" href="{% url 'index' %}">
+                {% load static %}
+                <img src="{% static 'demo/img/logo-texto.png' %}">
+
+            </a>
             <a role="button" class="navbar-burger" id="burger">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>

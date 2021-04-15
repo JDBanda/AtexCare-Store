@@ -1,44 +1,154 @@
 {% extends 'demo/user.html' %}
 {% block content %}
 <div class="content">
-        <h2 class="title">¡Bienvenido {{request.user.first_name}}!</h2>
-        <form action="">
-            <fieldset disabled id="field">
-                <!--Se cargan los valores GET-->
-                <div class="field">
-                    <label class="label">Nombre(s)</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="" value="{{request.user.first_name}}">
-                    </div>
+    <h2 class="title">¡Bienvenido {{request.user.first_name}}!</h2>
+    <form method="POST" action="{% url 'user' %}" id="form-update-user">
+    {% csrf_token %}
+        <fieldset disabled id="field">
+            <!--Se cargan los valores GET-->
+            <div class="field">
+                <label class="label">Nombre(s)</label>
+                <div class="control">
+                    <input name="first_name" class="input" type="text" placeholder=""
+                        value="{{request.user.first_name}}">
                 </div>
-                <div class="field">
-                    <label class="label">Apellido(s)</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="" value="{{request.user.last_name}}">
-                    </div>
+            </div>
+            <div class="field">
+                <label class="label">Apellido(s)</label>
+                <div class="control">
+                    <input name="last_name" class="input" type="text" placeholder="" value="{{request.user.last_name}}">
                 </div>
-                <div class="field">
-                    <label class="label">Correo</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="" value="{{request.user.email}}">
-                    </div>
+            </div>
+            <div class="field">
+                <label class="label">Correo</label>
+                <div class="control">
+                    <input name="email" class="input" type="text" placeholder="" value="{{request.user.email}}">
                 </div>
-                <div class="field">
-                    <label class="label">Teléfono</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="" value="{{profile.tel_1}}">
-                    </div>
+            </div>
+            <div class="field">
+                <label class="label">Teléfono</label>
+                <div class="control">
+                    <input name="tel_1" class="input" type="text" placeholder="" value="{{profile.tel_1}}">
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <button class="button is-info is-medium is-fullwidth">
-                            Confirmar edición
-                        </button>
-                    </div>
+            </div>
+            <h3 class="title">Información de envío</h3>
+            <div class="field">
+                <label class="label">Dirección (calle)</label>
+                <div class="control">
+                    <input name="direccion" class="input dir" type="text" placeholder="" value="{{profile.direccion}}">
                 </div>
-            </fieldset>
-        </form>
-        <br>
-        <button class="button is-danger is-medium is-fullwidth" id="edit-btn">Editar datos</button>
-    </div>
+            </div>
+            <div class="field">
+                <label class="label">Estado</label>
+                <div class="control">
+                    <input name="estado" class="input dir" type="text" placeholder="" value="{{profile.estado}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Municipio</label>
+                <div class="control">
+                    <input name="municipio" class="input dir" type="text" placeholder="" value="{{profile.municipio}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Código postal</label>
+                <div class="control">
+                    <input name="cp" class="input dir" type="text" placeholder="" value="{{profile.cp}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Número exterior</label>
+                <div class="control">
+                    <input name="numero_ext" class="input dir" type="number" placeholder=""
+                        value="{{profile.numero_ext}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Número interior</label>
+                <div class="control">
+                    <input name="numero_int" class="input dir" type="number" placeholder=""
+                        value="{{profile.numero_int}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Entre calle</label>
+                <div class="control">
+                    <input name="entre_calle" class="input dir" type="text" placeholder=""
+                        value="{{profile.entre_calle}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Y calle</label>
+                <div class="control">
+                    <input name="entre_calle_2" class="input dir" type="text" placeholder=""
+                        value="{{profile.entre_calle_2}}">
+                </div>
+            </div>
+
+            <h3 class="title">Información de facturación</h3>
+
+            <div class="field">
+                <label class="label">Razón social</label>
+                <div class="control">
+                    <input name="razon_social" class="input fac" type="text" placeholder=""
+                        value="{{profile.razon_social}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">RFC</label>
+                <div class="control">
+                    <input name="rfc" class="input fac" type="text" placeholder="" value="{{profile.rfc}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Dirección fiscal</label>
+                <div class="control">
+                    <input name="direccion_fiscal" class="input fac" type="text" placeholder=""
+                        value="{{profile.direccion_fiscal}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Ciudad</label>
+                <div class="control">
+                    <input name="ciudad" class="input fac" type="text" placeholder="" value="{{profile.ciudad}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Estado</label>
+                <div class="control">
+                    <input name="estado_fact" class="input fac" type="text" placeholder=""
+                        value="{{profile.estado_fact}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Número telefónico de facturación</label>
+                <div class="control">
+                    <input name="tel_2" class="input fac" type="text" placeholder="" value="{{profile.tel_2}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Correo electrónico de facturación</label>
+                <div class="control">
+                    <input name="correo_fact" class="input fac" type="text" placeholder=""
+                        value="{{profile.correo_fact}}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">CFDI</label>
+                <div class="control">
+                    <input name="cfdi" class="input fac" type="text" placeholder="" value="{{profile.cfdi}}">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-info is-medium is-fullwidth">
+                        Confirmar edición
+                    </button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <br>
+    <button class="button is-danger is-medium is-fullwidth" id="edit-btn">Habilitar edición</button>
+</div>
 {% endblock content %}
