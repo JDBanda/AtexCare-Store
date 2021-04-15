@@ -14,10 +14,25 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # En Django 3.2 es necesario especificar los IDs como automáticos
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'iz^!crn_wg4b3=ui2p+l4_&y3i2kp1(%2hz*-0*mum6d8571ic'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+# PROD
+#DEBUG = False
+ALLOWED_HOSTS = ['*']
+# PROD
+#ALLOWED_HOSTS = ['atexcare.pythonanywhere.com']
+# Lo ideal es colocar unicamente el dominio o ip a la que apunta
 
 # Application definition
 
@@ -62,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'atexcare.wsgi.application'
 
-
+# DEV
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -73,6 +88,18 @@ DATABASES = {
     }
 }
 
+# PROD
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'atexcare$site',
+        'USER': 'atexcare',
+        'PASSWORD': 'Ventas0.1',
+        'HOST': 'atexcare.mysql.pythonanywhere-services.com',
+    }
+}
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -105,3 +132,24 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Dev
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR/"static"]
+
+# PROD
+'''
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+STATIC_URL = '/static/'
+# Esta ruta puede cambiar de acuerdo a las carpetas del proyecto
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# Media, los archivos que se suben desde el cliente hacia el servidor
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+'''
