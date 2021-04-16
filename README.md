@@ -157,6 +157,10 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
 + Se guarda la información por usuario
 
 ![image](https://user-images.githubusercontent.com/60485485/114596000-aab35f00-9c54-11eb-8ee5-402c453a2f7f.png)
+ 
+ # Avances del día 14/04/2021 y 15/04/2021
+ + Correcciones al carrito, pequeñas correcciones visuales en el menu quienes
+ + Despliegue provisional (http://atexcare.pythonanywhere.com/) con errores al mostrar archivos de media (posible error en las rutas)
 
 
 # Recursos pendientes
