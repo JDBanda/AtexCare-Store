@@ -12,7 +12,10 @@ from django.db import transaction
 from django.contrib.auth.decorators import login_required
 # Importar json response
 from django.http import JsonResponse
-import sys
+# Envío de correos
+from django.core.mail import BadHeaderError, send_mail
+# Configuraciones
+from django.conf import settings
 
 
 def index(request):
@@ -80,7 +83,32 @@ def legal(request):
 
 
 def contact_info(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        message = request.POST['message']  # Titutlo del email
+        email = request.POST['email']
+        cp = request.POST['cp']
+        estado = request.POST['estado']
+        municipio = request.POST['municipio']
+        textarea = request.POST['textarea']
+        # Crear un mensaje predeterminado
+        textarea = "Nombre: " + name + "\nCódigo postal: " + cp + \
+            "\nDirección: " + municipio + ", " + estado + "\n" + textarea
+        try:
+            send_mail(
+                message,
+                textarea,
+                email,
+                # El mail de quien recibe va en una lista
+                [settings.EMAIL_HOST_USER],
+                fail_silently=False)
+        except BadHeaderError:
+            messages.info(
+                request, 'Parece que hubo un problema al enviar el correo')
+        # Página de exito o mensaje
+        messages.info(request, '¡Su mensaje ha sido envíado con exito!')
     context = {}
+
     return render(request, 'demo/contact_info.html', context)
 
 # Operaciones en el carrito de compras

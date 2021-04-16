@@ -5,7 +5,13 @@
     <!--Cuerpo-->
     <div class="content">
         <h2 class="subtitle">Contacto</h2>
-        <form action="" class="form-contact" id="contact-form">
+        {% for message in messages %}
+        <blockquote>
+            {{message}}
+        </blockquote>
+        {% endfor %}
+        <form action="{% url 'contacto' %}" method="POST" class="form-contact" id="contact-form">
+            {% csrf_token %}
             <div class="field">
                 <div class="control">
                     <input class="input" name="name" type="text" placeholder="Nombre completo o razón social"

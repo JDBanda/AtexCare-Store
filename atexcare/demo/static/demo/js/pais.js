@@ -3,7 +3,7 @@ $(function () {
     estados(urlString);
     //Verificar si cambia el valor del estado
     $('#estado').change(function () {
-        municipios($(this).val());
+        municipios($('#estado option:selected').attr('state'));
     })
 
 
@@ -18,8 +18,8 @@ $(function () {
                 //crear las opciones para los estados
                 var option = '<option value="">Selecciona un estado</option>';
                 estados.forEach(element => {
-                    option += '<option value="' + i +
-                        '" state="' + element.state +
+                    option += '<option value="' + element.state +
+                        '" state="' + i +
                         '" >' + element.state + '</option>'
                     i++;
                 });
