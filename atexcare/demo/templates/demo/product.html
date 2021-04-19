@@ -73,12 +73,12 @@
         </div>
         <!--Características-->
         <h3>Descripción general</h3>
-        <h5>{{producto.long_description}}</h5>
+        <p class="parrafo">{{producto.long_description}}</p>
         {% if caracteristicas.lenght > 0 %}
         <h3 class="subtitle">Características</h3>
         {% endif %}
         {% for c in caracteristicas %}
-        <div class="columns is-mobile">
+        <div class="columns is-mobile parrafo">
             <div class="column"><strong>{{c.name}}</strong></div>
             <div class="column">{{c.feature}}</div>
         </div>

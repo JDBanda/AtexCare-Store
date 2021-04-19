@@ -17,10 +17,10 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!--JQuery Validation-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <!--Estilos propios-->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'demo/styles.css' %}">
     <title>{% block title %}{% endblock title %}</title>
+    {% load static %}
+    <!--Estilos propios-->
+    <link rel="stylesheet" href="{% static 'demo/styles.css' %}">
     <!--Icono-->
     <link rel="icon" href="{% static 'demo/img/face-mask-solid-24.png' %}" type="image/x-icon">
 </head>
