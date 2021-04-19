@@ -59,7 +59,6 @@ def product(request, pk):
             exist.delete()
         except:
             usuario = User.objects.get(username=usuario)
-        else:
             # Intentar guardar, pues no hay un carrito
             objCarrito = Carrito(
                 producto=producto, cantidad=cantidad, monto=monto, usuario=usuario)
