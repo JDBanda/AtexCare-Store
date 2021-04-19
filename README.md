@@ -162,7 +162,16 @@ Cada día se llevan a cabo una seria de tareas para la realización del software
  + Correcciones al carrito, pequeñas correcciones visuales en el menu quienes
  + Despliegue provisional (http://atexcare.pythonanywhere.com/) con errores al mostrar archivos de media (posible error en las rutas)
 
+# Avances del día 16/04/2021
++ Envío de correos, se añadió un mensaje de confirmación
++ Pruebas en WebMail y configuración de cuenta empresarial en GMAIL, al enviar correo a finanzas tarda en llegar de 1 a 5 minutos (sobre todo en el formulario, debido a la conexion insegura además podría quedar los correos en el spam de gmail)
+
+![image](https://user-images.githubusercontent.com/60485485/115068879-76d87380-9eb8-11eb-973d-4d0b860a343e.png)
+![image](https://user-images.githubusercontent.com/60485485/115068779-53152d80-9eb8-11eb-9b60-578f3b62a6dc.png)
+![image](https://user-images.githubusercontent.com/60485485/115068836-67592a80-9eb8-11eb-9dc1-68039a727b87.png)
+
 
 # Recursos pendientes
 Es necesario contar con estos requisitos
 1. Esperar imagenes de diseño, ya se esta resolviendo
+2. Analizar muy bien el plan VPS y verificar como se guardaran las imagenes de media (o pasarlas a static)
