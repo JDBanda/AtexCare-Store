@@ -203,8 +203,7 @@ button{
     text-align: end;
 }
 
-.title.xbtn{
-    padding-right: 35px;
+.title{
     color: var(--color-primary);
 }
 
@@ -213,7 +212,6 @@ button{
     padding: 20px;
     padding-top: 0;
 }
-
 /*-----------------------------------------------Login*/
 
 .login__section{
@@ -267,7 +265,22 @@ a{
     .container__img{
         height: 87vh;
         padding-top: 15%;
-    } 
+    }
+    .footer, .stock{
+        font-size: 0.9rem;
+    }
+    .body-carrito{
+        margin: 30px;
+    }
+    .columns.is-mobile.carrito{
+        padding: 30px;
+        padding-top: 0;
+    }
+    /*Este valor es calculado con el margin y padding del cuerpo del carrito*/
+    .columns.pagar.is-vcentered{
+        padding-right: 30px;
+        padding-left: 30px;
+    }
 }
 
 @media screen and (min-width: 900px) {
@@ -287,6 +300,30 @@ a{
     /*Cambiar el tamaño de fuente del slogan y footer*/
     .container__slogan p{
         font-size: 1.25rem;
+    }
+    .footer, .stock{
+        font-size: 1rem;
+    }
+    /*Tamaños para el div que contiene el contenido de un item del carrito*/
+    .body-carrito{
+        margin: 80px;
+        margin-bottom: 30px;
+    }
+    .columns.is-mobile.carrito{
+        padding: 45px;
+        padding-top: 0;
+        font-size: 1.15rem;
+    }
+    .price{
+        font-size: 2rem;
+    }
+    .title.xbtn{
+        font-size: 2.15rem;
+    }
+    /*Este valor es calculado con el margin y padding del cuerpo del carrito*/
+    .columns.pagar.is-vcentered{
+        padding-right: 70.5px;
+        padding-left: 70.5px;
     }
 }
 

@@ -26,36 +26,38 @@
                 <div class="column">
                     <img src="{{o.producto.image.url}}" alt="{{o.producto.name}}">
                 </div>
-                <div class="column is-two-thirds">
-                    <p>{{o.producto.short_description}}</p>
+                <div class="column is-two-thirds xbtn">
                     <p class="stock">Límite en stock: <span>{{o.producto.stock}}</span></p>
-                    <div class="columns">
-                        <div class="xbtn column price">
-                            <button class="button is-outlined cantidadItem">
-                                <i class='bx bx-minus'></i>
-                            </button>
-                            <span class="cant"> {{o.cantidad}} </span>
-                            <button class="button is-outlined cantidadItem">
-                                <i class='bx bx-plus'></i>
-                            </button>
-                        </div>
-                        <div class="xbtn column">
-                            <h4>$
-                                <span class="price mont" precio="{{o.producto.price}}">{{o.monto}}</span>
-                            </h4>
-                        </div>
-                    </div>
+                    <p class="xbtn  price">
+                        <button class="button is-outlined cantidadItem">
+                            <i class='bx bx-minus'></i>
+                        </button>
+                        <span class="cant"> {{o.cantidad}} </span>
+                        <button class="button is-outlined cantidadItem">
+                            <i class='bx bx-plus'></i>
+                        </button>
+                    </p>
+                    <h4 class="xbtn">$
+                        <span class="price mont" precio="{{o.producto.price}}">{{o.monto}}</span>
+                    </h4>
                 </div>
             </div>
         </div>
         {% endfor %}
-        <!--Redefinir interfaz de cada elemento del carrito-->
-        <!--Boton pagar-->
-        <h3 class="title xbtn">Total: $<span id="a_pagar"></span></h3>
-        <a class="button is-info is-medium is-fullwidth" href="{% url 'envio' %}">Pagar</a>
+        <br>
+        <div class="columns pagar is-vcentered">
+            <div class="column">
+                <p class="title has-text-centered">Total: $<span id="a_pagar"></span></p>
+            </div>
+            <div class="column xbtn">
+                <a class="button is-info is-fullwidth is-medium" href="{% url 'envio' %}">Pagar</a>
+            </div>
+        </div>
         {% else %}
+        <br><br><br>
         <h2 class="title">Sin artículos</h2>
         <h5>Parece que aún no has añadido artículos, puedes agregar artículos en cualquier momento 😷</h5>
+        <br><br><br>
         {% endif %}
     </div>
 </section>
