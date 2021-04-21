@@ -65,7 +65,8 @@
                 <div class="column">
                     <form id="carrito">
                         {% csrf_token %}
-                        <button class="button is-info is-outlined is-medium is-fullwidth" type="submit">Añadir al
+                        <button id="addCart" class="button is-info is-outlined is-medium is-fullwidth"
+                            type="submit">Añadir al
                             carrito</button>
                     </form>
                 </div>
@@ -88,4 +89,5 @@
 </section>
 {% load static %}
 <script src="{% static 'demo/js/product-price.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 {% endblock body %}

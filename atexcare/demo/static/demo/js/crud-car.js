@@ -4,19 +4,43 @@ $(function () {
     $('.deleteItem').each(function () {
         $(this).on("click", function () {
             //Eliminar de la BD
-            var respuesta = confirm("¿Estas seguro de querer eliminar el elmento del carrito?");
-            if (respuesta) {
-                var url = "/detalle_carrito/eliminar";
-                const data = {
-                    csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(), //Sin esto no se pasan los datos
-                    id: $(this).parent().parent().parent().attr("id"),
+            //Edito los colores de los botones
+            //Se invoca un Swal para confirmar
+            Swal.fire({
+                title: '¿Estas seguro?',
+                text: 'Si aceptas el elemento se eliminará de tu carrito de compras',
+                icon: 'warning',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Eliminar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var url = "/detalle_carrito/eliminar";
+                    const data = {
+                        csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(), //Sin esto no se pasan los datos
+                        id: $(this).parent().parent().parent().attr("id"),
+                    }
+                    $.post(url, data, function (response) {
+                        //Mensaje de que se eliminó
+                        var Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+                        Toast.fire({
+                            icon: response.content.icon,
+                            title: response.content.title
+                        })
+                        window.location.reload();
+                    });
                 }
-                $.post(url, data, function (response) {
-                    alert(response.content.mensaje);
-                    //Actualizar para no ver en el DOM
-                    location.reload();
-                });
-            }
+            })
         });
     });
 
@@ -59,12 +83,27 @@ $(function () {
             var url = "/detalle_carrito"
             const data = {
                 csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(), //Sin esto no se pasan los datos
-                id: $(this).parent().parent().parent().parent().parent().attr("id"),
+                id: $(this).parent().parent().parent().parent().attr("id"),
                 cantidad: cantidad,
                 monto: monto,
             }
             $.post(url, data, function (response) {
-                console.log(response.content.mensaje);
+                //console.log(response.content.title);
+                var Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                Toast.fire({
+                    icon: response.content.icon,
+                    title: response.content.title
+                })
             });
             //FIN DEL POST
             a_pagar();

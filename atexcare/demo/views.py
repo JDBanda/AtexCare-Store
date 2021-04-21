@@ -48,7 +48,12 @@ def product(request, pk):
         if usuario == 'AnonymousUser':
             return JsonResponse({
                 'content': {
-                    'mensaje': 'Debe ingresar o darse de alta para guardar elementos en el carrito'
+                    'title': 'No ha iniciado sesión',
+                    'mensaje': 'Por favor inicie su sesión, claro que debes de estar registrado antes',
+                    'url': '/inicio_sesion',
+                    'boton': '<i class="bx bx-user-circle"></i> Iniciar sesion',
+                    'icon': 'error',
+                    'state': True,
                 }
             })
         try:
@@ -59,15 +64,19 @@ def product(request, pk):
             exist.delete()
         except:
             usuario = User.objects.get(username=usuario)
-            # Intentar guardar, pues no hay un carrito
-            objCarrito = Carrito(
-                producto=producto, cantidad=cantidad, monto=monto, usuario=usuario)
-            objCarrito.save()
-            return JsonResponse({
-                'content': {
-                    'mensaje': '¡Añadido al carrito!',
-                }
-            })
+        # Intentar guardar, pues no hay un carrito
+        objCarrito = Carrito(
+            producto=producto, cantidad=cantidad, monto=monto, usuario=usuario)
+        objCarrito.save()
+        return JsonResponse({
+            'content': {
+                'title': '¡Agregado!',
+                'url': '/detalle_carrito',
+                'boton': '<i class="bx bxs-cart bx-tada"></i> Ver Carrito',
+                'icon': 'success',
+                'status': True,
+            }
+        })
     return render(request, 'demo/product.html', context)
 
 
@@ -126,13 +135,17 @@ def detail_car(request):
             objCar.save()
             return JsonResponse({
                 'content': {
-                    'mensaje': 'Actualizado'
+                    'title': '¡Actualizado!',
+                    'icon': 'success',
+                    'status': True,
                 }
             })
         except:
             return JsonResponse({
                 'content': {
-                    'mensaje': 'Error, vuelve a intentar'
+                    'title': 'Ocurrio un error, intentalo de nuevo',
+                    'icon': 'error',
+                    'status': False,
                 }
             })
     objCar = Carrito.objects.filter(usuario=request.user)
@@ -157,14 +170,18 @@ def delete_car_item(request):
             # Mandar un mensaje
             return JsonResponse({
                 'content': {
-                    'mensaje': 'Elemento ' + nombre + ' eliminado'
+                    'title': 'Elemento ' + nombre + ' eliminado',
+                    'icon': 'success',
+                    'status': True,
                 }
             })
         except:
             # Mandar mensaje
             return JsonResponse({
                 'content': {
-                    'mensaje': 'Ocurrió un problema al eliminar, vuelva a intentar'
+                    'title': 'Ocurrió un problema al eliminar, vuelva a intentar',
+                    'icon': 'error',
+                    'status': False,
                 }
             })
 

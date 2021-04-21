@@ -86,39 +86,9 @@ html, body {
     padding-top: 15px;
 }
 
-/*-----------------------------------------------El otro menu, no he modificado nada*/
-
-.container__login, .container__login div{
-    margin: 0 !important;
-    padding: 0;
-    background-color: var(--color-primary);
-}
-
-.container__login img{
-    width: 70px;
-    height: auto;
-}
-
-.icons__login div{
-    display: grid;
-    padding-top: 15px;
-    text-align: right;
-}
-
-.container__fields{
-    background-color: var(--color-primary);
-    padding: 15px 15px 15px 15px;
-}
-
-.container__login{
-    display: grid;
-    align-self: center;
-    text-align: center;
-}
-
 /*-----------------------------------------------Landing*/
 .container__img{
-    height: 80vh;
+    height: 85vh;
     padding-top: 25%;
     background-image: url('img/atex_01.jpg');
     background-size: 100% 100% !important;
