@@ -5,6 +5,7 @@ $(function () {
     $('#id_email').attr('type', 'email');
     //Input que solicita las contraseñas
     $('#id_new_password1').attr('class', 'input');
-    //
+    //Agregar únicamente la clase
     $('#id_new_password2').attr('class', 'input');
+
 })
