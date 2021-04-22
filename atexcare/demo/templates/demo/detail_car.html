@@ -16,7 +16,7 @@
         <div class="body-carrito" id="{{o.id}}">
             <div class="columns is-mobile is-vcentered head-carrito">
                 <div class="column is-two-thirds">
-                    <h4>{{o.producto.name}}</h4>
+                    <h4><a href="{% url 'producto' o.producto.id %}">{{o.producto.name}}</a></h4>
                 </div>
                 <div class="xbtn column">
                     <button class="button is-outlined is-small deleteItem"><i class='bx bx-x'></i></button>
@@ -43,6 +43,7 @@
                 </div>
             </div>
         </div>
+        <br>
         {% endfor %}
         <br>
         <div class="columns pagar is-vcentered">

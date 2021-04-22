@@ -5,86 +5,67 @@
 <section>
     <!--Cuerpo-->
     <div class="content">
-        <a class="subtitle" href="{% url 'productos' %}">
-            <i class='bx bx-left-arrow-circle bx-xs'> Volver</i>
-        </a>
-        <br><br>
-        <div class="columns">
-            <div class="column">
-                <h2 class="title">{{producto.name}}</h2>
-                <h5 class="subtitle">{{producto.short_description}}</h5>
-                <p class="subtitle" id="stock"><span>{{producto.stock}}</span> en existencia</p>
-            </div>
-        </div>
-        <!--Producto mini galeria-->
-        <div class="content">
-            <figure>
-                <img src="{{producto.image.url}}" alt="cubre">
-            </figure>
-            <!--Producto compras-->
-
-            <div class="columns is-mobile">
-                <div class="column">
-                    <img src="{{producto.image.url}}" width="100" alt="cubre">
-                </div>
-                <div class="column">
-                    <img src="{{producto.image.url}}" width="100" alt="cubre">
-                </div>
-            </div>
-
-            <div class="columns compra has-text-centered">
-                <div class="column">
-                    <span>
-                        <span><i class='bx bx-dollar-circle bx-sm'></i></span>
-                    </span>
-                    <span class="price-p" usuario="{{request.user}}" producto="{{producto.id}}"
+        <p>
+            <a class="subtitle" href="{% url 'productos' %}">
+                <i class='bx bx-left-arrow-circle bx-xs'> Volver</i>
+            </a>
+        </p>
+        <h2 class="title">{{producto.name}}</h2>
+        <h5 class="subtitle">{{producto.short_description}}</h5>
+        <div class="grid__container">
+            <div class="grid__item purchase">
+                <p class="stock"><span id="stock">{{producto.stock}}</span> en existencia
+                    <span><i class='bx bx-dollar-circle'></i></span>
+                    <span class="stock" usuario="{{request.user}}" producto="{{producto.id}}"
                         id="precio">{{producto.price}}</span>
-                </div>
-                <div class="column">
-                    <div class="field columns is-mobile">
-                        <div class="control column">
-                            <button id="menos" class="button is-primary price">
-                                -
-                            </button>
-                        </div>
-                        <div class="column price" id="cantidad">
-                            1
-                        </div>
-                        <div class="control column">
-                            <button id="mas" class="button is-primary price">
-                                +
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">
-                    <p class="price" id="total"></p>
-                </div>
+                </p>
+                <!--Producto mini galeria-->
+                <img src="{{producto.image.url}}" width="200" alt="cubre">
             </div>
-            <div class="columns">
-                <div class="column">
-                    <form id="carrito">
-                        {% csrf_token %}
-                        <button id="addCart" class="button is-info is-outlined is-medium is-fullwidth"
-                            type="submit">Añadir al
-                            carrito</button>
-                    </form>
-                </div>
+            <div class="grid__item detail">
+                <br>
+                <article class="message is-primary">
+                    <div class="message-body box">
+                        <div class="botones">
+                            <span>
+                                <button id="menos" class="button is-primary price">
+                                    -
+                                </button>
+                            </span>
+                            <span class="price-p" id="cantidad">
+                                1
+                            </span>
+                            <span>
+                                <button id="mas" class="button is-primary price">
+                                    +
+                                </button>
+                            </span>
+                        </div>
+                        <br>
+                        <p class="price-p" id="total"></p>
+                        <form id="carrito">
+                            {% csrf_token %}
+                            <button id="addCart" class="button is-info is-outlined is-medium is-fullwidth"
+                                type="submit">Añadir
+                                al
+                                carrito</button>
+                        </form>
+                    </div>
+                </article>
             </div>
         </div>
         <!--Características-->
         <h3>Descripción general</h3>
-        <p class="parrafo">{{producto.long_description}}</p>
-        {% if caracteristicas.lenght > 0 %}
+        <p class="fuente__base-justify">{{producto.long_description}}</p>
+        {% if caracteristicas %}
         <h3 class="subtitle">Características</h3>
-        {% endif %}
         {% for c in caracteristicas %}
-        <div class="columns is-mobile parrafo">
-            <div class="column"><strong>{{c.name}}</strong></div>
+        <div class="columns is-mobile fuente__base">
+            <div class="column">{{c.name}}</div>
             <div class="column">{{c.feature}}</div>
         </div>
         {% endfor %}
-
+        {% endif %}
     </div>
 </section>
 {% load static %}

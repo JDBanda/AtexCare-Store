@@ -1,6 +1,7 @@
 $(function () {
     var cantidad = $('#cantidad').text();
-    var stock = $('#stock span').text();
+    var stock = $('#stock').text();
+    console.log(stock);
     total();
     loadingGif();
 

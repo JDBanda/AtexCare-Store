@@ -137,7 +137,7 @@ html, body {
 }
 
 .price-p{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .discount{
@@ -162,11 +162,52 @@ button{
     align-items: center;
 }
 
+/*-----------------------------------------------Galería de producto N*/
+.grid__container{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.grid__item{
+    text-align: center;
+    display: block;
+    object-fit: fill;
+}
+
+.botones span{
+    padding: 5px;
+}
+.grid__item.purchase, .grid__item.detail{
+    margin: 5px;
+    padding: 15px;
+}
+.grid__item.purchase{
+    box-shadow: 2px 2px 35px rgba(18, 173, 159, 50%);
+}
+
+.columns.is-mobile.fuente__base{
+    border: 3px groove;
+    border-color: var(--color-secondary);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.columns.is-mobile.fuente__base .column:nth-child(odd){
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+.columns.is-mobile.fuente__base .column:nth-child(even){
+    background-color: var(--color-white);
+    text-align: center;
+}
+
 /*-----------------------------------------------Carrito de compras*/
 .body-carrito{
     margin: 10px;
     text-align: justify;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 35px rgba(18, 173, 159, 50%);
 }
 
 .columns.is-mobile.head-carrito{
@@ -232,7 +273,7 @@ a{
 }
 
 
-/*Media Querys*/
+/************************************************************************Media Querys*/
 @media screen and (min-width: 500px) {
     .container__products{
         grid-template-columns: auto auto;
@@ -256,6 +297,21 @@ a{
     .columns.pagar.is-vcentered{
         padding-right: 30px;
         padding-left: 30px;
+    }
+    .grid__item.purchase, .grid__item.detail{
+        margin: 15px;
+    }
+}
+@media screen and (min-width: 600px) {
+    /*Galería*/
+    .grid__container{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    /*tabla margenes*/
+    .columns.is-mobile.fuente__base{        
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }
 
@@ -291,7 +347,7 @@ a{
         font-size: 1.15rem;
     }
     .price{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .title.xbtn{
         font-size: 2.15rem;
@@ -300,6 +356,18 @@ a{
     .columns.pagar.is-vcentered{
         padding-right: 70.5px;
         padding-left: 70.5px;
+    }
+    /*mas margen en la imagen del producto*/
+    .grid__item.purchase, .grid__item.detail{
+        margin: 20px;
+    }
+    .price-p{
+        font-size: 2.5rem;
+    }
+    /*Tabla*/
+    .columns.is-mobile.fuente__base{        
+        margin-left: 100px;
+        margin-right: 100px;
     }
 }
 
