@@ -102,10 +102,16 @@ html, body {
 }
 
 /*-----------------------------------------------Productos*/
+.container__search{
+    padding: 15px;
+    padding-top: 0;
+    background-color: var(--color-primary);
+}
+
 .container__products{
     display: grid;
     grid-template-columns: auto;
-    margin: 5px;
+    margin: 10px;
 }
 .square__img{
     margin: 10px;

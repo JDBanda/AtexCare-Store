@@ -26,8 +26,11 @@ def index(request):
 def products(request):
     # Filtrar los productos
     lista = ProductFilter(request.GET, queryset=Product.objects.all())
+    # Tamaño del queryset
+    tam = len(lista.qs)
     context = {
         "productos": lista,
+        "tam": tam,
     }
     return render(request, 'demo/products.html', context)
 

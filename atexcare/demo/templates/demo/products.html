@@ -5,7 +5,7 @@
 {% for field in productos.form %}
 <form action="{% url 'productos' %}" method="GET">
     {% csrf_token %}
-    <div class="container__fields">
+    <div class="container__search">
         <div class="field">
             <div class="control">
                 {{field}}
@@ -17,25 +17,34 @@
 <section>
     <!--Cuerpo-->
     <div class="content">
-        <div class="has-text-centered container__products">
-            {% for p in productos.qs %}
-            <div class="column square__img">
-                <a href="{% url 'producto' p.id %}">
-                    <img src="{{p.image.url}}" alt="cubrebocas">
-                </a>
-                <div class="products__desc">
-                    <span>
-                        <i class='bx bxs-badge-dollar bx-tada bx-sm' style='color:#12ad9f'></i>
-                    </span>
-                    <span class="price"><strong>{{p.price}}</strong></span>
-                    {% if p.discount > 0 %}
-                    <span class="discount"> -{{p.discount}}%</span>
-                    {% endif %}
-                    <p class="description">{{p.name}}</p>
+        <h2 class="title">Resultados de la búsqueda: {{tam}} artículo(s)</h2>
+        {% if tam < 1 %} <br>
+            <h5 class="subtitle">Lo sentimos 😓</h5>
+            <br>
+            <p class="">Ningún resultado coincide con su búsqueda, trate a poner otra palábra o usar el modo
+                singular de la palabra que buscó.</p>
+            <br>
+            {% else %}
+            <div class="has-text-centered container__products">
+                {% for p in productos.qs %}
+                <div class="column square__img">
+                    <a href="{% url 'producto' p.id %}">
+                        <img src="{{p.image.url}}" alt="cubrebocas">
+                    </a>
+                    <div class="products__desc">
+                        <span>
+                            <i class='bx bxs-badge-dollar bx-tada bx-sm' style='color:#12ad9f'></i>
+                        </span>
+                        <span class="price"><strong>{{p.price}}</strong></span>
+                        {% if p.discount > 0 %}
+                        <span class="discount"> -{{p.discount}}%</span>
+                        {% endif %}
+                        <p class="description">{{p.name}}</p>
+                    </div>
                 </div>
+                {% endfor %}
+                {% endif %}
             </div>
-            {% endfor %}
-        </div>
     </div>
 </section>
 {% load static %}
