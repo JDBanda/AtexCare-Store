@@ -20,7 +20,13 @@
                         id="precio">{{producto.price}}</span>
                 </p>
                 <!--Producto mini galeria-->
-                <img src="{{producto.image.url}}" width="200" alt="cubre">
+                <a class="gallery" id="test-popup" href="{{producto.image.url}}">
+                    {% for i in imagenes %}
+                    <div class="hide" image="{{i.image.url}}"></div>
+                    {% endfor %}
+                    <img src="{{producto.image.url}}" width="50%" alt="cubre">
+                    <i class='bx bxs-hand-up bx-burst bx-sm'></i>
+                </a>
             </div>
             <div class="grid__item detail">
                 <br>
@@ -71,4 +77,5 @@
 {% load static %}
 <script src="{% static 'demo/js/product-price.js' %}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="{% static 'demo/js/jquery.magnific-popup.js' %}"></script>
 {% endblock body %}

@@ -202,7 +202,18 @@ button{
     background-color: var(--color-white);
     text-align: center;
 }
+.gallery i{
+    position: absolute;
+    background-color: var(--color-primary);
+    padding: 5px;
+    border-radius: 50%;
+    text-align: end;
+    color: var(--color-white);
+}
 
+.hide{
+    display: none;
+}
 /*-----------------------------------------------Carrito de compras*/
 .body-carrito{
     margin: 10px;

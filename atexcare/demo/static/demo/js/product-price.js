@@ -1,9 +1,9 @@
 $(function () {
     var cantidad = $('#cantidad').text();
     var stock = $('#stock').text();
-    console.log(stock);
     total();
     loadingGif();
+    item();
 
     function loadingGif() {
         $(document).ajaxStart(function () {
@@ -132,5 +132,29 @@ $(function () {
                 })
             }
         });
+    }
+
+    //Testear el popup
+    $('#test-popup').magnificPopup({
+        items: item(),
+        gallery: {
+            enabled: true
+        },
+        type: 'image',
+    });
+
+
+    function item() {
+        var arr = []
+        var dict = {}
+        //Se mete primero la primer imagen
+        dict = { src: $('#test-popup img').attr('src') };
+        arr.push(dict);
+        //Luego todas las que haya
+        $('.hide').each(function () {
+            dict = { src: $(this).attr('image') }
+            arr.push(dict)
+        });
+        return arr;
     }
 })

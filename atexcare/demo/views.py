@@ -38,9 +38,13 @@ def products(request):
 def product(request, pk):
     instance = Product.objects.get(id=pk)
     # Obtener de many to many
+    b = Image_collection.objects.filter(producto=pk)
     a = Feature.objects.filter(product=pk)
-    context = {'producto': instance,
-               'caracteristicas': a}
+    context = {
+        'producto': instance,
+        'caracteristicas': a,
+        'imagenes': b,
+        }
     if request.method == 'POST':
         # Recibimos los datos
         producto = Product.objects.get(id=request.POST.get('producto'))

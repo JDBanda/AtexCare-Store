@@ -19,8 +19,18 @@ class Product (models.Model):
 
     def __str__(self):
         return self.name
+# Imagenes del producto
 
+
+class Image_collection (models.Model):
+    producto = models.ForeignKey(
+        Product, verbose_name="Producto", on_delete=models.CASCADE)
+    image = models.ImageField(
+        upload_to='principal_img/collection', null=True)
 # Características, una característicica puede estar en varios productos
+
+    def __str__(self):
+        return self.producto.name + ", " + str(self.id)
 
 
 class Feature (models.Model):
