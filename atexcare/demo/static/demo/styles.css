@@ -36,6 +36,7 @@ html, body {
 
 .content{
     padding: 25px;
+    padding-top: 100px;
 }
 
 .button.is-info{
@@ -79,26 +80,71 @@ html, body {
 }
 /*-----------------------------------------------Slogan*/
 .container__slogan p{
-    color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-primary);
     text-align: center;
     font-weight: bold;
     font-style: oblique;
-    padding-top: 15px;
 }
 
 /*-----------------------------------------------Landing*/
 .container__img{
-    height: 85vh;
-    padding-top: 25%;
-    background-image: url('img/atex_01.jpg');
-    background-size: 100% 100% !important;
+    height: 100vh;
+    padding-top: 35%;
+    background-image: url('https://images.unsplash.com/photo-1584744982491-665216d95f8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+.container__img strong, .container__img p{
+    color: var(--color-white);
+    text-shadow: 5px 5px 5px var(--color-black);
+}
+
+.container__img p{
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .container__img strong{
-    font-size: 2.7rem;
+    font-size: 2.15rem;
+}
+
+.float-button{
+    z-index: 100;
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+}
+
+.redes a, .bx.bx-plus{
+    display: block;
+    text-decoration: none;
+    background-color: var(--color-primary);
     color: var(--color-white);
-    text-shadow: 5px 5px 5px var(--color-black);
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 2px 2px 35px rgba(0, 0, 0, 0.5);
+    transition: all 500ms ease;
+}
+
+.redes a:hover{
+    color: var(--color-primary);
+    background-color: var(--color-white);
+}
+
+.hide-buttons{
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-buttons{
+    margin-bottom: 15px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /*-----------------------------------------------Productos*/
@@ -291,7 +337,6 @@ a{
     }
     /*La imagen del inicio*/
     .container__img{
-        height: 87vh;
         padding-top: 15%;
     }
     .footer, .stock{
@@ -382,3 +427,8 @@ a{
     }
 }
 
+@media screen and (min-width: 1024px) {
+    .container__slogan p{
+        padding:20px;
+    }
+}

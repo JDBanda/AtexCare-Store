@@ -1,3 +1,4 @@
+/*
 var slide = document.getElementById('slide');
 
 var imgs = new Array(
@@ -19,3 +20,21 @@ function nextImg() {
     }
 }
 setInterval(nextImg, 3000);
+*/
+
+/*Botón del inicio*/
+
+$(function () {
+
+    $('#btn-plus').click(function () {
+        if ($('.redes a').attr('class').includes('hide-buttons')) {
+            $('.redes a').removeClass('hide-buttons');
+            $('.redes a').addClass('show-buttons');
+            $('#btn-plus i').css('transform', 'rotate(45deg)')
+        } else {
+            $('.redes a').removeClass('show-buttons');
+            $('.redes a').addClass('hide-buttons');
+            $('#btn-plus i').css('transform', 'rotate(0deg)')
+        }
+    })
+})

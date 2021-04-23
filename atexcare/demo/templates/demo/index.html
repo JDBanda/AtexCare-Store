@@ -1,21 +1,47 @@
 {% extends 'demo/menu_quienes.html' %}
 {% block title %}Atex Care{% endblock title %}
+<!-- #Facebook JS SDK
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '467018924571064',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v10.0'
+        });
+    };
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+-->
 {% block body %}
+
 <section>
     <!--Carrusel-->
     {% load static %}
     <div class="column container__img" id="slide">
         <div class="column has-text-centered">
-            <strong>Insumos médicos de calidad</strong>
+            <strong>Protección en todo lugar y en todo momento</strong>
+            <p>Somos fabricantes y distribuidores, entregas en toda la república</p>
             <br>
             <a href="{% url 'productos' %}" class="button is-info is-medium ">Ver productos</a>
+        </div>
+        <div class="float-button">
+            <div class="redes">
+                <a href="https://wa.me/+527712025052" class="bx bxl-whatsapp bx-md hide-buttons" target="_blank"></a>
+                <a href="https://m.me/CUBREBOCAS.atex.care" class="bx bxl-messenger bx-md hide-buttons"
+                    target="_blank"></a>
+            </div>
+            <button id="btn-plus" class="btn-plus">
+                <i class="bx bx-plus bx-md "></i>
+            </button>
         </div>
     </div>
 </section>
 <section>
     <!--Cuerpo-->
     <div class="content">
-        <h1 id="quienes">¿Quienes somos?</h1>
+
+        <h1 id="quienes">¿Por que Atex Care?</h1>
         <div class="columns">
             <div class="column">
                 <p class="fuente__base-justify">Una empresa 100% mexicana, orientada primariamente a atender el mandato
@@ -30,48 +56,112 @@
                     elaborados con
                     telas 100%
                     polipropilenas.</p>
+                <a href="button is-primary">Conocer más</a>
             </div>
+
             <div class="column">
                 {% load static %}
                 <img class="desc__img" src="{% static 'demo/img/1.jpeg' %}" alt="quienes_somos">
             </div>
         </div>
-        <h2>Misión</h2>
+
+        <h2>Ofertas</h2>
         <div class="columns">
-            <div class="column desc__img">
+            <div class="column has-text-centered">
                 {% load static %}
-                <img class="desc__img" src="{% static 'demo/img/2.jpg' %}" alt="quienes_somos">
+                <img class="desc__img" src="{% static 'demo/img/atex_02.jpg' %}" width="300" alt="oferta">
             </div>
             <div class="column">
-                <p class="fuente__base-justify">Somos una empresa de fabricación y comercialización de productos
-                    médicos,
-                    comprometida a las
-                    necesidades
-                    de nuestros
-                    socios comerciales como clientes, con el fin del ofrecer protección en cualquier lugar y en todo
-                    momento.</p>
+                <p class="fuente__base-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
+                    asperiores voluptatum possimus fuga dolorum dolore vitae quasi, natus aliquid autem maiores quidem
+                    laudantium esse in atque tempore ea nihil quibusdam?</p>
+                <a href="button is-primary">Conocer más</a>
             </div>
         </div>
-        <h2>Visión</h2>
+        <h2>Ultimos productos</h2>
         <div class="columns">
             <div class="column">
-                <p class="fuente__base-justify">Ser la empresa líder del sector, innovando y creando nuevas gamas de
-                    productos
-                    con estándares de
-                    alta
-                    calidad para
-                    proteger el cuidado y bienestar del usuario final, de la misma forma poder incrementar nuestro
-                    capital
-                    humano.</p>
+                <p class="fuente__base-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quaerat
+                    ea, voluptatem consequuntur porro quis blanditiis molestiae impedit eligendi totam non eius est
+                    dolorem repellat deserunt cumque ab, aliquid odio?</p>
+                <a href="button is-primary">Conocer más</a>
             </div>
             <div class="column desc__img">
                 {% load static %}
                 <img class="desc__img" src="{% static 'demo/img/3.jpg' %}" alt="quienes_somos">
             </div>
         </div>
+        <h2>Contactanos</h2>
+
+        {% for message in messages %}
+        <blockquote>
+            {{message}}
+        </blockquote>
+        {% endfor %}
+        <form action="{% url 'contacto' %}" method="POST" class="form-contact" id="contact-form">
+            {% csrf_token %}
+            <div class="field">
+                <div class="control">
+                    <input class="input" name="name" type="text" placeholder="Nombre completo o razón social"
+                        minlength="5" required>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" name="message" placeholder="Motivo del mensaje" required
+                        maxlength="20" minlength="5">
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="email" name="email" placeholder="correo@electronico.com"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <div class="control">
+                            <input class="input" type="number" name="cp" minlength="4" placeholder="codigo postal"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <!--Estado-->
+                <div class="column">
+                    <div class="select">
+                        <select id="estado" name="estado" class="required">
+                        </select>
+                    </div>
+                </div>
+                <!--Municipio-->
+                <div class="column">
+                    <div class="select">
+                        <select id="municipio" name="municipio" class="required">
+                            <option value="">Selecciona un estado primero</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea" placeholder="Ingrese su mensaje" name="textarea" maxlength="250"
+                        required></textarea>
+                </div>
+            </div>
+            <button class="button is-info is-medium is-fullwidth" type="submit">Enviar</button>
+        </form>
     </div>
 </section>
+
+</div>
+</section>
 {% load static %}
-<!-- Parece mejor opcion usar JS Sweeper-->
 <script src="{% static 'demo/js/background.js' %}"></script>
 {% endblock body %}
