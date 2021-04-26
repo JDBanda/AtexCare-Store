@@ -1,40 +1,54 @@
 {% extends 'demo/menu_quienes.html' %}
 {% block title %}Atex Care{% endblock title %}
-<!-- #Facebook JS SDK
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '467018924571064',
-            autoLogAppEvents: true,
-            xfbml: true,
-            version: 'v10.0'
-        });
-    };
-</script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
--->
 {% block body %}
 
 <section>
     <!--Carrusel-->
     {% load static %}
-    <div class="column container__img" id="slide">
-        <div class="column has-text-centered">
-            <strong>Protección en todo lugar y en todo momento</strong>
-            <p>Somos fabricantes y distribuidores, entregas en toda la república</p>
-            <br>
-            <a href="{% url 'productos' %}" class="button is-info is-medium ">Ver productos</a>
-        </div>
-        <div class="float-button">
-            <div class="redes">
-                <a href="https://wa.me/+527712025052" class="bx bxl-whatsapp bx-md hide-buttons" target="_blank"></a>
-                <a href="https://m.me/CUBREBOCAS.atex.care" class="bx bxl-messenger bx-md hide-buttons"
-                    target="_blank"></a>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1584961958654-fea280e63da5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+                    alt="face-mask">
+                <div class="container-call">
+                    <strong>Protección en todo lugar y en todo momento</strong>
+                    <p>Somos fabricantes y distribuidores, entregas en toda la república</p>
+                    <br>
+                    <a href="{% url 'productos' %}" class="button is-info is-medium ">Ver productos</a>
+                </div>
             </div>
-            <button id="btn-plus" class="btn-plus">
-                <i class="bx bx-plus-medical bx-md "></i>
-            </button>
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1584634428004-1180accbcc9a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=749&q=80"
+                    alt="">
+                <div class="container-call">
+                    <strong>Protección en todo lugar y en todo momento</strong>
+                    <p>Somos fabricantes y distribuidores, entregas en toda la república</p>
+                    <br>
+                    <a href="{% url 'productos' %}" class="button is-info is-medium ">Ver productos</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://images.unsplash.com/photo-1603285992455-24292e6defce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
+                    alt="">
+                <div class="container-call">
+                    <strong>Protección en todo lugar y en todo momento</strong>
+                    <p>Somos fabricantes y distribuidores, entregas en toda la república</p>
+                    <br>
+                    <a href="{% url 'productos' %}" class="button is-info is-medium ">Ver productos</a>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="float-button">
+        <div class="redes">
+            <a href="https://wa.me/+527712025052" class="bx bxl-whatsapp bx-md hide-buttons" target="_blank"></a>
+            <a href="https://m.me/CUBREBOCAS.atex.care" class="bx bxl-messenger bx-md hide-buttons" target="_blank"></a>
+        </div>
+        <button id="btn-plus" class="btn-plus">
+            <i class="bx bx-plus-medical bx-md "></i>
+        </button>
     </div>
 </section>
 <section>
@@ -66,9 +80,19 @@
 
         <h1 class="section__text"><a href="{% url 'productos' %}">Ofertas</a></h1>
         <div class="columns">
-            <div class="column has-text-centered">
-                {% load static %}
-                <img class="desc__img" src="{% static 'demo/img/atex_02.jpg' %}" width="300" alt="oferta">
+            <div class="column">
+                <!--Prueba Swiper-->
+                <!-- Swiper -->
+                <div class="swiper-container2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="{% static 'demo/img/atex_01.jpg' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'demo/img/atex_02.jpg' %}" alt=""></div>
+                        <div class="swiper-slide"><img src="{% static 'demo/img/atex_03.jpg' %}" alt=""></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!--Prueba Swiper-->
             </div>
             <div class="column">
                 <p class="fuente__base-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
@@ -85,11 +109,12 @@
                     dolorem repellat deserunt cumque ab, aliquid odio?</p>
                 <a href="{% url 'productos' %}" class="button is-info is-medium">Conocer más</a>
             </div>
-            <div class="column desc__img">
+            <div class="column">
                 {% load static %}
                 <img class="desc__img" src="{% static 'demo/img/3.jpg' %}" alt="quienes_somos">
             </div>
         </div>
+
         <h1 class="section__text">Contáctanos</h1>
         <div class="body-carrito">
             {% for message in messages %}
@@ -133,4 +158,7 @@
 {% load static %}
 <script src="{% static 'demo/js/background.js' %}"></script>
 <script src="{% static 'demo/js/validar.js' %}"></script>
+<!-- Swiper JS-->
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 {% endblock body %}
