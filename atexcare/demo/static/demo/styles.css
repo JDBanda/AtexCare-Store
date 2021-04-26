@@ -14,7 +14,7 @@ html, body {
 /*Colors*/
 :root{
     --color-primary: #12ad9f;
-    --color-primary-reduced: rgb(18, 173, 159,0.5);
+    --color-primary-reduced: rgba(33, 119, 112, 0.9);
     --color-secondary: rgba(255, 255, 255, 0.5);
     --color-black: #000000;
     --color-white: #FFFFFF;
@@ -39,40 +39,53 @@ html, body {
     padding-top: 100px;
 }
 
+.help.is-danger{
+    color: var(--color-primary);
+}
+/*-------------------------------------------------------Botones*/
 .button.is-info{
     background-color: var(--color-primary);
+    transition: all ease 0.5s;
 }
 
 .button.is-info:hover{
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-reduced);
+    transform: rotateY(360deg);
 }
 
 .button.is-info.is-outlined{
     background-color: transparent;
     border-color: var(--color-primary);
     color: var(--color-primary);
+    transition: all ease 0.5s;
 }
 
 .button.is-info.is-outlined:hover{
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-reduced);
+    transform: rotateY(360deg);
 }
-
-.help.is-danger{
-    color: var(--color-primary);
-}
-/*-------------------------------------------------------Botones*/
 
 .button.is-light{
     color: var(--color-primary);
+    transition: all ease 0.5s;
 }
 
 .button.is-light:hover{
     color: var(--color-white);
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-reduced);
+    transform: rotateY(360deg);
 }
 /*-------------------------------------------------------Menú*/
 .navbar-item{
     color: var(--color-primary);
+}
+
+.navbar-start .navbar-item:hover{
+    color: var(--color-primary-reduced) !important;
+}
+
+.navbar-brand .navbar-item:hover{
+    background-color: var(--color-primary-reduced) !important;
 }
 
 .navbar.is-primary, .is-primary{
@@ -120,7 +133,7 @@ html, body {
     bottom: 25px;
 }
 
-.redes a, .bx.bx-plus-medical{
+.redes a, .redes a:link, .redes a:visited, .bx.bx-plus-medical{
     display: block;
     text-decoration: none;
     background-color: var(--color-primary);
@@ -161,7 +174,7 @@ html, body {
     color: var(--color-white) !important;
 }
 
-.section__text a{
+.section__text a, .section__text a:link, .section__text a:visited{
     color: var(--color-white);
 }
 
@@ -348,8 +361,12 @@ button{
     padding-top: 50px;
 }
 
-a{
+a, a:link, a:visited{
     color: var(--color-primary);
+}
+
+a:active, a:hover{
+    color: var(--color-primary-reduced);
 }
 
 .footer__col{

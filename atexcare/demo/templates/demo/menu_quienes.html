@@ -6,7 +6,7 @@
         <!--Menu modo mobile-->
         <div class="container__slogan">
             <!-- La oferta o algo que se necesite promocionar inmediatamente -->
-            <p class="is-primary">¡Promociones de la semana!</p>
+            <p class="is-info">¡Promociones de la semana!</p>
         </div>
         <div class="navbar-brand">
             <a class="navbar-item" href="{% url 'index' %}">
@@ -46,12 +46,12 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     {% if user.is_authenticated %}
-                    <a id="sesion" class="button is-primary" href="{% url 'logout' %}">
+                    <a id="sesion" class="button is-info" href="{% url 'logout' %}">
                         <strong><i class='bx bxs-door-open'></i> Cerrar sesión</strong>
                     </a>
                     {% else %}
                     <div class="buttons">
-                        <a id="sesion" class="button is-primary" href="{% url 'login' %}">
+                        <a id="sesion" class="button is-info" href="{% url 'login' %}">
                             <strong>Iniciar sesión</strong>
                         </a>
                         <a id="registro" class="button is-light" href="{% url 'registro' %}">
