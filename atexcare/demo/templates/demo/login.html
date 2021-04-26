@@ -10,34 +10,36 @@
             {{message}}
         </blockquote>
         {% endfor %}
-        <form method="POST" id="login-form" action="{% url 'login' %}">
-            {% csrf_token %}
-            <div class="columns">
-                <div class="field column">
-                    <p class="control has-icons-left has-icons-right">
-                        <input class="input" name="username" type="text" placeholder="Nombre de usuario" required>
-                        <span class="icon is-small is-left">
-                            <i class='bx bxs-user'></i>
-                        </span>
+        <div class="box">
+            <form method="POST" id="login-form" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="columns">
+                    <div class="field column">
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" name="username" type="text" placeholder="Nombre de usuario" required>
+                            <span class="icon is-small is-left">
+                                <i class='bx bxs-user'></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field column">
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" name="password" placeholder="Contraseña" required>
+                            <span class="icon is-small is-left">
+                                <i class='bx bxs-lock-alt'></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <button type="submit" class="button is-info is-medium is-fullwidth">
+                            Iniciar sesión
+                        </button>
                     </p>
                 </div>
-                <div class="field column">
-                    <p class="control has-icons-left">
-                        <input class="input" type="password" name="password" placeholder="Contraseña" required>
-                        <span class="icon is-small is-left">
-                            <i class='bx bxs-lock-alt'></i>
-                        </span>
-                    </p>
-                </div>
-            </div>
-            <div class="field">
-                <p class="control">
-                    <button type="submit" class="button is-info is-medium is-fullwidth">
-                        Iniciar sesión
-                    </button>
-                </p>
-            </div>
-        </form>
+            </form>
+        </div>
         <div class="content has-text-centered login__section">
             <a href="{% url 'password_reset' %}">¿Olvido su contraseña?</a><br>
             <span>Es un nuevo usuario, Registrese <a href="{% url 'registro' %}">aquí</a></span>

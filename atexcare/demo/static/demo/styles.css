@@ -15,7 +15,7 @@ html, body {
 :root{
     --color-primary: #12ad9f;
     --color-primary-reduced: rgb(18, 173, 159,0.5);
-    --color-secondary: rgba(0, 0, 0, 0.1);
+    --color-secondary: rgba(255, 255, 255, 0.5);
     --color-black: #000000;
     --color-white: #FFFFFF;
 }
@@ -88,10 +88,14 @@ html, body {
 }
 
 /*-----------------------------------------------Landing*/
+.content.landing{
+    margin: 0;
+    padding: 0;
+}
 .container__img{
     height: 100vh;
     padding-top: 35%;
-    background-image: url('https://images.unsplash.com/photo-1584744982491-665216d95f8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80');
+    background-image: url('https://images.unsplash.com/photo-1609329431012-89d6b1a58fc8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -116,7 +120,7 @@ html, body {
     bottom: 25px;
 }
 
-.redes a, .bx.bx-plus{
+.redes a, .bx.bx-plus-medical{
     display: block;
     text-decoration: none;
     background-color: var(--color-primary);
@@ -145,6 +149,29 @@ html, body {
     margin-bottom: 15px !important;
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+.section__text{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+    text-decoration: overline var(--color-white) solid;
+    text-shadow: 5px 5px 10px black;
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+}
+
+.section__text a{
+    color: var(--color-white);
+}
+
+.content.landing .columns{
+    padding: 25px;
+}
+
+/*Formulario de contacto*/
+.form-contact{
+    padding: 10px 15px 10px 15px;
 }
 
 /*-----------------------------------------------Productos*/
@@ -262,7 +289,7 @@ button{
 }
 /*-----------------------------------------------Carrito de compras*/
 .body-carrito{
-    margin: 10px;
+    margin: 15px;
     text-align: justify;
     box-shadow: 2px 2px 35px rgba(18, 173, 159, 50%);
 }
@@ -317,7 +344,8 @@ button{
 
 .footer{
     background-color: var(--color-secondary);
-    padding: 28px;
+    padding: 25px;
+    padding-top: 50px;
 }
 
 a{
@@ -359,6 +387,9 @@ a{
     }
 }
 @media screen and (min-width: 600px) {
+    .container__img{
+        background-image: url('https://images.unsplash.com/photo-1589782050836-cbe60d49e880?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80');
+    }
     /*Galería*/
     .grid__container{
         display: grid;
@@ -424,6 +455,11 @@ a{
     .columns.is-mobile.fuente__base{        
         margin-left: 100px;
         margin-right: 100px;
+    }
+
+    /*Formulario de contacto*/
+    .form-contact{
+        padding: 15px 30px 15px 30px;
     }
 }
 

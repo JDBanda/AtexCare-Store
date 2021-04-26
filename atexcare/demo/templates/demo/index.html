@@ -32,16 +32,15 @@
                     target="_blank"></a>
             </div>
             <button id="btn-plus" class="btn-plus">
-                <i class="bx bx-plus bx-md "></i>
+                <i class="bx bx-plus-medical bx-md "></i>
             </button>
         </div>
     </div>
 </section>
 <section>
     <!--Cuerpo-->
-    <div class="content">
-
-        <h1 id="quienes">¿Por que Atex Care?</h1>
+    <div class="content landing">
+        <h1 class="section__text"><a href="{% url 'quienes' %}">¿Quiénes somos?</a></h1>
         <div class="columns">
             <div class="column">
                 <p class="fuente__base-justify">Una empresa 100% mexicana, orientada primariamente a atender el mandato
@@ -56,7 +55,7 @@
                     elaborados con
                     telas 100%
                     polipropilenas.</p>
-                <a href="button is-primary">Conocer más</a>
+                <a class="button is-info is-medium" href="{% url 'quienes' %}">Conocer más</a>
             </div>
 
             <div class="column">
@@ -65,7 +64,7 @@
             </div>
         </div>
 
-        <h2>Ofertas</h2>
+        <h1 class="section__text"><a href="{% url 'productos' %}">Ofertas</a></h1>
         <div class="columns">
             <div class="column has-text-centered">
                 {% load static %}
@@ -75,93 +74,63 @@
                 <p class="fuente__base-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam
                     asperiores voluptatum possimus fuga dolorum dolore vitae quasi, natus aliquid autem maiores quidem
                     laudantium esse in atque tempore ea nihil quibusdam?</p>
-                <a href="button is-primary">Conocer más</a>
+                <a href="{% url 'productos' %}" class="button is-info is-medium">Conocer más</a>
             </div>
         </div>
-        <h2>Ultimos productos</h2>
+        <h1 class="section__text"> <a href="{% url 'productos' %}">Ultimos productos</a></h1>
         <div class="columns">
             <div class="column">
                 <p class="fuente__base-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quaerat
                     ea, voluptatem consequuntur porro quis blanditiis molestiae impedit eligendi totam non eius est
                     dolorem repellat deserunt cumque ab, aliquid odio?</p>
-                <a href="button is-primary">Conocer más</a>
+                <a href="{% url 'productos' %}" class="button is-info is-medium">Conocer más</a>
             </div>
             <div class="column desc__img">
                 {% load static %}
                 <img class="desc__img" src="{% static 'demo/img/3.jpg' %}" alt="quienes_somos">
             </div>
         </div>
-        <h2>Contactanos</h2>
-
-        {% for message in messages %}
-        <blockquote>
-            {{message}}
-        </blockquote>
-        {% endfor %}
-        <form action="{% url 'contacto' %}" method="POST" class="form-contact" id="contact-form">
-            {% csrf_token %}
-            <div class="field">
-                <div class="control">
-                    <input class="input" name="name" type="text" placeholder="Nombre completo o razón social"
-                        minlength="5" required>
-                </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <input class="input" type="text" name="message" placeholder="Motivo del mensaje" required
-                        maxlength="20" minlength="5">
-                </div>
-            </div>
-            <div class="columns is-mobile">
-                <div class="column">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" type="email" name="email" placeholder="correo@electronico.com"
-                                required>
-                        </div>
+        <h1 class="section__text">Contáctanos</h1>
+        <div class="body-carrito">
+            {% for message in messages %}
+            <blockquote>
+                {{message}}
+            </blockquote>
+            {% endfor %}
+            <form action="{% url 'index' %}" method="POST" class="form-contact" id="contact-form">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">Nombre completo o razón social</label>
+                    <div class="control">
+                        <input class="input" name="name" type="text" placeholder="Juan Pérez" minlength="5" required>
                     </div>
                 </div>
-            </div>
-            <div class="columns is-mobile">
-                <div class="column">
-                    <div class="field">
-                        <div class="control">
-                            <input class="input" type="number" name="cp" minlength="4" placeholder="codigo postal"
-                                required>
-                        </div>
+                <div class="field">
+                    <label class="label">Motivo del mensaje</label>
+                    <div class="control">
+                        <input class="input" type="text" name="message" placeholder="Me interesa cotizar" required
+                            maxlength="25" minlength="5">
                     </div>
                 </div>
-            </div>
-            <div class="columns">
-                <!--Estado-->
-                <div class="column">
-                    <div class="select">
-                        <select id="estado" name="estado" class="required">
-                        </select>
+                <div class="field">
+                    <label class="label">Correo electrónico</label>
+                    <div class="control">
+                        <input class="input" type="email" name="email" placeholder="correo@electronico.com" required>
                     </div>
                 </div>
-                <!--Municipio-->
-                <div class="column">
-                    <div class="select">
-                        <select id="municipio" name="municipio" class="required">
-                            <option value="">Selecciona un estado primero</option>
-                        </select>
+                <div class="field">
+                    <label class="label">Mensaje</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Ingrese su mensaje" name="textarea" maxlength="250"
+                            required></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="field">
-                <div class="control">
-                    <textarea class="textarea" placeholder="Ingrese su mensaje" name="textarea" maxlength="250"
-                        required></textarea>
-                </div>
-            </div>
-            <button class="button is-info is-medium is-fullwidth" type="submit">Enviar</button>
-        </form>
+                <button class="button is-info is-medium is-fullwidth" type="submit">Enviar</button>
+            </form>
+        </div>
     </div>
-</section>
-
-</div>
 </section>
 {% load static %}
 <script src="{% static 'demo/js/background.js' %}"></script>
+<script src="{% static 'demo/js/validar.js' %}"></script>
 {% endblock body %}

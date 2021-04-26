@@ -5,149 +5,49 @@
     <!--Cuerpo-->
     <div class="content">
         <h2>Registro</h2>
-        <form id="form-registro" method="POST">
-            {% csrf_token %}
-            <h3 class="title">Información personal</h3>
-            <h5 class="subtitle" style="color: #12ad9f;">** Información obligatoria</h5>
-            <div class="field">
-                <label class="label">Nombre(s)**</label>
-                <div class="control">
-                    {{user.first_name}}
+        <div class="box">
+            <form id="form-registro" method="POST">
+                {% csrf_token %}
+                <div class="field">
+                    <label class="label">Nombre(s)**</label>
+                    <div class="control">
+                        {{user.first_name}}
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Apellido(s)**</label>
-                <div class="control">
-                    {{user.last_name}}
+                <div class="field">
+                    <label class="label">Apellido(s)**</label>
+                    <div class="control">
+                        {{user.last_name}}
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Nombre de usuario**</label>
-                <div class="control">
-                    {{user.username}}
+                <div class="field">
+                    <label class="label">Nombre de usuario**</label>
+                    <div class="control">
+                        {{user.username}}
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Contraseña**</label>
-                <div class="control">
-                    {{user.password}}
+                <div class="field">
+                    <label class="label">Contraseña**</label>
+                    <div class="control">
+                        {{user.password}}
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Correo electrónico**</label>
-                <div class="control">
-                    {{user.email}}
+                <div class="field">
+                    <label class="label">Correo electrónico**</label>
+                    <div class="control">
+                        {{user.email}}
+                    </div>
                 </div>
-            </div>
-            <!-- Numero de celular -->
-            <div class="field">
-                <label class="label">Número de celular**</label>
-                <div class="control">
-                    {{profile.tel_1}}
+                <!-- Numero de celular -->
+                <div class="field">
+                    <label class="label">Número de celular**</label>
+                    <div class="control">
+                        {{profile.tel_1}}
+                    </div>
                 </div>
-            </div>
-            <!-- #Campos no obligatorios -->
-            <h3 class="title">Información de envío</h3>
-            <div class="field">
-                <label class="label">Dirección (calle)</label>
-                <div class="control">
-                    {{profile.direccion}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Municipio</label>
-                <div class="control">
-                    {{profile.municipio}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Estado</label>
-                <div class="control">
-                    {{profile.estado}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Código postal</label>
-                <div class="control">
-                    {{profile.cp}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número exterior</label>
-                <div class="control">
-                    {{profile.numero_ext}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número interior (en caso de tener)</label>
-                <div class="control">
-                    {{profile.numero_int}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Entre calle</label>
-                <div class="control">
-                    {{profile.entre_calle}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Y calle</label>
-                <div class="control">
-                    {{profile.entre_calle_2}}
-                </div>
-            </div>
-            <!-- #facturación -->
-            <h3 class="title">Información de facturación</h3>
-            <div class="field">
-                <label class="label">Razón social</label>
-                <div class="control">
-                    {{profile.razon_social}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">RFC</label>
-                <div class="control">
-                    {{profile.rfc}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Dirección fiscal</label>
-                <div class="control">
-                    {{profile.direccion_fiscal}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Ciudad</label>
-                <div class="control">
-                    {{profile.ciudad}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Estado</label>
-                <div class="control">
-                    {{profile.estado_fact}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número telefónico de facturación</label>
-                <div class="control">
-                    {{profile.tel_2}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Correo electrónico de facturación</label>
-                <div class="control">
-                    {{profile.correo_fact}}
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">CFDI</label>
-                <div class="control">
-                    {{profile.cfdi}}
-                </div>
-            </div>
-            <button class="button is-info is-medium is-fullwidth" type="submit">Registrar</button>
-        </form>
+                <button class="button is-info is-medium is-fullwidth" type="submit">Registrar</button>
+            </form>
+        </div>
     </div>
 </section>
 {% load static %}
