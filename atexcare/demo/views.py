@@ -123,6 +123,44 @@ def contact_info(request):
 
 # Operaciones en el carrito de compras
 
+# Verificar si el usuario tiene los datos de facturación
+
+
+def check_factura(request):
+    profile = Profile.objects.get(user=request.user)
+    return JsonResponse({
+        'factura': {
+            'razon_social': profile.razon_social,
+            'rfc': profile.rfc,
+            'direccion_fiscal': profile.direccion_fiscal,
+            'ciudad': profile.ciudad,
+            'estado_fact': profile.estado_fact,
+            'tel_2': profile.tel_2,
+            'correo_fact': profile.correo_fact,
+            'cfdi': profile.cfdi,
+        }
+    })
+
+# Verificar si el usuario tiene bien los datos de envio
+
+
+def check_profile(request):
+    profile = Profile.objects.get(user=request.user)
+    return JsonResponse({
+        'profile': {
+            'direccion': profile.direccion,
+            'municipio': profile.municipio,
+            'estado': profile.estado,
+            'cp': profile.cp,
+            'numero_ext': profile.numero_ext,
+            'numero_int': profile.numero_int,
+            'entre_calle': profile.entre_calle,
+            'entre_calle_2': profile.entre_calle_2,
+        }
+    })
+
+# Verificar cuantos productos lleva el usuario
+
 
 def get_car(request):
     cart_count = len(Carrito.objects.filter(

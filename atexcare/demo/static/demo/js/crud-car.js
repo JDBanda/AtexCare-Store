@@ -118,4 +118,65 @@ $(function () {
         });
         $('#a_pagar').text(m);
     }
+
+
+    //Evento Checkout
+    $("#checkout").click(function () {
+        verificarEnvio();
+        isFactura();
+    })
+
+    function verificarEnvio() {
+        $.ajax({
+            url: '/detalle_carrito/check_profile',
+            type: 'GET',
+            success: function (response) {
+                for (const key in response.profile) {
+                    if (response.profile[key] == '' || response.profile[key] == undefined) {
+                        Swal.fire({
+                            title: 'Faltan datos de envío',
+                            text: 'Es importante que verifiques que tus datos de envío esten completos para comprar',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            cancelButtonText: 'Cancelar',
+                            confirmButtonText: 'Ir al perfil',
+                        }).then((result) => {
+                            window.location.href = '/usuario';
+                        })
+                    }
+                }
+            }
+        });
+    }
+
+    function isFactura() {
+        $.ajax({
+            url: '/detalle_carrito/check_factura',
+            type: 'GET',
+            success: function (response) {
+                for (const key in response.factura) {
+                    if (response.factura[key] == '' || response.factura[key] == undefined) {
+                        Swal.fire({
+                            title: 'Faltan datos de facturación',
+                            text: 'Los datos de facturación son necesarios unicamente si deseas factura, en caso contrario ignora el mensaje y da click en continuar',
+                            icon: 'warning',
+                            showCancelButton: true,
+                            showDenyButton: true,
+                            denyButtonText: 'verificar datos',
+                            cancelButtonText: 'Cancelar',
+                            confirmButtonText: 'Continuar',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire('Datos de envío', '', 'success')
+                            } else {
+                                window.location.href = '/usuario';
+                            }
+                        })
+                    } else {
+                        Swal.fire('Datos de envio', '', 'success')
+                    }
+                }
+            }
+        });
+    }
 })
