@@ -118,10 +118,21 @@ def legal(request):
 
 
 def contact_info(request):
-
+    context = {}
     return render(request, 'demo/contact_info.html', context)
 
 # Operaciones en el carrito de compras
+
+
+def get_car(request):
+    cart_count = len(Carrito.objects.filter(
+        usuario=request.user, status=Carrito.ACTIVO))
+    return JsonResponse({
+        'content': {
+            'title': 'Objetos en carrito',
+            'obj': cart_count,
+        }
+    })
 
 
 @login_required(login_url='login')

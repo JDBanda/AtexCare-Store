@@ -91,6 +91,12 @@ html, body {
 .navbar.is-primary, .is-primary{
     background-color: var(--color-primary);
 }
+
+.navbar-burger .icon{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
 /*-----------------------------------------------Slogan*/
 .container__slogan p{
     background-color: var(--color-white);

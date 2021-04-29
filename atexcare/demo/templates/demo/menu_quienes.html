@@ -12,12 +12,14 @@
             <a class="navbar-item" href="{% url 'index' %}">
                 {% load static %}
                 <img src="{% static 'demo/img/logo-texto.png' %}">
-
             </a>
             <a role="button" class="navbar-burger" id="burger">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
+                <p class="icon">
+                    <!--Aqui se coloca el icono siempre que enga productos en carrito-->
+                </p>
             </a>
         </div>
 
@@ -37,7 +39,8 @@
                 </a>
 
                 <a href="{% url 'detalle_carrito' %}" class="navbar-item">
-                    <i class='bx bxs-cart bx-tada'></i> Carrito
+                    <i class='bx bxs-cart bx-tada'></i> Carrito <span class="tag is-danger is-rounded"
+                        id="car-items"></span>
                 </a>
                 {% endif %}
 
