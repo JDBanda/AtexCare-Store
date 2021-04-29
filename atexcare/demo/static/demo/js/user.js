@@ -33,6 +33,21 @@ $(function () {
         }
     });
 
-    //Actualizar datos será pertinente verificar si hay una actualizacion en los datos primero?
+    //Accordion
+    $('.accordion .accordion-tab').hide();
+    $('.accordion i').addClass('bxs-plus-square');
+
+    $('.accordion .title').click(function () {
+        $(this).parent().children(".accordion-tab").toggle("slow")
+        if ($(this).children("i").attr("class") == 'bx bxs-plus-square') {
+            $(this).children("i").removeAttr("class");
+            $(this).children("i").attr("class", "bx bxs-minus-square");
+            $(this).children("i").css("color", "#000000");
+        } else {
+            $(this).children("i").removeAttr("class");
+            $(this).children("i").attr("class", "bx bxs-plus-square");
+            $(this).children("i").css("color", "#12ad9f");
+        }
+    });
 
 })

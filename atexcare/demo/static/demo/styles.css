@@ -385,19 +385,12 @@ button{
     border-color: var(--color-primary-reduced);
 }
 
-/*-----------------------------------------------Barra que dice el nombre del ususario en menu login*/
-
-.usuario{
-    text-align: center;
-    color: var(--color-primary); 
-    font-size: 1.15rem;
-    padding-bottom: 5px;
+/*-----------------------------------------------Usuario perfil*/
+.accordion .title{
+    display: grid;
+    grid-template-columns: 90% 10%;
+    align-items: center;
 }
-
-.usuario strong{
-    color: var(--color-primary); 
-}
-
 /*-----------------------------------------------Footer*/
 .footer, .stock{
     font-size: 0.8rem;

@@ -31,114 +31,127 @@
                     <input name="tel_1" class="input" type="text" placeholder="" value="{{profile.tel_1}}">
                 </div>
             </div>
-            <h3 class="title">Información de envío</h3>
-            <div class="field">
-                <label class="label">Dirección (calle)</label>
-                <div class="control">
-                    <input name="direccion" class="input dir" type="text" placeholder="" value="{{profile.direccion}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Estado</label>
-                <div class="control">
-                    <input name="estado" class="input dir" type="text" placeholder="" value="{{profile.estado}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Municipio</label>
-                <div class="control">
-                    <input name="municipio" class="input dir" type="text" placeholder="" value="{{profile.municipio}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Código postal</label>
-                <div class="control">
-                    <input name="cp" class="input dir" type="text" placeholder="" value="{{profile.cp}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número exterior</label>
-                <div class="control">
-                    <input name="numero_ext" class="input dir" type="number" placeholder=""
-                        value="{{profile.numero_ext}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número interior</label>
-                <div class="control">
-                    <input name="numero_int" class="input dir" type="number" placeholder=""
-                        value="{{profile.numero_int}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Entre calle</label>
-                <div class="control">
-                    <input name="entre_calle" class="input dir" type="text" placeholder=""
-                        value="{{profile.entre_calle}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Y calle</label>
-                <div class="control">
-                    <input name="entre_calle_2" class="input dir" type="text" placeholder=""
-                        value="{{profile.entre_calle_2}}">
+            <div class="accordion box">
+                <h3 class="title">Envío <i class='bx bxs-plus-square' style="color: #12ad9f;"></i></h3>
+                <div class="accordion-tab">
+                    <div class="field">
+                        <label class="label">Dirección (calle)</label>
+                        <div class="control">
+                            <input name="direccion" class="input dir" type="text" placeholder=""
+                                value="{{profile.direccion}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estado</label>
+                        <div class="control">
+                            <input name="estado" class="input dir" type="text" placeholder=""
+                                value="{{profile.estado}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Municipio</label>
+                        <div class="control">
+                            <input name="municipio" class="input dir" type="text" placeholder=""
+                                value="{{profile.municipio}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Código postal</label>
+                        <div class="control">
+                            <input name="cp" class="input dir" type="text" placeholder="" value="{{profile.cp}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número exterior</label>
+                        <div class="control">
+                            <input name="numero_ext" class="input dir" type="number" placeholder=""
+                                value="{{profile.numero_ext}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número interior</label>
+                        <div class="control">
+                            <input name="numero_int" class="input dir" type="number" placeholder=""
+                                value="{{profile.numero_int}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Entre calle</label>
+                        <div class="control">
+                            <input name="entre_calle" class="input dir" type="text" placeholder=""
+                                value="{{profile.entre_calle}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Y calle</label>
+                        <div class="control">
+                            <input name="entre_calle_2" class="input dir" type="text" placeholder=""
+                                value="{{profile.entre_calle_2}}">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h3 class="title">Información de facturación</h3>
+            <div class="accordion box">
+                <h3 class="title">Facturación <i class='bx bxs-plus-square' style="color: #12ad9f;"></i>
+                </h3>
+                <div class="accordion-tab">
+                    <div class="field">
+                        <label class="label">Razón social</label>
+                        <div class="control">
+                            <input name="razon_social" class="input fac" type="text" placeholder=""
+                                value="{{profile.razon_social}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">RFC</label>
+                        <div class="control">
+                            <input name="rfc" class="input fac" type="text" placeholder="" value="{{profile.rfc}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Dirección fiscal</label>
+                        <div class="control">
+                            <input name="direccion_fiscal" class="input fac" type="text" placeholder=""
+                                value="{{profile.direccion_fiscal}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Ciudad</label>
+                        <div class="control">
+                            <input name="ciudad" class="input fac" type="text" placeholder=""
+                                value="{{profile.ciudad}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Estado</label>
+                        <div class="control">
+                            <input name="estado_fact" class="input fac" type="text" placeholder=""
+                                value="{{profile.estado_fact}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Número telefónico de facturación</label>
+                        <div class="control">
+                            <input name="tel_2" class="input fac" type="text" placeholder="" value="{{profile.tel_2}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Correo electrónico de facturación</label>
+                        <div class="control">
+                            <input name="correo_fact" class="input fac" type="text" placeholder=""
+                                value="{{profile.correo_fact}}">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">CFDI</label>
+                        <div class="control">
+                            <input name="cfdi" class="input fac" type="text" placeholder="" value="{{profile.cfdi}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="field">
-                <label class="label">Razón social</label>
-                <div class="control">
-                    <input name="razon_social" class="input fac" type="text" placeholder=""
-                        value="{{profile.razon_social}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">RFC</label>
-                <div class="control">
-                    <input name="rfc" class="input fac" type="text" placeholder="" value="{{profile.rfc}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Dirección fiscal</label>
-                <div class="control">
-                    <input name="direccion_fiscal" class="input fac" type="text" placeholder=""
-                        value="{{profile.direccion_fiscal}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Ciudad</label>
-                <div class="control">
-                    <input name="ciudad" class="input fac" type="text" placeholder="" value="{{profile.ciudad}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Estado</label>
-                <div class="control">
-                    <input name="estado_fact" class="input fac" type="text" placeholder=""
-                        value="{{profile.estado_fact}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Número telefónico de facturación</label>
-                <div class="control">
-                    <input name="tel_2" class="input fac" type="text" placeholder="" value="{{profile.tel_2}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Correo electrónico de facturación</label>
-                <div class="control">
-                    <input name="correo_fact" class="input fac" type="text" placeholder=""
-                        value="{{profile.correo_fact}}">
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">CFDI</label>
-                <div class="control">
-                    <input name="cfdi" class="input fac" type="text" placeholder="" value="{{profile.cfdi}}">
-                </div>
-            </div>
             <div class="field">
                 <div class="control">
                     <button class="button is-info is-medium is-fullwidth">
