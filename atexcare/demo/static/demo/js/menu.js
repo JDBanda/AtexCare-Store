@@ -12,7 +12,7 @@ $(function () {
 
     function notification(obj) {
         if (obj > 0) {
-            $('.icon').append("<i class='bx bxs-bell-ring bx-tada'></i>");
+            $('.ico').append("<i class='bx bxs-bell-ring bx-tada'></i>");
         }
     }
 

@@ -2,14 +2,54 @@
 {% block title %}Historial de {{request.user}}{% endblock title %}
 {% block content %}
 <div class="content">
-    <div class="columns">
-        <div class="column">
-            <h1>Sitio en construcción</h1>
-            <p>Aquí se registra el historial de compras de cada usuario</p>
+    <h1>Detalle de pedidos</h1>
+    <p>En este apartado puede revisar el estado de tu pedido y el historial de compras</p>
+    <div class="accordion box">
+        <h3 class="title">Compras pendientes<i class='bx bxs-plus-square' style="color: #12ad9f;"></i></h3>
+        <div class="accordion-tab">
+            <div class="table-container">
+                <table class="table">
+                    <tr>
+                        <th>Folio</th>
+                        <th>Paquetería</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                    {% for c in compras %}
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.paqueteria}}</td>
+                        <td>{{c.total}}</td>
+                        <td>{{c.fecha_compra}}</td>
+                        <td><button class="button is-info">Detalles</button></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-        <div class="column">
-            {% load static %}
-            <img src="{% static 'demo/img/construccion.jpg' %}" alt="const">
+    </div>
+    <div class="accordion box">
+        <h3 class="title">Historial de compra<i class='bx bxs-plus-square' style="color: #12ad9f;"></i></h3>
+        <div class="accordion-tab">
+            <div class="table-container">
+                <table class="table">
+                    <tr>
+                        <th>Folio</th>
+                        <th>Paquetería</th>
+                        <th>Total</th>
+                        <th>Fecha</th>
+                    </tr>
+                    {% for h in historial %}
+                    <tr>
+                        <td>{{h.id}}</td>
+                        <td>{{h.paqueteria}}</td>
+                        <td>{{h.total}}</td>
+                        <td>{{h.fecha_compra}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 </div>

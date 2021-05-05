@@ -92,7 +92,7 @@ html, body {
     background-color: var(--color-primary);
 }
 
-.navbar-burger .icon{
+.navbar-burger .ico{
     position: absolute;
     top: 0px;
     right: 0px;
@@ -386,6 +386,10 @@ button{
 }
 
 /*-----------------------------------------------Usuario perfil*/
+.tabs{
+    position: relative;
+    top: 100px;
+}
 .accordion .title{
     display: grid;
     grid-template-columns: 90% 10%;
@@ -416,7 +420,6 @@ a:active, a:hover{
     border-right-style: groove;
     border-right-color: var(--color-primary);
 }
-
 
 /************************************************************************Media Querys*/
 @media screen and (min-width: 500px) {

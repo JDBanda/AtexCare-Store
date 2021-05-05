@@ -54,6 +54,86 @@
                 <button id="checkout" class="button is-info is-fullwidth is-medium">Pagar</button>
             </div>
         </div>
+        <!--Modal para corroborar los datos-->
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Detalles de la compra</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Content ... -->
+                    <form id="form_generar">
+                        {% csrf_token %}
+                        <div class="columns">
+                            <div class="column">
+                                <h3 class="title">Modalidad de envío</h3>
+                                <div class="control has-icons-left">
+                                    <div class="select">
+                                        <select>
+                                            <option cost="160" value="estafeta">Estafeta</option>
+                                            <option cost="120" value="dhl">DHL</option>
+                                            <option cost="100" value="estrella">Estrella blanca (Querétaro)</option>
+                                            <option cost="0" value="sucursal">Recoger en sucursal</option>
+                                        </select>
+                                    </div>
+                                    <div class="icon is-small is-left">
+                                        <i class='bx bx-trip'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <h3 class="title">Modalidad de pago</h3>
+                                <div class="control has-icons-left">
+                                    <div class="select">
+                                        <select>
+                                            <option selected>Depósito a cuenta</option>
+                                            <!-- <option>Pay Pal</option> -->
+                                            <!-- <option>Tarjeta de débito o crédito</option> -->
+                                        </select>
+                                    </div>
+                                    <div class="icon is-small is-left">
+                                        <i class='bx bx-money'></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input name="terminos_check" type="checkbox" required>
+                                    Al realizar el pedido estoy de acuerdo con la <a href="{% url 'legal' %}">Política
+                                        de
+                                        privacidad</a> del
+                                    servicio.
+                                </label>
+                            </div>
+                        </div>
+                        <h3 class="title">Detalle del envío</h3>
+                        <p id="envio"></p>
+                        <p>Dirección: {{request.user.profile.direccion}}, {{request.user.profile.municipio}},
+                            {{request.user.profile.estado}} ext. {{request.user.profile.numero_ext}}
+                            int.{{request.user.profile.numero_int}}, C.P. {{request.user.profile.cp}}
+                            <br>Entre calle: {{request.user.profile.entre_calle}} y calle:
+                            {{request.user.profile.entre_calle_2}}
+                            <a href="{% url 'user' %}">Cambiar dirección</a>
+                        </p>
+                        <h3 class="title">A pagar: $<span id="orden" user="{{request.user}}"></span></h3>
+                        <div class="columns">
+                            <div class="column">
+                                <button type="submit" id="generar"
+                                    class="button is-medium is-fullwidth is-success">Generar orden de
+                                    compra</button>
+                            </div>
+                            <div class="column">
+                                <button class="button is-medium is-fullwidth is-danger">Cancelar</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
         {% else %}
         <br>
         <h2 class="title">Sin artículos</h2>

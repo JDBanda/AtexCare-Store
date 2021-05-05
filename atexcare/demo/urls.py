@@ -17,6 +17,8 @@ urlpatterns = [
          views.check_profile, name='check_profile'),
     path('detalle_carrito/check_factura',
          views.check_factura, name='check_factura'),
+    path('detalle_carrito/generar_orden',
+         views.generarOrden, name='generar'),
 
     path('envio', views.sending_info, name='envio'),
     path('registro', views.register, name='registro'),

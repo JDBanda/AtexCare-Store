@@ -16,6 +16,10 @@ from django.http import JsonResponse
 from django.core.mail import BadHeaderError, send_mail
 # Configuraciones
 from django.conf import settings
+# Fecha
+import datetime
+# JSON para decodificar
+import json
 
 
 def index(request):
@@ -172,6 +176,52 @@ def get_car(request):
         }
     })
 
+# Generar orden de compra (Guardar registro de compra y actualizar datos de los renglones del carrito)
+
+
+def generarOrden(request):
+    if request.method == 'POST':
+        # Recuperar datos del POST
+        usuario = User.objects.get(username=request.POST['usuario'])
+        total = request.POST['total']
+        paqueteria = request.POST['paqueteria']
+        fecha_compra = datetime.datetime.now()
+        '''
+        datetime(
+            request.POST['year'],
+            request.POST['month'],
+            request.POST['day'],
+            request.POST['hour'],
+            request.POST['minute'],
+            request.POST['second'],
+            request.POST['milisec'],
+        )
+        '''
+        # Insertar una Compra
+        objCompra = Compra(
+            usuario=usuario,
+            total=total,
+            paqueteria=paqueteria,
+            fecha_compra=fecha_compra,)
+        objCompra.save()
+        # Obtener los ID de carritos
+        carrito = request.POST['carrito']
+        carrito = json.loads(carrito)
+        # Buscar por ID y cambiar valores
+        i = 0
+        while i < len(carrito):
+            objCarrito = Carrito.objects.get(id=carrito[i])
+            objCarrito.status = Carrito.PAGADO
+            objCarrito.compra = Compra.objects.latest("id")
+            objCarrito.save()
+            i += 1
+        return JsonResponse({
+            'content': {
+                'title': 'Orden generada',
+                'icon': 'success',
+            }
+        })
+
 
 @login_required(login_url='login')
 def detail_car(request):
@@ -199,7 +249,8 @@ def detail_car(request):
                     'status': False,
                 }
             })
-    objCar = Carrito.objects.filter(usuario=request.user)
+    objCar = Carrito.objects.filter(
+        usuario=request.user, status=Carrito.ACTIVO)
     # total de articulos
     tObjetos = len(objCar)
     context = {'objetos': objCar, 'totalArticulos': tObjetos}
@@ -402,6 +453,9 @@ def user_profile(request):
 
 @login_required(login_url='login')
 def user_history(request):
-    #profile = Profile.objects.get(user=request.user)
-    context = {}
+    compras = Compra.objects.filter(
+        usuario=request.user, status_compra=Compra.EN_PROCESO)
+    historial = Compra.objects.filter(
+        usuario=request.user, status_compra=Compra.ENTREGADO)
+    context = {'compras': compras, 'historial': historial}
     return render(request, 'demo/user_history.html', context)

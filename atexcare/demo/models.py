@@ -1,11 +1,6 @@
 from django.db import models
 # User de Django
 from django.contrib.auth.models import User
-# Signals
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-
-# Producto base
 
 
 class Product (models.Model):
@@ -81,6 +76,25 @@ class Profile (models.Model):
         return "perfil de: " + self.user.username
 
 
+class Compra(models.Model):
+    EN_PROCESO = 0
+    ENVIANDO = 1
+    ENTREGADO = 2
+
+    STATUS_CHOICES = (
+        ("EN_PROCESO", EN_PROCESO),
+        ("ENVIANDO", ENVIANDO),
+        ("ENTREGADO", ENTREGADO),
+    )
+
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    total = models.FloatField(null=True)
+    paqueteria = models.CharField(max_length=50, null=True)
+    fecha_compra = models.DateTimeField(null=True)
+    status_compra = models.IntegerField(
+        choices=STATUS_CHOICES, default=EN_PROCESO)
+
+
 class Carrito(models.Model):
     PAGADO = 0
     ACTIVO = 1
@@ -95,11 +109,7 @@ class Carrito(models.Model):
     monto = models.FloatField("Monto")
     usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS_CHOICES, default=ACTIVO)
+    compra = models.ForeignKey(Compra, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.usuario.username + ", " + self.producto.name + ", " + str(self.status)
-
-
-class Compra(models.Model):
-    renglonCarrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
