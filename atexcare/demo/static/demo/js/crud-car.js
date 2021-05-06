@@ -1,19 +1,5 @@
 $(function () {
     a_pagar();
-    loadingGif();
-
-    //Tiempos de carga de AJAX
-    function loadingGif() {
-        $(document).ajaxStart(function () {
-            $('#checkout').attr('disabled', '');
-            $('#checkout').text("");
-            $('#checkout').append("<i class='bx bx-loader-circle bx-spin bx-md'></i>")
-        })
-            .ajaxStop(function () {
-                $('#checkout').removeAttr('disabled');
-                $('#checkout').text("Pagar");
-            })
-    }
 
     //Evento del botón X
     $('.deleteItem').each(function () {
@@ -143,7 +129,7 @@ $(function () {
     $('.modal .delete').click(function () {
         $('.modal').removeClass('is-active')
     })
-    $('.modal .is-danger').click(function () {
+    $('.modal .is-light').click(function () {
         $('.modal').removeClass('is-active')
     })
     //Generar orden de compra

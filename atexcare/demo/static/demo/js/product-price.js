@@ -2,20 +2,7 @@ $(function () {
     var cantidad = $('#cantidad').text();
     var stock = $('#stock').text();
     total();
-    loadingGif();
     item();
-
-    function loadingGif() {
-        $(document).ajaxStart(function () {
-            $('#addCart').attr('disabled', '');
-            $('#addCart').text("");
-            $('#addCart').append("<i class='bx bx-loader-circle bx-spin bx-md'></i>")
-        })
-            .ajaxStop(function () {
-                $('#addCart').removeAttr('disabled');
-                $('#addCart').text("Añadir al carrito");
-            })
-    }
 
     //Funciones para sumar y mostrar total del producto
     $('#mas').click(function () {
