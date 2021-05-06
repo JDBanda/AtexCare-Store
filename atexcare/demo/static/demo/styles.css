@@ -42,6 +42,12 @@ html, body {
 .help.is-danger{
     color: var(--color-primary);
 }
+.modal-card-head{
+    background-color: var(--color-primary);
+}
+.modal-card-head h3.modal-card-title{
+    color: var(--color-white);
+}
 /*-------------------------------------------------------Botones*/
 .button.is-info{
     background-color: var(--color-primary);

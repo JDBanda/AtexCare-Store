@@ -3,6 +3,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class status_choices(models.IntegerChoices):
+    PAGADO = 0, "Pagado"
+    ACTIVO = 1, "Activo"
+    EN_PROCESO = 2, "En proceso"
+    ENTREGADO = 3, "Entregado"
+
+
 class Product (models.Model):
     name = models.CharField("nombre del producto", max_length=50)
     short_description = models.CharField("pequeña descripción", max_length=150)
@@ -77,38 +84,21 @@ class Profile (models.Model):
 
 
 class Compra(models.Model):
-    EN_PROCESO = 0
-    ENVIANDO = 1
-    ENTREGADO = 2
-
-    STATUS_CHOICES = (
-        ("EN_PROCESO", EN_PROCESO),
-        ("ENVIANDO", ENVIANDO),
-        ("ENTREGADO", ENTREGADO),
-    )
-
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     total = models.FloatField(null=True)
     paqueteria = models.CharField(max_length=50, null=True)
     fecha_compra = models.DateTimeField(null=True)
     status_compra = models.IntegerField(
-        choices=STATUS_CHOICES, default=EN_PROCESO)
+        choices=status_choices.choices, default=status_choices.EN_PROCESO)
 
 
 class Carrito(models.Model):
-    PAGADO = 0
-    ACTIVO = 1
-
-    STATUS_CHOICES = (
-        ("PAGADO", PAGADO),
-        ("ACTIVO", ACTIVO),
-    )
-
     producto = models.ForeignKey(Product, on_delete=models.CASCADE)
     cantidad = models.IntegerField("Cantidad")
     monto = models.FloatField("Monto")
     usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
-    status = models.IntegerField(choices=STATUS_CHOICES, default=ACTIVO)
+    status = models.IntegerField(
+        choices=status_choices.choices, default=status_choices.ACTIVO)
     compra = models.ForeignKey(Compra, null=True, on_delete=models.CASCADE)
 
     def __str__(self):

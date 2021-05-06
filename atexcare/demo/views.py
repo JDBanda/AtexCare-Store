@@ -91,7 +91,7 @@ def product(request, pk):
             # Validar si hay un carrito
             usuario = User.objects.get(username=usuario)
             exist = Carrito.objects.get(
-                producto=producto, usuario=usuario, status=Carrito.ACTIVO)
+                producto=producto, usuario=usuario, status=status_choices.ACTIVO)
             exist.delete()
         except:
             usuario = User.objects.get(username=usuario)
@@ -168,7 +168,7 @@ def check_profile(request):
 
 def get_car(request):
     cart_count = len(Carrito.objects.filter(
-        usuario=request.user, status=Carrito.ACTIVO))
+        usuario=request.user, status=status_choices.ACTIVO))
     return JsonResponse({
         'content': {
             'title': 'Objetos en carrito',
@@ -211,7 +211,7 @@ def generarOrden(request):
         i = 0
         while i < len(carrito):
             objCarrito = Carrito.objects.get(id=carrito[i])
-            objCarrito.status = Carrito.PAGADO
+            objCarrito.status = status_choices.PAGADO
             objCarrito.compra = Compra.objects.latest("id")
             objCarrito.save()
             i += 1
@@ -250,7 +250,7 @@ def detail_car(request):
                 }
             })
     objCar = Carrito.objects.filter(
-        usuario=request.user, status=Carrito.ACTIVO)
+        usuario=request.user, status=status_choices.ACTIVO)
     # total de articulos
     tObjetos = len(objCar)
     context = {'objetos': objCar, 'totalArticulos': tObjetos}
@@ -454,8 +454,8 @@ def user_profile(request):
 @login_required(login_url='login')
 def user_history(request):
     compras = Compra.objects.filter(
-        usuario=request.user, status_compra=Compra.EN_PROCESO)
+        usuario=request.user, status_compra=status_choices.EN_PROCESO)
     historial = Compra.objects.filter(
-        usuario=request.user, status_compra=Compra.ENTREGADO)
+        usuario=request.user, status_compra=status_choices.ENTREGADO)
     context = {'compras': compras, 'historial': historial}
     return render(request, 'demo/user_history.html', context)
