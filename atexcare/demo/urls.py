@@ -26,6 +26,8 @@ urlpatterns = [
     path('cerrar_sesion', views.logoutInto, name='logout'),
     path('usuario', views.user_profile, name='user'),
     path('usuario_history', views.user_history, name='user_history'),
+    #path('usuario/', views.user_history, name='compra'),
+
     # Pedir que se actualice la contraseña
     path('reset_password/',
          auth_views.PasswordResetView.as_view(

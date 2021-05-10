@@ -3,11 +3,12 @@
 {% block content %}
 <div class="content">
     <h1>Detalle de pedidos</h1>
-    <p>En este apartado puede revisar el estado de tu pedido y el historial de compras</p>
+    <p class="fuente__base-justify">En este apartado puede revisar el estado de tu pedido y el historial de compras</p>
     <div class="accordion box">
         <h3 class="title">Compras pendientes<i class='bx bxs-plus-square' style="color: #12ad9f;"></i></h3>
         <div class="accordion-tab">
-            <div class="table-container">
+            <div class="table-container fuente__base-justify">
+                {%if compras%}
                 <table class="table">
                     <tr>
                         <th>Folio</th>
@@ -22,23 +23,37 @@
                         <td>{{c.paqueteria}}</td>
                         <td>{{c.total}}</td>
                         <td>{{c.fecha_compra}}</td>
-                        <td><button class="button is-info">Detalles</button></td>
+                        <td><button class="button is-info btn-modal">Detalles</button></td>
                     </tr>
                     {% endfor %}
                 </table>
+                {% else %}
+                <h5 class="subtitle">No hay compras pendientes 📭</h5>
+                <br>
+                <p>No tienes compras pendientes por el momento, si recuerdas haber tenido
+                    alguna compra
+                    pendiente pero ahora ya no aparece, ponte en contacto con nosotros al correo
+                    <a href="mailto:finanzas@atexcare.com"> finanzas@atexcare.com</a> No olvides además de verificar tu
+                    historial de compras, pues ahí es donde se mostrarán tus compras una vez acreditado el pago.
+                    <br>
+                    <a href="{% url 'productos' %}">Ir a productos</a>
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>
     <div class="accordion box">
         <h3 class="title">Historial de compra<i class='bx bxs-plus-square' style="color: #12ad9f;"></i></h3>
         <div class="accordion-tab">
-            <div class="table-container">
+            <div class="table-container fuente__base-justify">
+                {% if historial%}
                 <table class="table">
                     <tr>
                         <th>Folio</th>
                         <th>Paquetería</th>
                         <th>Total</th>
                         <th>Fecha</th>
+                        <th></th>
                     </tr>
                     {% for h in historial %}
                     <tr>
@@ -46,9 +61,20 @@
                         <td>{{h.paqueteria}}</td>
                         <td>{{h.total}}</td>
                         <td>{{h.fecha_compra}}</td>
+                        <td><button class="button is-info btn-modal">Detalles</button></td>
                     </tr>
                     {% endfor %}
                 </table>
+                {% else %}
+                <h5 class="subtitle">Tu historial esta vacio 😲</h5>
+                <br>
+                <p>
+                    Parece que aún no has comprado productos, si ya has generado una orden de compra por favor verifica
+                    tus compras pendientes y comprueba que el método de pago haya sido acreditado para tu compra.
+                    <br>
+                    <a href="{% url 'productos' %}">Ir a productos</a>
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>
