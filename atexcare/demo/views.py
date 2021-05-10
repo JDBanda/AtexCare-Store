@@ -46,6 +46,8 @@ def index(request):
     context = {}
     return render(request, 'demo/index.html', context)
 
+# Funciones de los Productos
+
 
 def products(request):
     # Filtrar los productos

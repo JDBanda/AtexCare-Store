@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'demo',
     'django_filters',
+    # Django-admin-interface
+    'admin_interface',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +165,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 '''
+
+# ADMIN INTERFACE OPTIONS
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SILENCED_SYSTEM_CHECKS = ['security.W019']

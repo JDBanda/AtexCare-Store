@@ -35,25 +35,37 @@
             <div class="has-text-centered container__products">
                 {% for p in productos.qs %}
                 <div class="column square__img">
-                    <a href="{% url 'producto' p.id %}">
+                    {% if p.stock < 1 %} <a href="#" class="agotado">
                         <img src="{{p.image.url}}" alt="cubrebocas">
-                    </a>
-                    <div class="products__desc">
-                        <span>
-                            <i class='bx bxs-badge-dollar bx-tada bx-sm' style='color:#12ad9f'></i>
-                        </span>
-                        <span class="price"><strong>{{p.price}}</strong></span>
-                        {% if p.discount > 0 %}
-                        <span class="discount"> -{{p.discount}}%</span>
+                        </a>
+                        <div class="products__desc">
+                            <span>
+                                <h5 class="subtitle">Producto agotado 😓</h5>
+                            </span>
+                            <p class="description">{{p.name}}</p>
+                            {% else %}
+                            <a href="{% url 'producto' p.id %}">
+                                <img src="{{p.image.url}}" alt="cubrebocas">
+                            </a>
+                            <div class="products__desc">
+                                <span>
+                                    <i class='bx bxs-badge-dollar bx-tada bx-sm' style='color:#12ad9f'></i>
+                                </span>
+                                <span class="price"><strong>{{p.price}}</strong></span>
+                                {% if p.discount > 0 %}
+                                <span class="discount"> -{{p.discount}}%</span>
+                                {% endif %}
+                                <p class="description">{{p.name}}</p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        {% endfor %}
                         {% endif %}
-                        <p class="description">{{p.name}}</p>
-                    </div>
                 </div>
-                {% endfor %}
-                {% endif %}
             </div>
-    </div>
 </section>
 {% load static %}
 <script src="{% static 'demo/js/products.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 {% endblock body %}

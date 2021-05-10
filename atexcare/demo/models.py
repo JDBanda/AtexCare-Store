@@ -99,7 +99,8 @@ class Carrito(models.Model):
     usuario = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     status = models.IntegerField(
         choices=status_choices.choices, default=status_choices.ACTIVO)
-    compra = models.ForeignKey(Compra, null=True, on_delete=models.CASCADE)
+    compra = models.ForeignKey(
+        Compra, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.usuario.username + ", " + self.producto.name + ", " + str(self.status)
+        return "Usuario: " + self.usuario.username + ", Status: " + str(self.status) + ", Id Compra:" + str(self.compra)

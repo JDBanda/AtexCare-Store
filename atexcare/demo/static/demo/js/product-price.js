@@ -121,7 +121,7 @@ $(function () {
         });
     }
 
-    //Testear el popup
+    //Galería
     $('#test-popup').magnificPopup({
         items: item(),
         gallery: {
@@ -130,7 +130,7 @@ $(function () {
         type: 'image',
     });
 
-
+    //Arreglo de imagenes, parámetro de la galería
     function item() {
         var arr = []
         var dict = {}
